@@ -1,0 +1,63 @@
+partners=[
+    {
+        "id":"",
+        "email":"",
+        "name":"",
+        "brand":"",
+        "picture":"",
+        "description":"",
+        "permission":"partner",
+        "address":"",
+        "networks":{
+            "facebook":"",
+            "instagram":"",
+            "pageweb":""
+        },
+        "payment":"",
+        "region":"",
+        "technique":"",
+
+        "salehistory":{
+            "saledate":"",
+            "product":"",
+            "units":"",
+            "total":"",
+            "shippingstatus":""
+        }
+}
+]
+
+products=[{
+    "id":"",
+    "name":"",
+    "picture":"",
+    "descriptio":"",
+    "region":"",
+    "technique":"",
+    "price":"",
+    "unitsavailable":"",
+    "category":"",
+}]
+
+customers=[{
+    "id":"",
+    "email":"",
+    "name":"",
+    "paymentmethod":"",
+    "address":"",
+    "permission":"client",
+
+    "purchasehistory":{
+        "purchasedate":"",
+        "ordernumber":"",
+        "product":"",
+        "shippingstatus":""
+    }
+}]
+
+administrators=[{
+    "id":"",
+    "email":"",
+    "name":"",
+    "permission":"adm",
+}]
