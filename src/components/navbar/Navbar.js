@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
@@ -68,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -80,21 +77,6 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 }));
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         width: '100%',
-//     },
-//     heading: {
-//         fontSize: theme.typography.pxToRem(15),
-//         flexBasis: '33.33%',
-//         flexShrink: 0,
-//     },
-//     secondaryHeading: {
-//         fontSize: theme.typography.pxToRem(15),
-//         color: theme.palette.text.secondary,
-//     },
-// }));
 
 export default function SearchAppBar() {
     const classes = useStyles();
@@ -125,7 +107,6 @@ export default function SearchAppBar() {
         }
     }
 
-    // return focus to the button when we transitioned from !open -> open
     const prevOpen = React.useRef(open);
     React.useEffect(() => {
         if (prevOpen.current === true && open === false) {
@@ -135,11 +116,7 @@ export default function SearchAppBar() {
         prevOpen.current = open;
     }, [open]);
 
-    // const prevOpen = React.useRef(open);
-    // const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
-
 
     return (
         <div className={classes.root}>
@@ -165,7 +142,7 @@ export default function SearchAppBar() {
                                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                             >
                                 <Paper>
-                                    <img src="assets/nextia-icon.png" alt="" />
+                                    {/* <img src="assets/nextia-icon.png" alt="" /> */}
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
                                             <ListItemIcon>
@@ -251,12 +228,8 @@ export default function SearchAppBar() {
                     </Popper>
 
                 </Toolbar>
-
             </AppBar>
-
             <div className={classes.search}>
-
-
 
             </div>
         </div>

@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
@@ -70,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -83,21 +80,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         width: '100%',
-//     },
-//     heading: {
-//         fontSize: theme.typography.pxToRem(15),
-//         flexBasis: '33.33%',
-//         flexShrink: 0,
-//     },
-//     secondaryHeading: {
-//         fontSize: theme.typography.pxToRem(15),
-//         color: theme.palette.text.secondary,
-//     },
-// }));
-
 export default function SearchAppBar() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -106,7 +88,6 @@ export default function SearchAppBar() {
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
-
 
     const handleClose = (event) => {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -127,7 +108,6 @@ export default function SearchAppBar() {
         }
     }
 
-    // return focus to the button when we transitioned from !open -> open
     const prevOpen = React.useRef(open);
     React.useEffect(() => {
         if (prevOpen.current === true && open === false) {
@@ -137,11 +117,7 @@ export default function SearchAppBar() {
         prevOpen.current = open;
     }, [open]);
 
-    // const prevOpen = React.useRef(open);
-    // const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
-
 
     return (
         <div className={classes.root}>
@@ -270,21 +246,15 @@ export default function SearchAppBar() {
                                             </ListItemIcon>
                                             <Typography variant="inherit">Cerrar Sesión</Typography>
                                         </MenuItem>
-                                    </MenuList>
 
+                                    </MenuList>
                                 </Paper>
                             </Grow>
                         )}
                     </Popper>
-
                 </Toolbar>
-
             </AppBar>
-
             <div className={classes.search}>
-
-
-
             </div>
         </div>
     );
