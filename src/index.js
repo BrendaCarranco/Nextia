@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import UserProvider from './context/UserProvider';
 import * as serviceWorker from './serviceWorker';
+import Navbar from './components/navbar/Navbar'
 
 ReactDOM.render(
   <React.StrictMode>
+    <Navbar />
     <UserProvider>
       <App />
     </UserProvider>
