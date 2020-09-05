@@ -165,7 +165,7 @@ export default function SearchAppBar() {
                                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                             >
                                 <Paper>
-
+                                    <img src="assets/nextia-icon.png" alt="" />
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
                                             <ListItemIcon>
