@@ -37,6 +37,7 @@ products=[{
     "price":"",
     "unitsavailable":"",
     "category":"",
+    
 }]
 
 customers=[{
