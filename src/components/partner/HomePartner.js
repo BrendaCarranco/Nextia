@@ -5,6 +5,7 @@ import MyProducts from './MyProducts'
 import PartnertProfile from './PartnerProfile'
 import principal from '../../assets/images/inicioGabriel.png'
 import { Grid } from '@material-ui/core'
+import PaymentPayPal from '../payment/PaymentPayPal'
 
 const HomePartner = () => {
     return (
@@ -16,6 +17,7 @@ const HomePartner = () => {
         <MyOrders />
         <MyProducts />
         <PartnertProfile />
+        <PaymentPayPal />
             
         </>
     )
