@@ -1,15 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { PayPalButton } from "react-paypal-button-v2";
 
 const PaymentPayPal = () => {
+
+    const [mount, setMount] = useState(200)
+
+    const aumentar = () => {
+        setMount(300);
+    }
+
     return (
-        <div>
-            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_s-xclick" />
-                <input type="hidden" name="hosted_button_id" value="33MPK8CYVN9W4" />
-                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea."/>
-                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1"/>
-            </form>
-        </div>
+        <>
+
+            <button onClick= {()=> aumentar()} >aumentar</button>
+            <PayPalButton 
+                amount={mount}
+            // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                    alert("Transaction completed by XXXXXX ");
+            
+                    // OPTIONAL: Call your server to save the transaction
+                /*  return fetch("/paypal-transaction-complete", {
+                        method: "post",
+                        body: JSON.stringify({
+                        orderID: data.orderID
+                        })
+                    }); */
+                }}
+                /* currency="MX" */                
+                options ={{
+                    clientId: "AcpMgoACrTbDEc820QeH1XHBqeM8DJ91LQJvIc7SiXjNCcZX6P3omHSGRp0dYaL-4gBL0xDjvZ4_7Gm-",
+                    currency: "MXN"
+                }}
+            />
+        </>
     )
 }
 
