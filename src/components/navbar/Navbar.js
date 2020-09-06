@@ -13,7 +13,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -22,7 +21,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppSharpIcon from '@material-ui/icons/ExitToAppSharp';
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -86,7 +84,6 @@ export default function SearchAppBar() {
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
-
 
     const handleClose = (event) => {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -221,17 +218,13 @@ export default function SearchAppBar() {
                                             <Typography variant="inherit">Registrarse</Typography>
                                         </MenuItem>
                                     </MenuList>
-
                                 </Paper>
                             </Grow>
                         )}
                     </Popper>
-
                 </Toolbar>
             </AppBar>
-            <div className={classes.search}>
-
-            </div>
+            <div className={classes.search}></div>
         </div>
     );
 }

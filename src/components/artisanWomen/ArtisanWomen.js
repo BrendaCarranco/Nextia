@@ -17,13 +17,11 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from './styles.module.css';
-
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 const useStyles = makeStyles((theme) => ({
-
     expand: {
         transform: 'rotate(0deg)',
         marginLeft: 'auto',
@@ -43,9 +41,6 @@ export default function RecipeReviewCard() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [value, setValue] = React.useState(0);
-    // const handleExpandClick = () => {
-    //     setExpanded(!expanded);
-    // };
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -82,8 +77,6 @@ export default function RecipeReviewCard() {
                 </div>
             </CardContent>
 
-
-
             <CardActions disableSpacing>
                 <h4 className={styles.price}>$5000</h4>
                 <Paper square className={styles.root}>
@@ -98,15 +91,8 @@ export default function RecipeReviewCard() {
                         <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
                         <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
                     </Tabs>
-
                 </Paper>
-
-
             </CardActions>
-
-
-
-
         </Card>
     );
 }

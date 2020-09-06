@@ -14,7 +14,6 @@ import TrendingProducts from './../TrendingProducts/index';
 import SocialNetwork from './../SocialNetwork/index';
 import Footer from './../Footer/index';
 
-
 export default class SimpleSlider extends Component {
 
     render() {
@@ -25,7 +24,6 @@ export default class SimpleSlider extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1
-
         };
 
         return (
@@ -64,7 +62,6 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
 
-
                     <div>
                         <div className={styles.root}>
                             <Grid container spacing={0}>
@@ -98,7 +95,6 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
 
-
                     <div className={styles.root}>
                         <Grid container spacing={0}>
                             <Grid item xs={12} sm={5}>
@@ -106,7 +102,6 @@ export default class SimpleSlider extends Component {
                                     <img src="assets/artesano-3.jpg" alt="" className={styles.imgSlider} />
                                 </Paper>
                             </Grid>
-
 
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>
@@ -131,7 +126,6 @@ export default class SimpleSlider extends Component {
                         </Grid>
                     </div>
 
-
                     <div className={styles.root}>
                         <Grid container spacing={0}>
                             <Grid item xs={12} sm={5}>
@@ -139,7 +133,6 @@ export default class SimpleSlider extends Component {
                                     <img src="assets/artesano-2.jpg" alt="" className={styles.imgSlider} />
                                 </Paper>
                             </Grid>
-
 
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>

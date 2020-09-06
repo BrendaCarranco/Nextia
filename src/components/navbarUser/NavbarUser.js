@@ -25,7 +25,6 @@ import LocalAtmSharpIcon from '@material-ui/icons/LocalAtmSharp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,

@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import styles from './styles.module.css';
 
 const SocialNetwork = () => {
-
     return (
         <div className={styles.socialNetworkContainer}>
 

@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: 0,
         textAlign: 'center',
-        // color: theme.palette.text.secondary,
     },
 }));
 
@@ -83,7 +82,6 @@ export default function FullWidthGrid() {
                                 />
                             </CardActionArea>
                             <CardActions className={styles.cardWrapper}>
-
                                 <div className={styles.cardNameContentdos}>
                                     <div className={styles.cardNamedos}>Hidalgo</div>
                                     <div className={styles.cardNameButtondos}>
@@ -108,7 +106,6 @@ export default function FullWidthGrid() {
                                     className={classesCard.media}
                                     image="assets/Campeche.jpg"
                                 />
-
                             </CardActionArea>
                             <CardActions className={styles.cardWrapper}>
                                 <div className={styles.cardNameContentdos}>
@@ -122,7 +119,6 @@ export default function FullWidthGrid() {
                                             Ver
                                     </Button>
                                     </div>
-
                                 </div>
                             </CardActions>
                         </Card>
