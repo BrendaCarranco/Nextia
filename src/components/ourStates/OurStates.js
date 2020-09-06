@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 const useStylesCard = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 640,
     },
     media: {
-        minHeight: 270,
+        minHeight: 280,
     },
 });
 
@@ -44,21 +44,19 @@ export default function FullWidthGrid() {
                     <Paper className={styles.paper}>
                         <div className={styles.title}>
                             <CardHeader
-                                title="Categorías destacadas"
+                                title="Nuestros Estados"
                             />
                         </div>
-
                         <Card >
                             <CardActionArea>
-
                                 <CardMedia
                                     className={classesCard.media}
-                                    image="assets/jaguar-barro.jpg"
+                                    image="assets/chiapas.jpg"
                                 />
                             </CardActionArea>
                             <CardActions className={styles.cardWrapper} >
                                 <div className={styles.cardNameContent}>
-                                    <div className={styles.cardName}>Barro</div>
+                                    <div className={styles.cardName}>Chiapas</div>
                                     <div className={styles.cardNameButton}>
                                         <Button
 
@@ -81,13 +79,13 @@ export default function FullWidthGrid() {
                             <CardActionArea>
                                 <CardMedia
                                     className={classesCard.media}
-                                    image="assets/Fibras.jpg"
+                                    image="assets/hidalgo.jpg"
                                 />
                             </CardActionArea>
                             <CardActions className={styles.cardWrapper}>
 
                                 <div className={styles.cardNameContentdos}>
-                                    <div className={styles.cardNamedos}>Fibras</div>
+                                    <div className={styles.cardNamedos}>Hidalgo</div>
                                     <div className={styles.cardNameButtondos}>
                                         <Button
                                             size="small"
@@ -108,13 +106,13 @@ export default function FullWidthGrid() {
                             <CardActionArea>
                                 <CardMedia
                                     className={classesCard.media}
-                                    image="assets/Cacao.jpg"
+                                    image="assets/Campeche.jpg"
                                 />
 
                             </CardActionArea>
                             <CardActions className={styles.cardWrapper}>
                                 <div className={styles.cardNameContentdos}>
-                                    <div className={styles.cardNamedos}>Cacao</div>
+                                    <div className={styles.cardNamedos}>Campeche</div>
 
                                     <div className={styles.cardNameButtondos}>
                                         <Button
