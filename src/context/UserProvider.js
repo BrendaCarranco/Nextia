@@ -9,6 +9,7 @@ const UserProvider = (props) => {
         email: null,
         uid: null,
         role: null,
+        pic: null,
         displayName: null
     };
 
@@ -32,6 +33,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'admin'
                             });
                         } else if (!!idTokenResult.claims.partner) {
@@ -40,6 +42,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'partner'
                             });
                         } else {
@@ -48,6 +51,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'cliente'
                             });
                         }
