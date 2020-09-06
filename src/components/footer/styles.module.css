@@ -6,16 +6,18 @@
   }
  .footerkWrapper {
    background: #d6a868;
+   padding-top: 2em;
  }
 
  .aboutWrapper{
     display: flex;
     flex-direction: column;
-    line-height: 38px;
     margin-left: 23px;
     font-weight: bold;
+    line-height: 30px;
   }
  
+
  .footerIconsContainer{
    display:flex;
   justify-content: center;
@@ -36,3 +38,4 @@
  }
  
 }
+    
