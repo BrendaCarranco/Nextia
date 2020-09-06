@@ -1,5 +1,4 @@
 import React from 'react'
-import NavTab from './NavTab'
 import MyOrders from './MyOrders'
 import MyProducts from './MyProducts'
 import PartnertProfile from './PartnerProfile'
@@ -13,7 +12,6 @@ const HomePartner = () => {
         <Grid container justify = "center" item sx={12}>
             <img alt="imgpartner" src={principal} />
         </Grid>
-        <NavTab />
         <MyOrders />
         <MyProducts />
         <PartnertProfile />
