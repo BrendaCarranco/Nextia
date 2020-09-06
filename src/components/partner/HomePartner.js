@@ -1,6 +1,8 @@
 import React from 'react'
 import NavTab from './NavTab'
 import MyOrders from './MyOrders'
+import MyProducts from './MyProducts'
+import PartnertProfile from './PartnerProfile'
 import principal from '../../assets/images/inicioGabriel.png'
 import { Grid } from '@material-ui/core'
 
@@ -12,6 +14,8 @@ const HomePartner = () => {
         </Grid>
         <NavTab />
         <MyOrders />
+        <MyProducts />
+        <PartnertProfile />
             
         </>
     )

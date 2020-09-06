@@ -42,7 +42,16 @@ export const partners=[
         "picture":"",
         "description":"",       
         "permission":"partner",
-        "address":"",
+        "address":{
+            "calle": "",
+            "exterior": "",
+            "interior": "",
+            "colonia": "",
+            "municipio": "",
+            "estado": "",
+            "cp": "",
+            "Referencias":""
+        },
         "networks":{
             "facebook":"",
             "instagram":"",
@@ -63,7 +72,7 @@ export const partners=[
 ]
 
 /* pedido=[{
-    "id":"",
+    "id":"1",
     "name":"Nacimiento con arca de Noé",
     "description":"Madera de cedro tallada y policromada al pincel",
     "price": "$5000",
@@ -85,12 +94,22 @@ products=[{
     
 }]
 
-customers=[{
-    "id":"",
-    "email":"",
-    "name":"",
-    "paymentmethod":"",
-    "address":"",
+customers=[
+    {
+    "id":"1",
+    "email":"magdalenaenriquez76@gmail.com",
+    "name":"Magdalena Enríquez Correa",
+    "paymentmethod":"MasterCard terminación 3216 - 7/2025",
+    "address":{
+            "calle": "San Jerónimo",
+            "exterior": "89",
+            "interior": "",
+            "colonia": "San Jerónimo Lídice",
+            "municipio": "Magdalena Contreras",
+            "estado": "Ciudad de México",
+            "cp": "10200",
+            "Referencias":"Casa color blanco con puerta de madera. Entre calle Porfirio Díaz y Magnolia"
+        },
     "permission":"client",
 
     "purchasehistory":{

@@ -1,3 +1,8 @@
+.tabs{
+    margin: 0px;
+    width: 100% vw;
+}
+
 .tabs button{
     width: 33.3%;
     height: 48px;
@@ -5,5 +10,4 @@
     background: #DEBF7F;
     color: white;
     font-size: 14px;
-
 }
