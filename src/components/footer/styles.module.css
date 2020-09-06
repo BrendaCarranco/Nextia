@@ -1,0 +1,38 @@
+@media only screen and (max-width: 767px) {
+
+  .footerTitle {
+    margin-left: 23px;
+    font-weight: bold;
+  }
+ .footerkWrapper {
+   background: #d6a868;
+ }
+
+ .aboutWrapper{
+    display: flex;
+    flex-direction: column;
+    line-height: 38px;
+    margin-left: 23px;
+    font-weight: bold;
+  }
+ 
+ .footerIconsContainer{
+   display:flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .iconsf {
+  width: 50px;
+  margin-top: 52px;
+  margin-bottom: 30px;
+ }
+
+ .contactNextia {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  padding-bottom: 24px;
+ }
+ 
+}
