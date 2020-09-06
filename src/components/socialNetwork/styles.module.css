@@ -1,0 +1,43 @@
+@media only screen and (max-width: 767px) {
+
+  .SnTitle {
+    font-size: 1.4em;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    margin-bottom: 36px;
+    margin-top: 52px;
+}
+  
+
+  .iconsSnContainer {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-bottom: 116px;
+  }
+
+  .iconsSn {
+    width: 48px;
+    height: auto;
+  }
+
+  .line {
+    width: 29%px;
+    height: 1px;
+    background: #d6a868;
+    max-width: 46%;
+    margin: 0 auto;  
+  }
+
+  h3.informationTitle {
+    font-size: 1.1em;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+  }
+ 
+}
+   
