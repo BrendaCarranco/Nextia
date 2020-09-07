@@ -11,14 +11,12 @@ const PaymentPayPal = () => {
 
     return (
         <>
-
-            <button onClick= {()=> aumentar()} >aumentar</button>
             <PayPalButton 
                 amount={mount}
             // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                 onSuccess={(details, data) => {
-                    alert("Transaction completed by XXXXXX ");
-            
+                    alert("Detail" + JSON.stringify(details));
+                    alert("Data" + JSON.stringify(data));
                     // OPTIONAL: Call your server to save the transaction
                 /*  return fetch("/paypal-transaction-complete", {
                         method: "post",
@@ -27,7 +25,9 @@ const PaymentPayPal = () => {
                         })
                     }); */
                 }}
-                /* currency="MX" */                
+                catchError = { (err) => {
+                    alert("No se pudo procesar" + JSON.stringify(err));
+                }}         
                 options ={{
                     clientId: "AcpMgoACrTbDEc820QeH1XHBqeM8DJ91LQJvIc7SiXjNCcZX6P3omHSGRp0dYaL-4gBL0xDjvZ4_7Gm-",
                     currency: "MXN"
