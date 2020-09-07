@@ -150,12 +150,6 @@ const MyDataPartner = () => {
                 Este campo es opcional. Si ya tienes un nombre o deseas usar uno para tu tienda o marca,
                 será visible para tus clientes en lugar tu nombre propio.
              </Typography>
-
-
-
-
-
-
             <Divider variant='middle' className={classes.divider} />
             <Grid container
                 direction="row"

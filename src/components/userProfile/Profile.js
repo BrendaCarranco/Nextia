@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 
 import MyData from './MyData';
 import NavbarUser from '../navbarUser/NavbarUser';
+import MyOrders from './MyOrders';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -22,7 +23,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
+                <Box p={1} >
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -71,8 +72,8 @@ function Profile() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                Item One
-      </TabPanel>
+                <MyOrders />
+            </TabPanel>
             <TabPanel value={value} index={1}>
                 <MyData />
             </TabPanel>

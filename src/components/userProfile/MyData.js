@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, Fragment } from 'react';
+import { firebase } from '../../firebase';
+
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
@@ -9,6 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import CreateIcon from '@material-ui/icons/Create';
+import SaveIcon from '@material-ui/icons/Save';
 
 import cam from '../../assets/images/camera.png';
 
@@ -27,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 14,
-        marginTop: 15
+        marginTop: 15,
+        opacity: 0.65
     },
     title: {
         fontSize: 14,
@@ -49,7 +53,36 @@ const SmallAvatar = withStyles((theme) => ({
 const MyData = () => {
 
     const classes = useStyles();
-    const { globalUser } = useContext(UserContext);
+    const { globalUser, setGlobalUser } = useContext(UserContext);
+
+    const [editName, setEditName] = useState(false);
+    const [editAdress, setEditAdress] = useState(false);
+    const [editEmail, setEditEmail] = useState(false);
+    const [editPay, setEditPay] = useState(false);
+
+    const [name, setName] = useState('');
+
+    const handleEditName = async (e) => {
+        //setEditName(false);
+        try {
+            const db = firebase.firestore();
+            await db.collection('usuarios').doc(globalUser.email).update({
+                displayName: name
+            });
+
+            setGlobalUser({
+                ...globalUser, displayName: name
+            });
+
+
+        } catch (err) {
+            console.log(err);
+        }
+        setEditName(false);
+
+    };
+
+
 
     return (
         <div>
@@ -80,11 +113,34 @@ const MyData = () => {
                         MI NOMBRE
                 </Typography>
                 </Box>
-                <Icon color='primary'><CreateIcon /></Icon>
+                <Icon color='primary' onClick={() => setEditName(true)} ><CreateIcon /></Icon>
             </Grid>
-            <Typography align='left' variant='h4' className={classes.title} >
-                {globalUser.displayName}
-            </Typography>
+            {
+                editName ? (
+                    <Fragment>
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <TextField
+                                id="filled-password-input"
+                                label='Nombre'
+                                placeholder={globalUser.displayName}
+                                type="text"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                                variant="filled"
+                            />
+                            <Icon color='primary' onClick={() => handleEditName()} ><SaveIcon /></Icon>
+                        </Grid>
+                    </Fragment>
+
+                ) : (
+                        <Typography align='left' variant='h4' className={classes.title} >
+                            {globalUser.displayName}
+                        </Typography>
+                    )
+            }
             <Typography align='left' className={classes.info}>
                 Este nombre será visible para los vendedores.
                 </Typography>
@@ -98,11 +154,32 @@ const MyData = () => {
                         MI CORREO ELECTRÓNICO
                 </Typography>
                 </Box>
-                <Icon color='primary'><CreateIcon /></Icon>
+                <Icon color='primary' onClick={() => setEditEmail(true)}><CreateIcon /></Icon>
             </Grid>
-            <Typography align='left' variant='h4' className={classes.title} >
-                {globalUser.email}
-            </Typography>
+            {
+                editEmail ? (
+                    <Fragment>
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <TextField
+                                id="filled-password-input"
+                                label='Email'
+                                placeholder={globalUser.email}
+                                type="text"
+                                variant="filled"
+                            />
+                            <Icon color='primary' onClick={() => setEditEmail(false)} ><SaveIcon /></Icon>
+                        </Grid>
+                    </Fragment>
+
+                ) : (
+                        <Typography align='left' variant='h4' className={classes.title} >
+                            {globalUser.email}
+                        </Typography>
+                    )
+            }
             <Typography align='left' variant='body1' className={classes.info}>
                 Este correo electrónico será visible para tus compradores.
                 Es un medio para poder contactarte con ellos, con nuestra plataforma y recibir promociones.
@@ -117,68 +194,108 @@ const MyData = () => {
                         MI DIRECCIÓN
                 </Typography>
                 </Box>
-                <Icon color='primary' ><CreateIcon /></Icon>
+                <Icon color='primary' onClick={() => setEditAdress(true)} ><CreateIcon /></Icon>
             </Grid>
+
+
+            {
+                editAdress ? (
+                    <Fragment>
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <TextField
+                                id="filled-password-input"
+                                label="Calle"
+                                placeholder='Bosques de Asia'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                className={classes.title}
+                                label="Número exterior"
+                                placeholder='#39'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                label="Número interior"
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                className={classes.title}
+                                label="Colonia"
+                                placeholder='Bosques de Aragón'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                label="Municipio"
+                                placeholder='Nezahualcóyotl'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                className={classes.title}
+                                placeholder='Estado de México'
+                                label="Estado"
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+
+                            <TextField
+                                label="Código Postal"
+                                placeholder='57190'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <TextField
+                                className={classes.title}
+                                label="Referencias"
+                                placeholder='Casa azul con porton negro'
+                                type="text"
+                                variant="filled"
+                                fullWidth
+                            />
+                            <Icon color='primary' onClick={() => setEditAdress(false)} ><SaveIcon /></Icon>
+                        </Grid>
+                    </Fragment>
+
+                ) : (
+                        <Fragment>
+                            <Typography align='left' variant='h4' className={classes.title} >
+                                Bosques de Asia #39
+                        </Typography>
+                            <Typography align='left' variant='h4' className={classes.title} >
+                                Bosques de Aragón
+                       </Typography>
+                            <Typography align='left' variant='h4' className={classes.title} >
+                                Estado de México
+                      </Typography>
+                            <Typography align='left' variant='h4' className={classes.title} >
+                                Nezahualcóyotl
+                     </Typography>
+                            <Typography align='left' variant='h4' className={classes.title} >
+                                57179
+                   </Typography>
+                        </Fragment>
+                    )
+            }
             <Grid
                 container
                 direction="column"
                 justify="center"
                 alignItems="center"
             >
-                <TextField
-                    id="filled-password-input"
-                    label="Calle"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    className={classes.title}
-                    label="Número exterior"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    label="Número interior"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    className={classes.title}
-                    label="Colonia"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    label="Municipio"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    className={classes.title}
-                    label="Estado"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-
-                <TextField
-                    label="Código Postal"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
-                <TextField
-                    className={classes.title}
-                    label="Referencias"
-                    type="text"
-                    variant="filled"
-                    fullWidth
-                />
                 <Typography align='left' className={classes.info}>
                     La dirección que ingreses será el lugar que aparecerá a los vendedores
                     y las compañías de mensajería. Es importante que agregues referencias claras
