@@ -11,6 +11,7 @@ import SlikNormal from './components/slikNormal/SlikNormal';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
+import Register from './components/login/Register';
 
 function App() {
 
@@ -26,6 +27,10 @@ function App() {
 
           <Route path='/login'>
             <Login />
+          </Route>
+
+          <Route path='/register'>
+            <Register />
           </Route>
 
           <Route path='/admin'>

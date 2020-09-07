@@ -80,6 +80,13 @@ const useStyles = makeStyles((theme) => ({
             },
         },
     },
+    img: {
+        height: 50,
+        width: 50,
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center'
+    }
 }));
 
 export default function SearchAppBar() {
@@ -171,15 +178,17 @@ export default function SearchAppBar() {
                                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                             >
                                 <Paper>
-                                    {/* <img src="assets/nextia-icon.png" alt="" /> */}
+                                    <Grid item xs={12} justify="center" container direction="row">
+                                        <img src="assets/nextia-icon.png" alt="logo" />
+                                    </Grid>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
 
                                             <ListItemIcon>
-                                                <HomeIcon fontSize="small" />
+                                                <HomeIcon fontSize="small" color='primary' />
                                             </ListItemIcon>
 
-                                            <Typography variant="inherit"><NavLink to="/">Inicio</NavLink></Typography>
+                                            <Typography variant="inherit"><NavLink to="/" style={{ textDecoration: 'none' }}>Inicio</NavLink></Typography>
                                         </MenuItem>
                                     </MenuList>
                                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -253,18 +262,25 @@ export default function SearchAppBar() {
 
                                                 <MenuItem onClick={handleClose}>
                                                     <ListItemIcon>
-                                                        <AccountCircleIcon fontSize="small" />
+                                                        <AccountCircleIcon fontSize="small" color='primary' />
                                                     </ListItemIcon>
-                                                    <Typography variant="inherit"><NavLink to="/login">Iniciar Sesión</NavLink></Typography>
+                                                    <Typography variant="inherit"><NavLink to="/login" style={{ textDecoration: 'none' }}>Iniciar Sesión</NavLink></Typography>
+                                                </MenuItem>
+
+                                                <MenuItem onClick={handleClose}>
+                                                    <ListItemIcon>
+                                                        <AccountCircleIcon fontSize="small" color='primary' />
+                                                    </ListItemIcon>
+                                                    <Typography variant="inherit"><NavLink to="/register" style={{ textDecoration: 'none' }}>Registrarse</NavLink></Typography>
                                                 </MenuItem>
                                             </div>)
                                         }
                                         {
-                                            user == 'admin' && (
+                                            user == 'cliente' && (
                                                 <div>
                                                     <MenuItem onClick={handleClose}>
                                                         <ListItemIcon>
-                                                            <AccountCircleIcon fontSize="small" />
+                                                            <AccountCircleIcon fontSize="small" color='primary' />
                                                         </ListItemIcon>
                                                         <Typography variant="inherit"><NavLink to="/profile">Mi perfil</NavLink></Typography>
                                                     </MenuItem>
@@ -292,12 +308,6 @@ export default function SearchAppBar() {
                                                 </div>
                                             )
                                         }
-
-
-
-
-
-
                                     </MenuList>
                                 </Paper>
                             </Grow>

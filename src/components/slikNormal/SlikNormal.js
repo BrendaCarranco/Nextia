@@ -16,6 +16,12 @@ import TrendingProducts from './../trendingProducts/TrendingProducts';
 import SocialNetwork from './../socialNetwork/SocialNetwork';
 import Footer from './../footer/Footer';
 
+import artesano1 from '../../assets/images/artesano-1.png';
+import obio from '../../assets/images/obio-production.jpg';
+import artesano3 from '../../assets/images/artesano-3.jpg';
+import artesano2 from '../../assets/images/artesano-2.jpg';
+
+
 
 export default class SimpleSlider extends Component {
 
@@ -34,60 +40,95 @@ export default class SimpleSlider extends Component {
             <div>
                 <NavbarUser />
                 <div className={styles.slickContainer}>
-                    {/*                 <Slider {...settings}>
-                    <div>
-                        <div className={styles.root}>
-                            <Grid container spacing={0}>
-                                <Grid item xs={12} sm={5}>
-                                    <Paper className={styles.paper}>
-                                        <img src="assets/artesano-1.png" alt="" className={styles.imgSlider} />
-                                    </Paper>
-                                </Grid>
+                    {/*                     <Slider {...settings}>
+                        <div>
+                            <div className={styles.root}>
+                                <Grid container spacing={0}>
+                                    <Grid item xs={12} sm={5}>
+                                        <Paper className={styles.paper}>
+                                            <img src={artesano1} alt="" className={styles.imgSlider} />
+                                        </Paper>
+                                    </Grid>
 
-                                <Grid item xs={12} sm={7}>
-                                    <Paper className={styles.paper}>
-                                        <h3 className={styles.Artsofthemonth} >ARTESANO DEL MES</h3>
-                                        <h2 className={styles.historyTree}>Árbol de historias</h2>
-                                        <p className={styles.historyOfPeople}>ALFONSO SOTENO FERNÁNDEZ (1943) afirma que Tito Fernández, su bisabuelo, fue el precursor en Metepec,
-                                        Estado de México, de la tradición escultórica de los árboles de la vida: coloridas esculturas en barro
-                                        modeladas a mano y adornadas con figurillas al pastillaje
+                                    <Grid item xs={12} sm={7}>
+                                        <Paper className={styles.paper}>
+                                            <h3 className={styles.Artsofthemonth} >ARTESANO DEL MES</h3>
+                                            <h2 className={styles.historyTree}>Árbol de historias</h2>
+                                            <p className={styles.historyOfPeople}>ALFONSO SOTENO FERNÁNDEZ (1943) afirma que Tito Fernández, su bisabuelo, fue el precursor en Metepec,
+                                            Estado de México, de la tradición escultórica de los árboles de la vida: coloridas esculturas en barro
+                                            modeladas a mano y adornadas con figurillas al pastillaje
                                         </p>
-                                        <div className={styles.buttonSlider}>
+                                            <div className={styles.buttonSlider}>
+                                                <Button
+                                                    className={styles.buttonSlider}
+                                                    color="Primary"
+                                                    variant="contained"
+                                                    size='small'>
+                                                    Conoce Más
+                                        </Button>
+                                            </div>
+
+                                        </Paper>
+                                    </Grid>
+                                </Grid>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <div className={styles.root}>
+                                <Grid container spacing={0}>
+                                    <Grid item xs={12} sm={5}>
+                                        <Paper className={styles.paper}>
+                                            <img src={obio} alt="" className={styles.imgSlider} />
+                                        </Paper>
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={7}>
+                                        <Paper className={styles.paper}>
+                                            <h3 className={styles.Productofthemonth}  >PRODUCTO DEL MES</h3>
+                                            <h2 className={styles.historyTree}>Tabasco</h2>
+                                            <p className={styles.historyOfPeople}>
+                                                Los productos del programa OBIO respetan el balance de estos
+                                                tres conceptos productivos y comerciales. Son productos generados
+                                                por grupos comunitarios integrados en su mayoría en cooperativas,
+                                                que respetan los ecosistemas, la biosfera y los recursos naturales
+                                                de las zonas donde producen.
+                                    </p>
                                             <Button
                                                 className={styles.buttonSlider}
                                                 color="Primary"
                                                 variant="contained"
                                                 size='small'>
                                                 Conoce Más
-                                        </Button>
-                                        </div>
-
-                                    </Paper>
+                                    </Button>
+                                        </Paper>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div>
                         <div className={styles.root}>
                             <Grid container spacing={0}>
                                 <Grid item xs={12} sm={5}>
                                     <Paper className={styles.paper}>
-                                        <img src="assets/obio-production.jpg" alt="" className={styles.imgSlider} />
+                                        <img src={artesano3} alt="" className={styles.imgSlider} />
                                     </Paper>
                                 </Grid>
 
+
                                 <Grid item xs={12} sm={7}>
                                     <Paper className={styles.paper}>
-                                        <h3 className={styles.Productofthemonth}  >PRODUCTO DEL MES</h3>
-                                        <h2 className={styles.historyTree}>Tabasco</h2>
+
+                                        <h3 className={styles.Artsofthemonth} >ARTESANOS</h3>
+                                        <h2 className={styles.historyTree}>
+                                            Nextia y los maestros del arte popular.</h2>
                                         <p className={styles.historyOfPeople}>
-                                            Los productos del programa OBIO respetan el balance de estos
-                                            tres conceptos productivos y comerciales. Son productos generados
-                                            por grupos comunitarios integrados en su mayoría en cooperativas,
-                                            que respetan los ecosistemas, la biosfera y los recursos naturales
-                                            de las zonas donde producen.
+                                            Nextia surge como una extensión del Programa de Apoyo al
+                                            Arte Popular establecido en 1996 con el propósito de impulsar y fortalecer la creación artesanal
+                                            para generar alternativas para la comercialización de sus piezas.
                                     </p>
                                         <Button
                                             className={styles.buttonSlider}
@@ -100,72 +141,38 @@ export default class SimpleSlider extends Component {
                                 </Grid>
                             </Grid>
                         </div>
-                    </div>
 
 
-                    <div className={styles.root}>
-                        <Grid container spacing={0}>
-                            <Grid item xs={12} sm={5}>
-                                <Paper className={styles.paper}>
-                                    <img src="assets/artesano-3.jpg" alt="" className={styles.imgSlider} />
-                                </Paper>
-                            </Grid>
+                        <div className={styles.root}>
+                            <Grid container spacing={0}>
+                                <Grid item xs={12} sm={5}>
+                                    <Paper className={styles.paper}>
+                                        <img src={artesano2} alt="" className={styles.imgSlider} />
+                                    </Paper>
+                                </Grid>
 
 
-                            <Grid item xs={12} sm={7}>
-                                <Paper className={styles.paper}>
-
-                                    <h3 className={styles.Artsofthemonth} >ARTESANOS</h3>
-                                    <h2 className={styles.historyTree}>
-                                        Nextia y los maestros del arte popular.</h2>
-                                    <p className={styles.historyOfPeople}>
-                                        Nextia surge como una extensión del Programa de Apoyo al
-                                        Arte Popular establecido en 1996 con el propósito de impulsar y fortalecer la creación artesanal
-                                        para generar alternativas para la comercialización de sus piezas.
+                                <Grid item xs={12} sm={7}>
+                                    <Paper className={styles.paper}>
+                                        <h3 className={styles.Productofthemonth} >PRODUCTORES</h3>
+                                        <h2 className={styles.historyTree}>OBIO</h2>
+                                        <p className={styles.historyOfPeople}>
+                                            El distintivo OBIO fue creado con el objetivo de apoyar
+                                            productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan
+                                            el ecosistema y los recursos naturales.
                                     </p>
-                                    <Button
-                                        className={styles.buttonSlider}
-                                        color="Primary"
-                                        variant="contained"
-                                        size='small'>
-                                        Conoce Más
+                                        <Button
+                                            className={styles.buttonSlider}
+                                            color="Primary"
+                                            variant="contained"
+                                            size='small'>
+                                            Conoce Más
                                     </Button>
-                                </Paper>
+                                    </Paper>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </div>
-
-
-                    <div className={styles.root}>
-                        <Grid container spacing={0}>
-                            <Grid item xs={12} sm={5}>
-                                <Paper className={styles.paper}>
-                                    <img src="assets/artesano-2.jpg" alt="" className={styles.imgSlider} />
-                                </Paper>
-                            </Grid>
-
-
-                            <Grid item xs={12} sm={7}>
-                                <Paper className={styles.paper}>
-                                    <h3 className={styles.Productofthemonth} >PRODUCTORES</h3>
-                                    <h2 className={styles.historyTree}>OBIO</h2>
-                                    <p className={styles.historyOfPeople}>
-                                        El distintivo OBIO fue creado con el objetivo de apoyar
-                                        productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan
-                                        el ecosistema y los recursos naturales.
-                                    </p>
-                                    <Button
-                                        className={styles.buttonSlider}
-                                        color="Primary"
-                                        variant="contained"
-                                        size='small'>
-                                        Conoce Más
-                                    </Button>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </div>
-                </Slider> */}
+                        </div>
+                    </Slider> */}
                     <GridCards></GridCards>
                     <ArtisanWomen></ArtisanWomen>
                     <OurStates></OurStates>
