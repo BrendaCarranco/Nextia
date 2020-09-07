@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import photo from '../../assets/images/partner1.png';
 import codigo from '../../assets/images/codigo.png';
 import { partners } from '../../assets/data/data.js';
-import styles from './partner.module.css';
 import { Grid } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -63,7 +62,6 @@ const PartnerProfile = () => {
     const [editStore, setEditStore] = useState(false);
     const [editEmail, setEditEmail] = useState(false);
     const [editNet, setEditNet] = useState(false);
-    const [editPay, setEditPay] = useState(false);
 
     const classes = useStyles();
 

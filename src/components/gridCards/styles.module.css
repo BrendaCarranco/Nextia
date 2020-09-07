@@ -12,9 +12,12 @@
 
   .cardName {
     color:white;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: bold;
     font-size: 1.6em;
-    text-align: center;
+    font-family: 'Roboto';
+    text-align: end;
     background: rgba(0,0,0,0.4);
     }
 
@@ -30,6 +33,11 @@
     display: flex;
     justify-content: right;
     bottom: 20px;
+    font-weight: 600;
+  font-size: 15px;
+  border-radius: 2px;
+  font-family: 'Roboto';
+  letter-spacing: 0.9px;
     left: 0;
     right: 0;
     margin: auto;
@@ -46,6 +54,7 @@
     font-size: 1.3em;
     align-items: center;
     align-self: center;
+    border-radius: 2px;
     }
 
   .cardNameButtondos  Button {

@@ -2,12 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -20,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: 0,
         textAlign: 'center',
+    },
+    category: {
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 34,
+        lineHeight: 1,
+        letterSpacing: 3
     },
 }));
 
@@ -41,11 +48,10 @@ export default function FullWidthGrid() {
             <Grid container spacing={3}>
                 <Grid item xs={12} lg={4}>
                     <Paper className={styles.paper}>
-                        <div className={styles.title}>
-                            <CardHeader
-                                title="Nuestros Estados"
-                            />
-                        </div>
+                        <Box mt={3} mb={3} ml={1}>
+                            <Typography className={classes.category}
+                            >Nuestros <br></br>Estados</Typography>
+                        </Box>
                         <Card >
                             <CardActionArea>
                                 <CardMedia
@@ -58,7 +64,7 @@ export default function FullWidthGrid() {
                                     <div className={styles.cardName}>Chiapas</div>
                                     <div className={styles.cardNameButton}>
                                         <Button
-
+                                            style={{ borderRadius: '2px', width: '130px' }}
                                             size="small"
                                             variant="contained"
                                         >
@@ -86,6 +92,7 @@ export default function FullWidthGrid() {
                                     <div className={styles.cardNamedos}>Hidalgo</div>
                                     <div className={styles.cardNameButtondos}>
                                         <Button
+                                            style={{ borderRadius: '2px' }}
                                             size="small"
                                             color="primary">
                                             Ver
@@ -113,11 +120,11 @@ export default function FullWidthGrid() {
 
                                     <div className={styles.cardNameButtondos}>
                                         <Button
-                                            className={styles.cardNameButtondos}
+                                            style={{ borderRadius: '2px' }}
                                             size="small"
                                             color="primary">
                                             Ver
-                                    </Button>
+                                        </Button>
                                     </div>
                                 </div>
                             </CardActions>

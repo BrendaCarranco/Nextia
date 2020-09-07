@@ -132,7 +132,7 @@ export default function SearchAppBar() {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const { globalUser, setGlobalUser } = useContext(UserContext);
+    const { globalUser } = useContext(UserContext);
 
     const [user, setUser] = useState(globalUser.role);
     console.log(user);

@@ -1,43 +1,73 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
 import styles from './styles.module.css';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+
+
+const useStyles = makeStyles((theme) => ({
+    category: {
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 20,
+        lineHeight: 1,
+        letterSpacing: 3
+    },
+    cardT: {
+        fontWeight: 600,
+        fontSize: 20,
+        letterSpacing: 1
+    },
+    cardInfo: {
+        fontSize: 15
+    }
+}));
 
 const SocialNetwork = () => {
+    const classes = useStyles();
+
     return (
         <div className={styles.footerContainer}>
 
             <div className={styles.footerkWrapper}>
-                <div>
-                    <h2 className={styles.footerTitle}>Nextia</h2>
-                </div>
+                <Box mt={3} mb={3} ml={3}>
+                    <Typography className={classes.category}
+                    >Nextia</Typography>
+                </Box>
+                <Box ml={3}>
+                    <Typography variant='subtitle2'>Sobre nosotros</Typography>
+                    <Typography variant='subtitle2'>Blog</Typography>
+                    <Typography variant='subtitle2'>Mi cuenta</Typography>
+                    <Typography variant='subtitle2'>Preguntas frecuentes</Typography>
+                    <Typography variant='subtitle2'>Formas de pago</Typography>
+                    <Typography variant='subtitle2'>Terminos y condiciones</Typography>
+                    <Typography variant='subtitle2'>Aviso de privacidad</Typography>
+                </Box>
 
-                <div className={styles.aboutContainer}>
-                    <div
-                        className={styles.aboutWrapper}>
-                        <span>Sobre nosotros</span>
-                        <span>Blog</span>
-                        <span>Mi cuenta</span>
-                        <span>Preguntas frecuentes</span>
-                        <span>Formas de pago</span>
-                        <span>Terminos y condiciones</span>
-                        <span>Aviso de privacidad</span>
-                    </div>
-                </div>
-
-                <div className={styles.footerIconsContainer} >
-                    <img className={styles.iconsf} src="assets/codi.png" alt="" />
-                    <img className={styles.iconsf} src="assets/citypay.png" alt="" />
-                </div>
+                {/* <div className={styles.footerIconsContainer} >
+                    <img className={styles.iconsf} src="assets/codi.png" alt="coDi" />
+                    <img className={styles.iconsf} src="assets/citypay.png" alt="Citypay" />
+                </div> */}
 
                 <div className={styles.contactNextia}>
-                    <h3>info@nextia.com</h3>
-                    <p>Nextia© 2020 </p>
+                    <Box mt={3} mb={1} ml={3}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center">
+                        <Typography style={{ fontStyle: 'bold', letterSpacing: '1px' }} >info@nextia.com</Typography>
+                    </Box>
+                    <Box mt={1} mb={3} ml={3}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center">
+                        <Typography style={{ fontStyle: 'bold', letterSpacing: '2px' }} >Nextia© 2020</Typography>
+                    </Box>
                 </div>
-
             </div>
         </div>
     );
-}
+};
 
 export default SocialNetwork;

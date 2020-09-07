@@ -173,14 +173,14 @@ export default class SimpleSlider extends Component {
                             </Grid>
                         </div>
                     </Slider> */}
-                    <GridCards></GridCards>
-                    <ArtisanWomen></ArtisanWomen>
-                    <OurStates></OurStates>
-                    <NationalCooperatives></NationalCooperatives>
-                    <NextiaDescription></NextiaDescription>
-                    <TrendingProducts></TrendingProducts>
-                    <SocialNetwork></SocialNetwork>
-                    <Footer></Footer>
+                    <GridCards />
+                    <ArtisanWomen />
+                    <OurStates />
+                    <NationalCooperatives />
+                    <NextiaDescription />
+                    <TrendingProducts />
+                    <SocialNetwork />
+                    <Footer />
                 </div >
             </div>
 

@@ -27,3 +27,12 @@ h4.price{
     margin: 7px;
     font-weight: 400;
 }
+@media only screen and (min-width: 1280px){
+
+    .cardsContainer {
+      display: flex;
+      margin: 0 auto;
+      padding: 117px;
+      margin-left: 247px;
+    }
+}

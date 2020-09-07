@@ -62,7 +62,6 @@ const UserProvider = (props) => {
             }
         });
     };
-
     console.log(globalUser);
     return (
         <UserContext.Provider value={{ globalUser, setGlobalUser }} >

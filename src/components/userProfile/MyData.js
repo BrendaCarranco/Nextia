@@ -58,9 +58,8 @@ const MyData = () => {
     const [editName, setEditName] = useState(false);
     const [editAdress, setEditAdress] = useState(false);
     const [editEmail, setEditEmail] = useState(false);
-    const [editPay, setEditPay] = useState(false);
 
-    const [name, setName] = useState('');
+    const [name, setName] = useState('');;
 
     const handleEditName = async (e) => {
         //setEditName(false);
@@ -74,15 +73,12 @@ const MyData = () => {
                 ...globalUser, displayName: name
             });
 
-
         } catch (err) {
             console.log(err);
         }
         setEditName(false);
 
     };
-
-
 
     return (
         <div>
