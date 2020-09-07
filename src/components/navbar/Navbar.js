@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Grow from '@material-ui/core/Grow';
@@ -11,9 +11,8 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-import Grid from '@material-ui/core/Grid';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -21,12 +20,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import LocalAtmSharpIcon from '@material-ui/icons/LocalAtmSharp';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
-
-import { UserContext } from '../../context/UserProvider';
-
+import ExitToAppSharpIcon from '@material-ui/icons/ExitToAppSharp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -83,7 +77,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SearchAppBar() {
-
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
@@ -102,9 +95,6 @@ export default function SearchAppBar() {
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
-        if (event.key === 'Tab') {
-            setOpen(false);
-        }
     };
 
     function handleListKeyDown(event) {
@@ -125,14 +115,9 @@ export default function SearchAppBar() {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const { globalUser, setGlobalUser } = useContext(UserContext);
-
-    const [user, setUser] = useState(globalUser.role);
-    console.log(user);
-
     return (
         <div className={classes.root}>
-            <AppBar position="fixed">
+            <AppBar position="static">
                 <Toolbar>
                     <IconButton
                         edge="start"
@@ -144,25 +129,8 @@ export default function SearchAppBar() {
                         aria-haspopup="true"
                         onClick={handleToggle}
                     >
-                        <MenuIcon style={{ color: 'white' }} />
+                        <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" style={{ color: 'white' }}>
-                        Nextia
-                    </Typography>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="flex-end"
-                        alignItems="center"
-                    >
-                        <IconButton aria-label="search" style={{ color: 'white' }}>
-                            <SearchIcon />
-                        </IconButton>
-                        <IconButton aria-label="display more actions" edge="end" style={{ color: 'white' }}>
-                            <MoreIcon />
-                        </IconButton>
-                    </Grid>
-
 
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
@@ -174,12 +142,10 @@ export default function SearchAppBar() {
                                     {/* <img src="assets/nextia-icon.png" alt="" /> */}
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
-
                                             <ListItemIcon>
                                                 <HomeIcon fontSize="small" />
                                             </ListItemIcon>
-
-                                            <Typography variant="inherit"><NavLink to="/">Inicio</NavLink></Typography>
+                                            <Typography variant="inherit">Inicio</Typography>
                                         </MenuItem>
                                     </MenuList>
                                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -238,66 +204,19 @@ export default function SearchAppBar() {
                                     </Accordion>
 
                                     <MenuList autoFocusItem={open} id="menu-list-grow-2" onKeyDown={handleListKeyDown}>
-
                                         <MenuItem onClick={handleClose}>
-                                            <Typography variant="inherit">Blog</Typography>
+                                            <ListItemIcon>
+                                                <AccountCircleIcon fontSize="small" />
+                                            </ListItemIcon>
+                                            <Typography variant="inherit">Iniciar sesión</Typography>
                                         </MenuItem>
 
                                         <MenuItem onClick={handleClose}>
-                                            <Typography variant="inherit">Ayuda</Typography>
+                                            <ListItemIcon>
+                                                <ExitToAppSharpIcon fontSize="small" />
+                                            </ListItemIcon>
+                                            <Typography variant="inherit">Registrarse</Typography>
                                         </MenuItem>
-
-
-                                        {
-                                            user == null && (<div>
-
-                                                <MenuItem onClick={handleClose}>
-                                                    <ListItemIcon>
-                                                        <AccountCircleIcon fontSize="small" />
-                                                    </ListItemIcon>
-                                                    <Typography variant="inherit"><NavLink to="/login">Iniciar Sesión</NavLink></Typography>
-                                                </MenuItem>
-                                            </div>)
-                                        }
-                                        {
-                                            user == 'admin' && (
-                                                <div>
-                                                    <MenuItem onClick={handleClose}>
-                                                        <ListItemIcon>
-                                                            <AccountCircleIcon fontSize="small" />
-                                                        </ListItemIcon>
-                                                        <Typography variant="inherit"><NavLink to="/profile">Mi perfil</NavLink></Typography>
-                                                    </MenuItem>
-
-                                                    <MenuItem onClick={handleClose}>
-                                                        <ListItemIcon>
-                                                            <LocalAtmSharpIcon fontSize="small" />
-                                                        </ListItemIcon>
-                                                        <Typography variant="inherit">Mis pedidos</Typography>
-                                                    </MenuItem>
-
-                                                    <MenuItem onClick={handleClose}>
-                                                        <ListItemIcon>
-                                                            <FavoriteIcon fontSize="small" />
-                                                        </ListItemIcon>
-                                                        <Typography variant="inherit">Favoritos</Typography>
-                                                    </MenuItem>
-
-                                                    <MenuItem onClick={handleClose}>
-                                                        <ListItemIcon>
-                                                            <PowerSettingsNewIcon fontSize="small" />
-                                                        </ListItemIcon>
-                                                        <Typography variant="inherit">Cerrar Sesión</Typography>
-                                                    </MenuItem>
-                                                </div>
-                                            )
-                                        }
-
-
-
-
-
-
                                     </MenuList>
                                 </Paper>
                             </Grow>
@@ -305,12 +224,7 @@ export default function SearchAppBar() {
                     </Popper>
                 </Toolbar>
             </AppBar>
-            <div className={classes.search}>
-            </div>
-        </div >
+            <div className={classes.search}></div>
+        </div>
     );
 }
-
-
-
-//style={{ color: 'white' }}

@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { firebase } from '../../firebase';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { Button, TextField, Divider, Typography, CardMedia, Box, Container, Grid, Icon } from '@material-ui/core';
 
 import logo from '../../assets/images/nextia_black.png';
 import googleIcon from '../../assets/images/google.svg';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, BootstrapButton, TextField, Divider, Typography, CardMedia, Box, Container, Grid, Icon } from '@material-ui/core';
-;
+import NavbarUser from '../navbarUser/NavbarUser';
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
     },
     media: {
-        width: 213,
-        height: 213
+        width: 160,
+        height: 160,
+        marginTop: 30
     },
     icon: {
         width: 30,
@@ -63,7 +66,7 @@ const Login = (props) => {
                     displayName: res.user.displayName
                 });
             }
-            return props.history.push('/dashboard');
+            return props.history.push('/');
         } catch (error) {
             console.log(error);
         }
@@ -74,6 +77,7 @@ const Login = (props) => {
 
     return (
         <div>
+            <NavbarUser />
             <Container className={classes.root}>
                 <Typography className={classes.title} >Ingresa</Typography>
                 <Box

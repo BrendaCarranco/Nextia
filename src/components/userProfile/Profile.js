@@ -49,8 +49,14 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
     },
+    tabs: {
+        marginTop: 56,
+        zIndex: 1000
+    },
+    tabsInfo: {
+        marginTop: 102,
+    }
 }));
-
 
 function Profile() {
     const classes = useStyles();
@@ -60,24 +66,23 @@ function Profile() {
         setValue(newValue);
     };
 
-
     return (
         <div className={classes.root}>
             <NavbarUser />
-            <AppBar position="static"  >
+            <AppBar position='fixed' className={classes.tabs}   >
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
                     <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
                     <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
                     <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={value} index={0} className={classes.tabsInfo}>
                 <MyOrders />
             </TabPanel>
-            <TabPanel value={value} index={1}>
+            <TabPanel value={value} index={1} className={classes.tabsInfo}>
                 <MyData />
             </TabPanel>
-            <TabPanel value={value} index={2}>
+            <TabPanel value={value} index={2} className={classes.tabsInfo}>
                 Item Three
       </TabPanel>
         </div>

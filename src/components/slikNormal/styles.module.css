@@ -1,0 +1,127 @@
+@media only screen and (max-width: 767px) {
+    .slickslide {
+        display: block;
+        max-width: 100%;
+    }
+
+    .Artsofthemonth {
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        background: #FD384C;
+        color: white;
+        width: 45%;
+        margin-left: 30px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .Productofthemonth {
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        background: #C6FF5B;
+        color: black;
+        width: 45%;
+        margin-left: 30px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .historyOfPeople {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .historyTree {
+        margin-left: 30px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    Button.buttonSlider  {
+    display: flex;
+    margin-left: auto;
+    margin-top: 30px;
+    }
+
+}
+
+
+@media only screen and (min-width: 1280px){
+
+    .slickContainer {
+    margin-top: 69px;
+    }
+    
+  .slickslide {
+        display: block;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .Artsofthemonth {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 24px;
+    background: #FD384C;
+    color: white;
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 66px;
+    }
+
+    .Productofthemonth {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 24px;
+    background: #C6FF5B;
+    color: black;
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    }
+
+    .historyOfPeople {
+    margin-bottom: 100px;
+    font-size: 1.6em;
+    font-weight: 300;
+    padding-right: 30px;
+    }
+
+    .historyTree {
+    font-weight: 500;
+    font-size: 1.8em;
+    }
+
+    Button.buttonSlider  {
+    margin-top: 30px;
+    font-size: 1.1em;
+    }
+}
+
+.root {
+    flex-grow: 1;
+}
+
+.paper {
+    padding: 1em;
+     /* text-align: center; */
+     box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     -moz-box-shadow: none !important;
+}
+
+.imgSlider {
+    width: 100%;
+    height: auto;
+}

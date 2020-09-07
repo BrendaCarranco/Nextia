@@ -4,21 +4,13 @@ import HomePartner from './components/partner/HomePartner';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Login from './components/login/Login';
-import Dashboard from './components/Dashboard';
 import Admin from './components/admin/Admin';
 import Profile from './components/userProfile/Profile';
 import PartnerProfile from './components/partnerProfile/PartnerProfileBren';
+import SlikNormal from './components/slikNormal/SlikNormal';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
-
-/* 
-function App() {
-
-  return (
-    <>
-    <HomePartner/>
-    /* <PartnerProfile /> */
 
 function App() {
 
@@ -28,16 +20,12 @@ function App() {
     <ThemeProvider theme={theme} >
       <BrowserRouter>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/parnerr'>
             <HomePartner />
           </Route>
 
           <Route path='/login'>
             <Login />
-          </Route>
-
-          <Route path='/dashboard'>
-            <Dashboard />
           </Route>
 
           <Route path='/admin'>
@@ -48,6 +36,9 @@ function App() {
             <Profile />
           </Route>
 
+          <Route exact path='/'>
+            <SlikNormal />
+          </Route>
 
           <Route path='/partner'>
             <PartnerProfile />
