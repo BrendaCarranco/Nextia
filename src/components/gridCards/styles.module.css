@@ -1,7 +1,7 @@
 @media only screen and (max-width: 767px) {
 
   .title {
-      margin-top: 46px;
+    margin-top: 46px;
     margin-bottom: 20px;
   }
   .cardNameContent {
@@ -26,7 +26,7 @@
     
 
     .cardNameContentdos {
-       position: absolute;
+    position: absolute;
     display: flex;
     justify-content: right;
     bottom: 20px;
@@ -57,6 +57,13 @@
 
 
 @media only screen and (min-width: 1280px){
+
+  .cardsContainer {
+    display: flex;
+    margin: 0 auto;
+    padding: 117px;
+    margin-left: 247px;
+  }
   .cardNameContent {
     position: absolute;
     display: flex;
@@ -66,22 +73,59 @@
     }
 
   .cardName {
+    padding: 10px;
     position: relative;
-    background: white;
-    margin-bottom: 20px;
-    font-size: 1.6em;
+    background: rgba(255,255,255,0.6);
+    font-size: 3em;
+    left: 307px;
+    bottom: 27px;
     }
 
     .cardNameButton Button {
-     background: #1A5597;
+    background: #1A5597;
     color: white;
-    margin-bottom: 100px;
-   position: relative;    
+    position: relative;
+    font-size: 1em;
+    left: 317px;
+    bottom: 7px;
+    border-radius: 9px;   
+    }
+
+    .cardNameContentdos {
+       position: absolute;
+    display: flex;
+    justify-content: right;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 94%;
+    }
+
+     .cardNamedos {
+    position: relative;
+    background: rgba(255,255,255,0.6);
+    padding: 2px 7px;
+    font-size: 2.8em;
+    bottom: 169px;
+    }
+
+  .cardNameButtondos  Button {
+    background: #FD384C;
+    border-radius: 14px;
+    color: white;
+    font-size: x-large;
+    left: 315px;
     }
   
-    
-}
+  .imgWrapper{
+    padding: 10px 124px;
+    background: black;
+    border-radius: 12px;
+    border-radius: 4px;
+  }
 
+}
 .cardWrapper{
       position: relative;
       padding: 0 !important;

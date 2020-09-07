@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: 0,
         textAlign: 'center',
+        // color: theme.palette.text.secondary,
     },
 }));
 
@@ -37,97 +38,109 @@ export default function FullWidthGrid() {
 
     return (
         <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12} lg={4}>
-                    <Paper className={styles.paper}>
-                        <div className={styles.title}>
-                            <CardHeader
-                                title="Categorías destacadas"
-                            />
-                        </div>
+            <div className={styles.cardsContainer}>
+                <Grid container spacing={3}>
 
-                        <Card >
-                            <CardActionArea>
-
-                                <CardMedia
-                                    className={classesCard.media}
-                                    image="assets/jaguar-barro.jpg"
-                                />
-                            </CardActionArea>
-                            <CardActions className={styles.cardWrapper} >
-                                <div className={styles.cardNameContent}>
-                                    <div className={styles.cardName}>Barro</div>
-                                    <div className={styles.cardNameButton}>
-                                        <Button
-
-                                            size="small"
-                                            variant="contained"
-                                        >
-                                            Conoce más
-                                    </Button>
-                                    </div>
+                    <Grid item xs={12} lg={10}>
+                        <Paper className={styles.paper}>
+                            <div className={styles.title}>
+                                <div className={styles.categoriesTitle}>
+                                    <CardHeader
+                                        title="Categorías destacadas"
+                                    />
                                 </div>
+                            </div>
 
-                            </CardActions>
-                        </Card>
-                    </Paper>
-                </Grid>
+                            <Card >
 
-                <Grid item xs={6} sm={6} lg={4}>
-                    <Paper className={classes.paper}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    className={classesCard.media}
-                                    image="assets/Fibras.jpg"
-                                />
-                            </CardActionArea>
-                            <CardActions className={styles.cardWrapper}>
+                                <CardActionArea>
 
-                                <div className={styles.cardNameContentdos}>
-                                    <div className={styles.cardNamedos}>Fibras</div>
-                                    <div className={styles.cardNameButtondos}>
-                                        <Button
-                                            size="small"
-                                            color="primary">
-                                            Ver
+                                    <CardMedia
+                                        className={classesCard.media}
+                                        image="assets/jaguar-barro.jpg"
+                                    />
+                                </CardActionArea>
+                                <CardActions className={styles.cardWrapper} >
+                                    <div className={styles.cardNameContent}>
+                                        <div className={styles.cardName}>Barro</div>
+                                        <div className={styles.cardNameButton}>
+                                            <Button
+                                                size="small"
+                                                variant="contained"
+                                            >
+                                                Conoce más
+                                    </Button>
+                                        </div>
+                                    </div>
+
+                                </CardActions>
+                            </Card>
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xs={6} sm={6} lg={5}>
+                        <Paper className={classes.paper}>
+                            <Card>
+                                <CardActionArea>
+                                    <div className={styles.imgWrapper}>
+                                        <CardMedia
+                                            className={classesCard.media}
+                                            image="assets/Fibras.jpg"
+                                        />
+                                    </div>
+
+                                </CardActionArea>
+                                <CardActions className={styles.cardWrapper}>
+
+                                    <div className={styles.cardNameContentdos}>
+                                        <div className={styles.cardNamedos}>Fibras</div>
+                                        <div className={styles.cardNameButtondos}>
+                                            <Button
+                                                size="small"
+                                                color="primary">
+                                                Ver
                                         </Button>
+                                        </div>
+
+                                    </div>
+                                </CardActions>
+                            </Card>
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xs={6} sm={6} lg={5}>
+                        <Paper className={classes.paper}>
+                            <Card>
+                                <CardActionArea>
+                                    <div className={styles.imgWrapper}>
+                                        <CardMedia
+                                            className={classesCard.media}
+                                            image="assets/Cacao.jpg"
+                                        />
                                     </div>
 
-                                </div>
-                            </CardActions>
-                        </Card>
-                    </Paper>
-                </Grid>
+                                </CardActionArea>
+                                <CardActions className={styles.cardWrapper}>
+                                    <div className={styles.cardNameContentdos}>
+                                        <div className={styles.cardNamedos}>Cacao</div>
 
-                <Grid item xs={6} sm={6} lg={4}>
-                    <Paper className={classes.paper}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    className={classesCard.media}
-                                    image="assets/Cacao.jpg"
-                                />
-
-                            </CardActionArea>
-                            <CardActions className={styles.cardWrapper}>
-                                <div className={styles.cardNameContentdos}>
-                                    <div className={styles.cardNamedos}>Cacao</div>
-
-                                    <div className={styles.cardNameButtondos}>
-                                        <Button
-                                            className={styles.cardNameButtondos}
-                                            size="small"
-                                            color="primary">
-                                            Ver
+                                        <div className={styles.cardNameButtondos}>
+                                            <Button
+                                                className={styles.cardNameButtondos}
+                                                size="small"
+                                                color="primary">
+                                                Ver
                                     </Button>
+                                        </div>
+
                                     </div>
-                                </div>
-                            </CardActions>
-                        </Card>
-                    </Paper>
+                                </CardActions>
+                            </Card>
+                        </Paper>
+                    </Grid>
+
                 </Grid>
-            </Grid>
+            </div>
         </div>
     );
 }

@@ -14,6 +14,7 @@ import TrendingProducts from './../TrendingProducts/index';
 import SocialNetwork from './../SocialNetwork/index';
 import Footer from './../Footer/index';
 
+
 export default class SimpleSlider extends Component {
 
     render() {
@@ -24,10 +25,11 @@ export default class SimpleSlider extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1
+
         };
 
         return (
-            <div>
+            <div className={styles.slickContainer}>
                 <Slider {...settings}>
                     <div>
                         <div className={styles.root}>
@@ -62,6 +64,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
 
+
                     <div>
                         <div className={styles.root}>
                             <Grid container spacing={0}>
@@ -95,6 +98,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
 
+
                     <div className={styles.root}>
                         <Grid container spacing={0}>
                             <Grid item xs={12} sm={5}>
@@ -102,6 +106,7 @@ export default class SimpleSlider extends Component {
                                     <img src="assets/artesano-3.jpg" alt="" className={styles.imgSlider} />
                                 </Paper>
                             </Grid>
+
 
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>
@@ -126,6 +131,7 @@ export default class SimpleSlider extends Component {
                         </Grid>
                     </div>
 
+
                     <div className={styles.root}>
                         <Grid container spacing={0}>
                             <Grid item xs={12} sm={5}>
@@ -134,9 +140,10 @@ export default class SimpleSlider extends Component {
                                 </Paper>
                             </Grid>
 
+
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>
-                                    <h3 className={styles.Artsofthemonth} >PRODUCTORES</h3>
+                                    <h3 className={styles.Productofthemonth} >PRODUCTORES</h3>
                                     <h2 className={styles.historyTree}>OBIO</h2>
                                     <p className={styles.historyOfPeople}>
                                         El distintivo OBIO fue creado con el objetivo de apoyar
