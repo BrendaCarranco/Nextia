@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { firebase } from '../../firebase';
 import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -89,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
 export default function SearchAppBar() {
 
     const classes = useStyles();
@@ -132,10 +134,21 @@ export default function SearchAppBar() {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const { globalUser } = useContext(UserContext);
+    const { globalUser, setProductId } = useContext(UserContext);
 
     const [user, setUser] = useState(globalUser.role);
     console.log(user);
+
+
+    const handleLogout = () => {
+        firebase.auth().signOut();
+    };
+
+    const handleId = (e) => {
+        console.log(e.target.id, 'este es ID');
+        setProductId(e.target.id);
+        //handleClose(e);
+    };
 
     return (
         <div className={classes.root}>
@@ -187,14 +200,11 @@ export default function SearchAppBar() {
                                             <ListItemIcon>
                                                 <HomeIcon fontSize="small" color='primary' />
                                             </ListItemIcon>
-
                                             <Typography variant="inherit"><NavLink to="/" style={{ textDecoration: 'none' }}>Inicio</NavLink></Typography>
                                         </MenuItem>
-
-                                        <MenuItem>
+                                        <MenuItem onClick={handleClose}>
                                             <Typography variant="inherit"><NavLink to="/store" style={{ textDecoration: 'none' }}>Explorar todo</NavLink></Typography>
                                         </MenuItem>
-
                                     </MenuList>
                                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                                         <AccordionSummary
@@ -225,10 +235,10 @@ export default function SearchAppBar() {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                <MenuItem onClick={handleClose}>Barro</MenuItem>
-                                                <MenuItem onClick={handleClose}>Fibras vegetales</MenuItem>
-                                                <MenuItem onClick={handleClose}>Metales</MenuItem>
-                                                <MenuItem onClick={handleClose}>Textiles</MenuItem>
+                                                <MenuItem onClick={(e) => handleId(e)}><NavLink id='Barro' style={{ textDecoration: 'none' }} to='/art' >Barro</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleId(e)}><NavLink id='Fibras vegetales' style={{ textDecoration: 'none' }} to='/art' >Fibras vegetales</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleId(e)}><NavLink id='Metales' style={{ textDecoration: 'none' }} to='/art' >Metales</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleId(e)}><NavLink id='Textiles' style={{ textDecoration: 'none' }} to='/art' >Textiles</NavLink></MenuItem>
                                                 <MenuItem onClick={handleClose}>Varios</MenuItem>
                                             </MenuList>
                                         </AccordionDetails>
@@ -308,7 +318,7 @@ export default function SearchAppBar() {
                                                         <ListItemIcon>
                                                             <PowerSettingsNewIcon fontSize="small" />
                                                         </ListItemIcon>
-                                                        <Typography variant="inherit">Cerrar Sesión</Typography>
+                                                        <Typography onClick={() => handleLogout()} variant="inherit">Cerrar Sesión</Typography>
                                                     </MenuItem>
                                                 </div>
                                             )

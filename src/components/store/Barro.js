@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
@@ -7,6 +7,8 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import yellow from '@material-ui/core/colors/yellow';
+
+import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
     category: {
@@ -37,20 +39,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
-
-const Store = () => {
+const Barro = () => {
 
     const classes = useStyles();
 
+    const { productId } = useContext(UserContext);
+
     const [value, setValue] = React.useState(0);
-    const [products, setProducts] = useState([]);
+    const [barro, setBarro] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollection = await firebase.firestore().collection('products').get();
-            setProducts(productsCollection.docs.map(doc => {
+            const productsCollection = await firebase.firestore().collection('products').where('category', '==', productId).get();
+            setBarro(productsCollection.docs.map(doc => {
                 return doc.data();
             }));
         };
@@ -61,14 +62,14 @@ const Store = () => {
         setValue(newValue);
     };
 
-    console.log(products);
+    console.log(barro, 'barro');
 
     return (
         <div>
             <NavbarUser />
             <Grid >
                 {
-                    products.map(product => (
+                    barro.map(product => (
                         <div>
 
                             <Card style={{ marginTop: '40px', marginBottom: '20px' }}>
@@ -128,8 +129,9 @@ const Store = () => {
                     ))
                 }
             </Grid>
+
         </div>
     );
 };
 
-export default Store;
+export default Barro;

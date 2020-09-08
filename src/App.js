@@ -13,7 +13,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
 import Register from './components/login/Register';
 import Store from './components/store/Store';
-import NavbarUser from './components/navbarUser/NavbarUser';
+import Barro from './components/store/Barro';
 
 function App() {
 
@@ -45,6 +45,10 @@ function App() {
 
           <Route path='/store'>
             <Store />
+          </Route>
+
+          <Route path='/art'>
+            <Barro />
           </Route>
 
           <Route exact path='/'>
