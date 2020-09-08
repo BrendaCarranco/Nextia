@@ -7,6 +7,17 @@ const HomeSearch = () => {
     return (
         <>
         <AddCategory setCategories={ setCategories } />
+
+        <ol>
+            {
+                categories.map( category  => (
+                    <GifGrid 
+                        key={ category }
+                        category={ category }
+                    />
+                ))
+            }
+        </ol>
         </>
     )
 }
