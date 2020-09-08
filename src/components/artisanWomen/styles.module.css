@@ -36,3 +36,20 @@ h4.price{
       margin-left: 247px;
     }
 }
+
+.root {
+    flex-grow: 1;
+}
+
+.paper {
+    padding: 1em;
+     /* text-align: center; */
+     box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     -moz-box-shadow: none !important;
+}
+
+.imgSlider {
+    width: 100%;
+    height: auto;
+}

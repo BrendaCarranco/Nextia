@@ -40,7 +40,7 @@ export default class SimpleSlider extends Component {
             <div>
                 <NavbarUser />
                 <div className={styles.slickContainer}>
-                    {/*                     <Slider {...settings}>
+                    {/* <Slider {...settings}>
                         <div>
                             <div className={styles.root}>
                                 <Grid container spacing={0}>
@@ -173,8 +173,9 @@ export default class SimpleSlider extends Component {
                             </Grid>
                         </div>
                     </Slider> */}
+
                     <GridCards />
-                    <ArtisanWomen />
+                    {/* <ArtisanWomen /> */}
                     <OurStates />
                     <NationalCooperatives />
                     <NextiaDescription />
