@@ -12,6 +12,8 @@ import SlikNormal from './components/slikNormal/SlikNormal';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
 import Register from './components/login/Register';
+import Store from './components/store/Store';
+import NavbarUser from './components/navbarUser/NavbarUser';
 
 function App() {
 
@@ -39,6 +41,10 @@ function App() {
 
           <Route path='/profile'>
             <Profile />
+          </Route>
+
+          <Route path='/store'>
+            <Store />
           </Route>
 
           <Route exact path='/'>

@@ -190,6 +190,11 @@ export default function SearchAppBar() {
 
                                             <Typography variant="inherit"><NavLink to="/" style={{ textDecoration: 'none' }}>Inicio</NavLink></Typography>
                                         </MenuItem>
+
+                                        <MenuItem>
+                                            <Typography variant="inherit"><NavLink to="/store" style={{ textDecoration: 'none' }}>Explorar todo</NavLink></Typography>
+                                        </MenuItem>
+
                                     </MenuList>
                                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                                         <AccordionSummary
