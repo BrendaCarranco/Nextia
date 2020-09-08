@@ -21,6 +21,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
+import Box from '@material-ui/core/Box';
+import InputBase from '@material-ui/core/InputBase';
+import TextField from '@material-ui/core/TextField';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LocalAtmSharpIcon from '@material-ui/icons/LocalAtmSharp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -169,21 +172,21 @@ export default function SearchAppBar() {
                     <Typography variant="h6" style={{ color: 'white' }}>
                         Nextia
                     </Typography>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="flex-end"
-                        alignItems="center"
-                    >
-                        <IconButton aria-label="search" style={{ color: 'white' }}>
-                            <SearchIcon />
-                        </IconButton>
-                        <IconButton aria-label="display more actions" edge="end" style={{ color: 'white' }}>
-                            <MoreIcon />
-                        </IconButton>
-                    </Grid>
-
-
+                    <Box ml={6} >
+                        <div className={classes.search}>
+                            <div className={classes.searchIcon}>
+                                <SearchIcon />
+                            </div>
+                            <InputBase
+                                placeholder="Buscar…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </div>
+                    </Box>
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
                             <Grow
