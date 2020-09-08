@@ -8,14 +8,9 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import photo from '../../assets/images/partner1.png'
+import photo from '../../assets/images/partner1.png';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        maxWidth: '36ch',
-        backgroundColor: theme.palette.background.paper,
-    },
     inline: {
         display: 'inline',
     },
@@ -26,7 +21,7 @@ export default function AlignItemsList() {
 
     return (
 
-        <List className={classes.root}>
+        <List>
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                     <Avatar alt="photoClient" src={photo} />

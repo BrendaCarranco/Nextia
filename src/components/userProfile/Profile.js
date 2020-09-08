@@ -1,42 +1,15 @@
-/* import React from 'react'
-import MyOrders from './MyOrders'
-import MyProducts from './MyProducts'
-import PartnertProfile from './PartnerProfile'
-import principal from '../../assets/images/inicioGabriel.png'
-import { Grid } from '@material-ui/core'
-import PaymentPayPal from '../payment/PaymentPayPal'
-
-const HomePartner = () => {
-    return (
-        <>
-        <Grid container justify = "center" item sx={12}>
-            <img alt="imgpartner" src={principal} />
-        </Grid>
-        <MyOrders />
-        <MyProducts />
-        <PartnertProfile />
-        <PaymentPayPal />
-        </>
-    )
-}
-
-export default HomePartner
- */
-
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+
+import MyData from './MyData';
+import NavbarUser from '../navbarUser/NavbarUser';
 import MyOrders from './MyOrders';
-import MyProducts from './MyProducts'
-
-
-import PartnerProfile from './PartnerProfile';
-
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -50,7 +23,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
+                <Box p={1} >
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -71,37 +44,49 @@ function a11yProps(index) {
     };
 }
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+    },
+    tabs: {
+        marginTop: 56,
+        zIndex: 1000
+    },
+    tabsInfo: {
+        marginTop: 102,
+    }
+}));
 
-function HomePartner() {
+function Profile() {
+    const classes = useStyles();
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-
     return (
-        <div >
-            {/* <NavbarUser /> */}
-            <AppBar position="static"  >
+        <div className={classes.root}>
+            <NavbarUser />
+            <AppBar position='fixed' className={classes.tabs}   >
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
                     <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
                     <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
                     <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={value} index={0} className={classes.tabsInfo}>
                 <MyOrders />
             </TabPanel>
-            <TabPanel value={value} index={1}>
-                <PartnerProfile />
+            <TabPanel value={value} index={1} className={classes.tabsInfo}>
+                <MyData />
             </TabPanel>
-            <TabPanel value={value} index={2}>
-                <MyProducts />
-              
-            </TabPanel>
+            <TabPanel value={value} index={2} className={classes.tabsInfo}>
+                Item Three
+      </TabPanel>
         </div>
     );
 }
 
-export default HomePartner;
+export default Profile;

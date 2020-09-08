@@ -9,10 +9,13 @@ const UserProvider = (props) => {
         email: null,
         uid: null,
         role: null,
+        pic: null,
         displayName: null
     };
 
     const [globalUser, setGlobalUser] = useState(initialUser);
+
+    const [productId, setProductId] = useState('');
 
     //Función de registro
     useEffect(() => {
@@ -32,6 +35,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'admin'
                             });
                         } else if (!!idTokenResult.claims.partner) {
@@ -40,6 +44,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'partner'
                             });
                         } else {
@@ -48,6 +53,7 @@ const UserProvider = (props) => {
                                 email: user.email,
                                 uid: user.uid,
                                 displayName: user.displayName,
+                                pic: user.photoURL,
                                 role: 'cliente'
                             });
                         }
@@ -58,10 +64,9 @@ const UserProvider = (props) => {
             }
         });
     };
-
     console.log(globalUser);
     return (
-        <UserContext.Provider value={{ globalUser }} >
+        <UserContext.Provider value={{ globalUser, setGlobalUser, productId, setProductId }} >
             {props.children}
         </UserContext.Provider>
     );

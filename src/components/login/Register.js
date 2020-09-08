@@ -27,10 +27,11 @@ const useStyles = makeStyles({
         fontWeight: 500,
         fontSize: 16,
         lineHeight: 0,
-        marginTop: 30
+        marginTop: 10,
+        marginBottom: 20
     },
     top: {
-        marginTop: 30,
+        marginTop: 5,
     },
     btn: {
         textTransform: 'none',
@@ -42,15 +43,20 @@ const useStyles = makeStyles({
     },
     login: {
         color: '#3f51b5'
+    },
+    margin1: {
+        marginBottom: 10,
     }
 });
 
-const Login = (props) => {
+const Register = (props) => {
 
     const classes = useStyles();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [secondPass, setSecondPass] = useState('');
+    const [name, setName] = useState('');
 
     const loginGoogle = async () => {
         try {
@@ -92,34 +98,59 @@ const Login = (props) => {
                     />
                 </Box>
                 <Typography className={classes.inputName}>
-                    Correo electrónico *
+                    Ingresa tus datos
                 </Typography>
                 <TextField
-                    id="email"
-                    label="correo@ejemplo.com"
+                    className={classes.margin1}
+                    size='small'
+                    id="name"
+                    label="Nombre"
                     variant="outlined"
-                    margin="normal"
+                    margin="none"
+                    fullWidth
+                    type="text"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                />
+                <TextField
+                    className={classes.margin1}
+                    size='small'
+                    id="email"
+                    label="Correo"
+                    variant="outlined"
+                    margin="none"
                     fullWidth
                     type="text"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />
-                <Typography className={classes.inputName} >
-                    Contraseña *
-                </Typography>
                 <TextField
-                    id="password"
+                    className={classes.margin1}
+                    size='small'
+                    id="pass"
                     label="Contraseña"
                     variant="outlined"
-                    margin="normal"
+                    margin="none"
                     fullWidth
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
+                <TextField
+                    className={classes.margin1}
+                    size='small'
+                    id="pass2"
+                    label="Confirmar contraseña"
+                    variant="outlined"
+                    margin="none"
+                    fullWidth
+                    type="password"
+                    value={secondPass}
+                    onChange={e => setSecondPass(e.target.value)}
+                />
                 <Grid justify="flex-end" container direction="row" className={classes.top} >
                     <Button variant="contained" onClick={() => loginEmail()} style={{ backgroundColor: '#1A5597', color: 'white' }}>
-                        Ingresar
+                        Registrarme
                 </Button>
                 </Grid>
 
@@ -128,7 +159,7 @@ const Login = (props) => {
                         onClick={() => loginGoogle()}
                         justify='center'
                         className={classes.btn}
-                    >Ingresar con google
+                    >Registrarme con google
                     <CardMedia
                             className={classes.icon}
                             image={googleIcon}
@@ -138,14 +169,9 @@ const Login = (props) => {
                     </Button>
                 </Grid>
                 <Divider className={classes.top} variant='middle' />
-
             </Container >
-            {/*  <Typography variant='h4'>Registro</Typography>
-            <Button
-                onClick={() => loginGoogle()}
-            >Iniciar sesión con google</Button> */}
         </div >
     );
 };
 
-export default withRouter(Login);
+export default withRouter(Register);
