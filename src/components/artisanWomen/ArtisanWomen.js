@@ -1,319 +1,246 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import yellow from '@material-ui/core/colors/yellow';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
 import Card from '@material-ui/core/Card';
-import Box from '@material-ui/core/Box';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import styles from './styles.module.css';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import styles from './styles.module.css';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { Grid } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 
 import artwoman from '../../assets/images/artisanWomen.jpg';
-import { Grid } from '@material-ui/core';
-import Slider from "react-slick";
+
+// const useStyles = makeStyles((theme) => ({
+//     avatar: {
+//         backgroundColor: red[500],
+//     },
+//     category: {
+//         fontFamily: 'Roboto',
+//         fontStyle: 'normal',
+//         fontWeight: 'bold',
+//         fontSize: 34,
+//         lineHeight: 1,
+//         letterSpacing: 3
+//     },
+//     cardT: {
+//         fontWeight: 600,
+//         fontSize: 20,
+//         letterSpacing: 1
+//     },
+//     yellow: {
+//         color: yellow
+//     },
+//     cardInfo: {
+//         fontSize: 15
+//     }
+// }));
+
+// export default function RecipeReviewCard() {
+
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const tutorialSteps = [
+    {
+        label: 'Pavos.',
+        imgPath: 'assets/Pavos.jpg',
+        description: 'Fibras vegetales en tejido circular.',
+        location: 'Kopchen,Felipe Carrillo Puerto Quintana Roo',
+        author: 'Rosalinda Cauich Ramírez',
+        rank: 5,
+        price: 4700,
+        unitsavailable: 4,
+    },
+    {
+        label: 'Wares.',
+        imgPath: 'assets/wares.jpg',
+        description: 'Fibras vegetales en tejido circular.',
+        location: 'Huetosachi, Bocoyna Chihuahua.',
+        author: 'María Monarca Lázaro.',
+        rank: 5,
+        price: 6000,
+        unitsavailable: 4,
+
+    },
+    {
+        label: 'Rebozos.',
+        imgPath: 'assets/rebozos.jpg',
+        description: 'Textiles, Teñidos con técnica de reserva (ikat) y tejidos en ligamentos de car de urdimbre en telar de cintura.',
+        location: 'Santa María del Río, San Luis Potosí.',
+        author: 'Luisa Govea Cruz',
+        rank: 5,
+        price: 9200,
+        unitsavailable: 16,
+    },
+
+    {
+        label: 'Virgen de la Soledad',
+        imgPath: 'assets/virgen-de-la-soledad.jpg',
+        description: 'Barro Modelado, moldeado,alisado,policromado con tierras.',
+        location: 'Santa María Atzompa, Oaxaca',
+        author: 'Enedina Vázquez cruz',
+        rank: 5,
+        price: 4500,
+        unitsavailable: 8,
+    },
+    {
+        label: 'Frutos de la resurrección (Recreación)',
+        imgPath: 'assets/Frutos-de-la-ressurrección.jpg',
+        description: 'Barro Modelado y policromado',
+        location: 'Muna Municipio Yucatán',
+        author: 'Patricia Margarita Martín',
+        rank: 5,
+        price: 5000,
+        unitsavailable: 4,
+    },
+    {
+        label: 'Hamaca',
+        imgPath: 'assets/hamaca.jpg',
+        description: 'Hilos de Sanseviera, (Lengua de vaca)hilados a mano,en color natural y teñidos con tistes naturales y urdidos en bastidor.',
+        location: 'San Antonio Millet, Tixkokob Yucatán.',
+        author: 'Juana de Arco Balderas Puch.',
+        rank: 5,
+        price: 9000,
+        unitsavailable: 4,
+    },
+];
 
 const useStyles = makeStyles((theme) => ({
-    avatar: {
-        backgroundColor: red[500],
+    root: {
+        maxWidth: 400,
+        flexGrow: 1,
     },
-    category: {
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 34,
-        lineHeight: 1,
-        letterSpacing: 3
+    header: {
+        display: 'flex',
+        alignItems: 'center',
+        height: 50,
+        paddingLeft: theme.spacing(4),
+        backgroundColor: theme.palette.background.default,
     },
-    cardT: {
-        fontWeight: 600,
-        fontSize: 20,
-        letterSpacing: 1
+    img: {
+        height: 255,
+        display: 'block',
+        maxWidth: 400,
+        overflow: 'hidden',
+        width: '100%',
     },
-    yellow: {
-        color: yellow
-    },
-    cardInfo: {
-        fontSize: 15
-    }
 }));
 
-export default function RecipeReviewCard() {
+function SliderPoc() {
     const classes = useStyles();
+    //     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const maxSteps = tutorialSteps.length;
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const handleStepChange = (step) => {
+        setActiveStep(step);
+    };
+
     return (
+        <div className={classes.root}>
 
-
-        <Slider {...settings}>
-
-            <div>
-                <div className={styles.root}>
-
-                    <Grid>
-                        <Card className={styles.root}>
-                            <Box mt={3} mb={3} ml={1}>
-                                <Typography className={classes.category}
-                                >Mujeres <br></br>Artesanas</Typography>
-                            </Box>
-                            <CardMedia
-                                className={styles.media}
-                                image={artwoman}
-                            />
-                            <CardContent>
-                                <Typography variant="body2" component="p">
-                                    <Typography className={classes.cardT}>
-                                        Mujeres zapatistas de la revolución mexicana
-                    </Typography>
-                                    <Typography color='textSecondary' className={classes.cardInfo}>
-                                        Mujeres zapatistas de la revolución mexicana
-                                        Barro modelado, moldeado
-                                        y policromado en frío.
-                    </Typography>
-                                    <Typography className={classes.cardInfo}>Ocumicho, Charapan
-                    Michoacán</Typography>
-                                    <Typography className={classes.cardInfo}>Zenaida Rafael Julián</Typography>
-                                </Typography>
-                                <div className={styles.iconsWraper}>
-                                    <div className={styles.startWrapper}>
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                    </div>
-                                    <Typography variant='subtitle2' >5.0</Typography>
-                                </div>
-                            </CardContent>
-
-                            <CardActions disableSpacing>
-                                {/* <h4 className={styles.price}>$5000</h4> */}
-                                <Box ml={1}>
-                                    <Typography variant='h5' >$5960</Typography>
+            <AutoPlaySwipeableViews
+                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+            >
+                {tutorialSteps.map((step, index) => (
+                    <div key={step.label}>
+                        <Grid>
+                            <Card className={styles.root}>
+                                <Box mt={3} mb={3} ml={1}>
+                                    <Typography className={classes.category}>Mujeres <br>
+                                    </br>Artesanas</Typography>
                                 </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                    </Tabs>
-                                </Paper>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </div>
-            </div>
+                                <CardMedia
+                                    className={styles.media}
+                                    image={step.imgPath}
+                                />
+                                <CardContent>
+                                    <Typography variant="body2" component="p">
+                                        {step.label}
+                                        <Typography color='textSecondary' className={classes.cardInfo}>
+                                            {step.description}
+                                        </Typography>
+                                        <Typography
+                                            className={classes.cardInfo}>{step.location}
+                                        </Typography>
 
-            <div>
-                <div className={styles.root}>
-
-                    <Grid>
-                        <Card className={styles.root}>
-                            <Box mt={3} mb={3} ml={1}>
-                                <Typography className={classes.category}
-                                >Mujeres <br></br>Artesanas</Typography>
-                            </Box>
-                            <CardMedia
-                                className={styles.media}
-                                image={artwoman}
-                            />
-                            <CardContent>
-                                <Typography variant="body2" component="p">
-                                    <Typography className={classes.cardT}>
-                                        Pavos.
-                    </Typography>
-                                    <Typography color='textSecondary' className={classes.cardInfo}>
-                                        Fibras vegetales en tejido circular.
-                    </Typography>
-                                    <Typography className={classes.cardInfo}>Kopchen,Felipe Carrillo Puerto Quintana Roo</Typography>
-                                    <Typography className={classes.cardInfo}>Rosalinda Cauich Ramírez</Typography>
-                                </Typography>
-                                <div className={styles.iconsWraper}>
-                                    <div className={styles.startWrapper}>
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
+                                        <Typography className={classes.cardInfo}>{step.author}</Typography>
+                                    </Typography>
+                                    <div className={styles.iconsWraper}>
+                                        <div className={styles.startWrapper}>
+                                            <StarRateIcon style={{ color: 'yellow' }} />
+                                            <StarRateIcon style={{ color: 'yellow' }} />
+                                            <StarRateIcon style={{ color: 'yellow' }} />
+                                            <StarRateIcon style={{ color: 'yellow' }} />
+                                            <StarRateIcon style={{ color: 'yellow' }} />
+                                        </div>
+                                        <Typography variant='subtitle2' >5.0</Typography>
                                     </div>
-                                    <Typography variant='subtitle2' >5.0</Typography>
-                                </div>
-                            </CardContent>
+                                </CardContent>
 
-                            <CardActions disableSpacing>
-                                {/* <h4 className={styles.price}>$5000</h4> */}
-                                <Box ml={1}>
-                                    <Typography variant='h5' >4700</Typography>
-                                </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                    </Tabs>
-                                </Paper>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </div>
-            </div>
+                                <CardActions disableSpacing>
+                                    <Box ml={1}>
+                                        <Typography variant='h5' >$5960</Typography>
+                                    </Box>
+                                    <Paper square className={styles.root}>
+                                        <Tabs
+                                            value={value}
+                                            onChange={handleChange}
+                                            variant="fullWidth"
+                                            indicatorColor="secondary"
+                                            textColor="secondary"
+                                            aria-label="icon label tabs example"
+                                        >
+                                            <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
+                                            <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
+                                        </Tabs>
+                                    </Paper>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    </div>
+                ))}
+            </AutoPlaySwipeableViews>
+            <MobileStepper
+                variant="dots"
+                steps={6}
+                position="static"
+                activeStep={activeStep}
+                className={classes.root}
 
-            <div>
-                <div className={styles.root}>
-
-                    <Grid>
-                        <Card className={styles.root}>
-                            <Box mt={3} mb={3} ml={1}>
-                                <Typography className={classes.category}
-                                >Mujeres <br></br>Artesanas</Typography>
-                            </Box>
-                            <CardMedia
-                                className={styles.media}
-                                image={artwoman}
-                            />
-                            <CardContent>
-                                <Typography variant="body2" component="p">
-                                    <Typography className={classes.cardT}>
-                                        Rebozos.
-                    </Typography>
-                                    <Typography color='textSecondary' className={classes.cardInfo}>
-                                        Hilos de sede,t eñidos con técnica de reserva (ikat) y tejidos en ligamentos de car de urdimbre en telar de cintura.
-                    </Typography>
-                                    <Typography className={classes.cardInfo}>Santa María del Río, San Luis Potosí.</Typography>
-                                    <Typography className={classes.cardInfo}>Luisa Govea Cruz</Typography>
-                                </Typography>
-                                <div className={styles.iconsWraper}>
-                                    <div className={styles.startWrapper}>
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                    </div>
-                                    <Typography variant='subtitle2' >5.0</Typography>
-                                </div>
-                            </CardContent>
-
-                            <CardActions disableSpacing>
-                                {/* <h4 className={styles.price}>$5000</h4> */}
-                                <Box ml={1}>
-                                    <Typography variant='h5' >$5960</Typography>
-                                </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                    </Tabs>
-                                </Paper>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </div>
-            </div>
-
-            <div>
-                <div className={styles.root}>
-
-                    <Grid>
-                        <Card className={styles.root}>
-                            <Box mt={3} mb={3} ml={1}>
-                                <Typography className={classes.category}
-                                >Mujeres <br></br>Artesanas</Typography>
-                            </Box>
-                            <CardMedia
-                                className={styles.media}
-                                image={artwoman}
-                            />
-                            <CardContent>
-                                <Typography variant="body2" component="p">
-                                    <Typography className={classes.cardT}>
-                                        Virgen de la Soledad
-                    </Typography>
-                                    <Typography color='textSecondary' className={classes.cardInfo}>
-                                        Barro Modelado, moldeado,alisado,policromado con tierras.
-                    </Typography>
-                                    <Typography className={classes.cardInfo}>Santa María Atzompa, Oaxac</Typography>
-                                    <Typography className={classes.cardInfo}>Enedina Vázquez cruz"</Typography>
-                                </Typography>
-                                <div className={styles.iconsWraper}>
-                                    <div className={styles.startWrapper}>
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                    </div>
-                                    <Typography variant='subtitle2' >5.0</Typography>
-                                </div>
-                            </CardContent>
-
-                            <CardActions disableSpacing>
-                                {/* <h4 className={styles.price}>$5000</h4> */}
-                                <Box ml={1}>
-                                    <Typography variant='h5' >$5960</Typography>
-                                </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                    </Tabs>
-                                </Paper>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </div>
-            </div>
-
-        </Slider >
+            />
+        </div >
 
     );
 }
 
-
-
-
+export default SliderPoc;
