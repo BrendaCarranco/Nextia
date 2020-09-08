@@ -1,11 +1,14 @@
 .root {
       max-Width: 640;
      flex-grow: 1;
+
+    
 }
 
 .media {
         height: 0;
         padding-top: 56.25%;
+        
     }
     
 .bagIcon{
@@ -22,11 +25,18 @@
     font-size: 1.2em;
 }
 
+
 h4.price{
     font-size: 1.6em;
     margin: 7px;
     font-weight: 400;
 }
+
+.MuiMobileStepper-dots {
+    margin: 0 auto;
+    text-align: center;
+}
+
 @media only screen and (min-width: 1280px){
 
     .cardsContainer {

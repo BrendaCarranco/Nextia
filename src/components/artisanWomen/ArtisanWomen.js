@@ -22,33 +22,6 @@ import Box from '@material-ui/core/Box';
 
 import artwoman from '../../assets/images/artisanWomen.jpg';
 
-// const useStyles = makeStyles((theme) => ({
-//     avatar: {
-//         backgroundColor: red[500],
-//     },
-//     category: {
-//         fontFamily: 'Roboto',
-//         fontStyle: 'normal',
-//         fontWeight: 'bold',
-//         fontSize: 34,
-//         lineHeight: 1,
-//         letterSpacing: 3
-//     },
-//     cardT: {
-//         fontWeight: 600,
-//         fontSize: 20,
-//         letterSpacing: 1
-//     },
-//     yellow: {
-//         color: yellow
-//     },
-//     cardInfo: {
-//         fontSize: 15
-//     }
-// }));
-
-// export default function RecipeReviewCard() {
-
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
