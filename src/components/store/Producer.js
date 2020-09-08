@@ -39,19 +39,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Barro = () => {
+const Producer = () => {
 
     const classes = useStyles();
 
-    const { artId } = useContext(UserContext);
+    const { productId } = useContext(UserContext);
 
     const [value, setValue] = React.useState(0);
-    const [barro, setBarro] = useState([]);
+    const [productType, setProductType] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollection = await firebase.firestore().collection('productos').where('category', '==', artId).get();
-            setBarro(productsCollection.docs.map(doc => {
+            const productsCollection = await firebase.firestore().collection('productos').where('category', '==', productId).get();
+            setProductType(productsCollection.docs.map(doc => {
                 return doc.data();
             }));
         };
@@ -62,16 +62,15 @@ const Barro = () => {
         setValue(newValue);
     };
 
-    console.log(barro, 'barro');
+    console.log(productType, 'array product');
 
     return (
         <div>
             <NavbarUser />
             <Grid >
                 {
-                    barro.map(product => (
+                    productType.map(product => (
                         <div>
-
                             <Card style={{ marginTop: '40px', marginBottom: '20px' }}>
                                 <Box
                                     display="flex"
@@ -130,8 +129,9 @@ const Barro = () => {
                 }
             </Grid>
 
+            Productores
         </div>
     );
 };
 
-export default Barro;
+export default Producer;

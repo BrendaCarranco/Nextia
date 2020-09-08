@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
@@ -7,6 +7,7 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import yellow from '@material-ui/core/colors/yellow';
+import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
     category: {
@@ -37,28 +38,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
-
 const Store = () => {
 
     const classes = useStyles();
 
+    const { setBuyItem } = useContext(UserContext);
     const [value, setValue] = React.useState(0);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollection = await firebase.firestore().collection('products').get();
-            setProducts(productsCollection.docs.map(doc => {
-                return doc.data();
-            }));
+            const productsCollection = await firebase.firestore().collection('productos').get();
+            const arrayData = productsCollection.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setProducts(arrayData);
         };
         fetchProducts();
     }, []);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleSelectCard = (product) => {
+        console.log('click a la card', product);
+        setBuyItem(product);
     };
 
     console.log(products);
@@ -70,8 +73,7 @@ const Store = () => {
                 {
                     products.map(product => (
                         <div>
-
-                            <Card style={{ marginTop: '40px', marginBottom: '20px' }}>
+                            <Card style={{ marginTop: '40px', marginBottom: '20px' }} onClick={() => handleSelectCard(product)} >
                                 <Box
                                     display="flex"
                                     alignItems="center"
@@ -79,18 +81,12 @@ const Store = () => {
                                     mt={1}>
                                     <img className={classes.media} src={product.image} /* style={{ msTransform: 1.5, WebkitTransform: 1.5}} */ /></Box>
                                 <CardContent>
-
-
-
-
                                     <Typography className={classes.cardT}>
                                         {product.title}
                                     </Typography>
-
                                     <Typography color='textSecondary' className={classes.cardInfo}>
                                         {product.description}
                                     </Typography>
-
                                     <Typography className={classes.cardInfo}>{product.location}</Typography>
                                     <Typography className={classes.cardInfoAuth} >{product.author}</Typography>
                                     <div>
@@ -123,7 +119,6 @@ const Store = () => {
                                     </CardActions>
                                 </CardContent>
                             </Card>
-
                         </div>
                     ))
                 }

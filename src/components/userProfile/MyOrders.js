@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
+import { firebase } from '../../firebase';
 import { Typography, Box, Grid, Avatar, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import { UserContext } from '../../context/UserProvider';
+
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -31,10 +35,23 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-
 const MyOrders = () => {
 
+    const { globalUser, setGlobalUser } = useContext(UserContext);
     const classes = useStyles();
+    const [orders, setOrders] = useState([]);
+    const [email, setEmail] = useState(globalUser.email);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            const orderCollection = await firebase.firestore().collection('ordenes').where('customer', '==', globalUser.email).get();
+            const arrayData = orderCollection.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setOrders(arrayData);
+        };
+        fetchUserData();
+    }, []);
+
+    console.log(orders, 'ordenes');
 
     return (
         <div>

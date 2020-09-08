@@ -1,4 +1,4 @@
-import React, { useContext, useState, Fragment } from 'react';
+import React, { useContext, useState, Fragment, useEffect } from 'react';
 import { firebase } from '../../firebase';
 
 import Typography from '@material-ui/core/Typography';
@@ -58,8 +58,9 @@ const MyData = () => {
     const [editName, setEditName] = useState(false);
     const [editAdress, setEditAdress] = useState(false);
     const [editEmail, setEditEmail] = useState(false);
+    const [userData, setUserData] = useState([]);
 
-    const [name, setName] = useState('');;
+    const [name, setName] = useState(userData.displayName);
 
     const handleEditName = async (e) => {
         //setEditName(false);
@@ -68,17 +69,27 @@ const MyData = () => {
             await db.collection('usuarios').doc(globalUser.email).update({
                 displayName: name
             });
-
             setGlobalUser({
                 ...globalUser, displayName: name
             });
-
+            //setName(e.target.value);
         } catch (err) {
             console.log(err);
         }
         setEditName(false);
-
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const db = firebase.firestore();
+            const res = await db.collection('usuarios').where('email', '==', globalUser.email).get();
+            const data = await res.docs.map(doc => doc.data());
+            setUserData(data[0]);
+        };
+        fetchData();
+    }, []);
+
+    console.log(userData);
 
     return (
         <div>
@@ -121,7 +132,7 @@ const MyData = () => {
                             <TextField
                                 id="filled-password-input"
                                 label='Nombre'
-                                placeholder={globalUser.displayName}
+                                placeholder={userData.displayName}
                                 type="text"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
@@ -133,7 +144,7 @@ const MyData = () => {
 
                 ) : (
                         <Typography align='left' variant='h4' className={classes.title} >
-                            {globalUser.displayName}
+                            {userData.displayName}
                         </Typography>
                     )
             }
@@ -172,7 +183,7 @@ const MyData = () => {
 
                 ) : (
                         <Typography align='left' variant='h4' className={classes.title} >
-                            {globalUser.email}
+                            {globalUser.email} - {name}
                         </Typography>
                     )
             }
