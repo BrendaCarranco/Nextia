@@ -15,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 import artwoman from '../../assets/images/artisanWomen.jpg';
-import { Grid } from '@material-ui/core';
+import { Grid, ButtonGroup } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         fontSize: 14,
-        marginTop: 12,
+        marginTop: 5,
         marginBottom: 12,
         opacity: 0.65
     }
@@ -57,8 +57,8 @@ export default function RecipeReviewCard() {
     };
 
     return (
-        <Grid>
-            <Card className={styles.root}>
+        <>
+            <Card >
                 <CardMedia
                     className={styles.media}
                     image={artwoman}
@@ -85,39 +85,34 @@ export default function RecipeReviewCard() {
                         <Typography variant='subtitle2' >5.0</Typography>
                     </div>
                 </CardContent>
-                <Grid container
-                    direction="column"
-                >
-                <CardActions disableSpacing>
-                    <Grid item sx={12}>
+                
+                <CardActions disableSpacing className={styles.cardAction}>
+                    <Box>
                     <Typography variant='h5' >$5960</Typography>
-                    </Grid>
-                        
-                    <Grid item sx={12}> 
-                    <Button
-                        color="secondary"
-                        variant="outlined" 
-                        size='medium'>
+                    </Box>
+
+                    <Box className={styles.btnGroup}>                     
+                    <Button variant="outlined" color="secondary" size='small'>
                         -
                     </Button>
-                    <Typography>Cantidad</Typography>
-                    <Button
-                        color="secondary"
-                        variant="outlined" 
-                        size='small'>
+                    <Box className={styles.cantidad}>
+                    <Typography variant='h6' > 1 </Typography>
+                    </Box>
+                    <Button variant="outlined" color="secondary" size='small'>
                         +
                     </Button>
-                    </Grid>
-                    <Grid item sx={12}> 
+                    </Box> 
+                    
+                    <Box className={styles.btnPay}>
                     <Button
                         color="secondary"
                         variant="contained"
                         size='large'>
                         COMPRAR
                     </Button>
-                    </Grid> 
+                    </Box>
                 </CardActions>
-                </Grid>
+              
                 <CardContent>
                     <Typography className={classes.title} >
                         DESCRIPCIÓN
@@ -142,6 +137,6 @@ export default function RecipeReviewCard() {
                     
                 </CardContent>
             </Card>
-        </Grid>
+        </>
     );
 }

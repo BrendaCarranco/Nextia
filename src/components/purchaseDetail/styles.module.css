@@ -1,6 +1,6 @@
 .root {
-    max-Width: 640;
-   flex-grow: 1;
+  max-Width: 640;
+  flex-grow: 1;
 }
 
 .media {
@@ -27,6 +27,29 @@ h4.price{
   margin: 7px;
   font-weight: 400;
 }
+
+.cardAction{
+  display: flex;
+  flex-direction: column;
+}
+
+.btnGroup{
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+  margin-bottom: 18px;
+
+}
+
+.btnPay{
+  margin: 15px 0px 15px 0px;
+}
+
+.cantidad{
+  margin: 10px;
+}
+
+
 
 @media only screen and (min-width: 1280px){
 
