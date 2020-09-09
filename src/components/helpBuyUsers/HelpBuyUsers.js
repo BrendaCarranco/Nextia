@@ -51,6 +51,58 @@ export default function RecipeReviewCard() {
         <div>
 
             <Card className={styles.root}>
+
+                <CardMedia
+                    className={styles.media}
+                    image="assets/user-question-5-1.jpg"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <h3>¿Cómo son las experiencias virtuales?</h3>
+
+                        <p></p>
+
+                    </Typography>
+
+                </CardContent>
+            </Card>
+
+            <Card className={styles.root}>
+
+                <CardMedia
+                    className={styles.media}
+                    image="assets/user-question-4.svg"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <h3>¿Cómo contratar experiencias presenciales?</h3>
+
+                        <p></p>
+
+                    </Typography>
+
+                </CardContent>
+            </Card>
+
+
+            <Card className={styles.root}>
+
+                <CardMedia
+                    className={styles.media}
+                    image="assets/question-codi-people.svg"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <h3>¿Cómo pagar con CoDi?</h3>
+
+                        <p></p>
+
+                    </Typography>
+
+                </CardContent>
+            </Card>
+
+            <Card className={styles.root}>
                 <CardHeader
                     title="Información de apoyo para el uso de la plataforma"
                 />
@@ -92,58 +144,6 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>¿Cuándo y cómo recibiré mi pedido?</h3>
-
-                        <p></p>
-
-                    </Typography>
-
-                </CardContent>
-            </Card>
-
-            <Card className={styles.root}>
-
-                <CardMedia
-                    className={styles.media}
-                    image="assets/user-question-4.svg"
-                />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo contratar experiencias presenciales?</h3>
-
-                        <p></p>
-
-                    </Typography>
-
-                </CardContent>
-            </Card>
-
-
-            <Card className={styles.root}>
-
-                <CardMedia
-                    className={styles.media}
-                    image="assets/user-question-5-1.jpg"
-                />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo son las experiencias virtuales?</h3>
-
-                        <p></p>
-
-                    </Typography>
-
-                </CardContent>
-            </Card>
-
-            <Card className={styles.root}>
-
-                <CardMedia
-                    className={styles.media}
-                    image="assets/question-codi-people.svg"
-                />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo pagar con CoDi?</h3>
 
                         <p></p>
 
