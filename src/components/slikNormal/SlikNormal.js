@@ -19,6 +19,7 @@ import NationalCooperatives from './../nationalCooperatives/NationalCooperatives
 import NextiaDescription from './../nextiaDescriptión/NextiaDescription';
 import TrendingProducts from './../trendingProducts/TrendingProducts';
 import SocialNetwork from './../socialNetwork/SocialNetwork';
+import Help from './../help/Help';
 
 
 
@@ -163,6 +164,7 @@ function SliderPoc() {
             {/* <TrendingProducts /> */}
             <SocialNetwork />
             <Footer />
+            <Help />
         </div >
 
     );
