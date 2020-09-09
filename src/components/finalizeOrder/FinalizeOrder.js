@@ -88,6 +88,12 @@ const FinalizeOrder = () => {
                 <Typography>
                     Subtotal
                 </Typography>
+                <Typography>
+                    Envío
+                </Typography>
+                <Typography>
+                    Total
+                </Typography>
             </Box> 
             </div>
         </div>
