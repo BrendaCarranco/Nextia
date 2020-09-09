@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import partner from '../../assets/images/partner1.png';
 import { Box, Badge, Avatar } from '@material-ui/core';
@@ -7,6 +7,10 @@ import Icon from '@material-ui/core/Icon';
 import CreateIcon from '@material-ui/icons/Create';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+
+import PaymentPayPal from '../payment/PaymentPayPal';
+import codigo from '../../assets/images/codigo.png';
+import credit from '../../assets/images/creditCard.png';
 import Download from '../../assets/images/Download.png';
 import Folder from '../../assets/images/Folder.png';
 import Card from '../../assets/images/Card.png';
@@ -48,6 +52,22 @@ const FinalizeOrder = () => {
     const classes = useStyles();
 
     const { buyItem } = useContext(UserContext);
+
+    const [vista, setVista] = useState({ checked: true });
+    const [vistaCodi, setVistaCodi] = useState({ checked: true });
+    const [vistaCard, setVistaCard] = useState({ checked: true });
+
+    const handleChange = (checked) => {
+        setVista(checked);
+    };
+
+    const handleChangeCodi = (checked) => {
+        setVistaCodi(checked);
+    };
+
+    const handleChangeCard = (checked) => {
+        setVistaCard(checked);
+    };
 
 
     return (
@@ -153,8 +173,24 @@ const FinalizeOrder = () => {
                             Solicitar Pago con CoDi
             </Typography>
                     </Box>
-                    <img src={Download} alt="IconDownload" className={styles.iconDow} />
+                    {/* <PopoverPopupState /> */}
+                    <Button variant="contained" color="primary" onClick={() => handleChangeCodi(!vistaCodi)}>
+                        <img src={Download} alt="IconDownload" className={styles.iconDow} />
+                    </Button>
                 </Grid>
+                <Grid container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    {!vistaCodi ?
+                        (<Box>
+                            <img src={codigo} alt="IconDownload" className={styles.codi} />
+                        </Box>)
+                        : null}
+                </Grid>
+
+
                 <Grid container
                     direction="row"
                     justify="space-between"
@@ -165,7 +201,19 @@ const FinalizeOrder = () => {
                             Pagar con Paypal
             </Typography>
                     </Box>
-                    <img src={Folder} alt="IconDownload" className={styles.iconFolder} />
+                    <Button variant="contained" color="primary" onClick={() => handleChange(!vista)}>
+                        <img src={Folder} alt="IconDownload" className={styles.iconFolder} />
+                    </Button>
+                    <Grid container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Box className={styles.boxPaypal}>
+                            {!vista ? (<PaymentPayPal amount={buyItem.total} />) : null}
+                        </Box>
+                    </Grid>
+
                 </Grid>
                 <Grid container
                     direction="row"
@@ -177,7 +225,21 @@ const FinalizeOrder = () => {
                             Pagar con Tarjeta
             </Typography>
                     </Box>
-                    <img src={Card} alt="IconDownload" className={styles.iconCard} />
+                    <Button variant="contained" color="primary" onClick={() => handleChangeCard(!vistaCard)}>
+                        <img src={Card} alt="IconDownload" className={styles.iconCard} />
+                    </Button>
+                </Grid>
+
+                <Grid container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    {!vistaCard ?
+                        (<Box>
+                            <img src={credit} alt="IconDownload" className={styles.creditCard} />
+                        </Box>)
+                        : (null)}
                 </Grid>
             </div>
 

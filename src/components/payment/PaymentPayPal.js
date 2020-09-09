@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { PayPalButton } from "react-paypal-button-v2";
+import { saveTransaction } from './saveTransaction';
 
-const PaymentPayPal = () => {
+const PaymentPayPal = ({ amount, history }) => {
+
+    const [mount, setMount] = useState(amount + 150);
+
     return (
-        <div>
-            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_s-xclick" />
-                <input type="hidden" name="hosted_button_id" value="33MPK8CYVN9W4" />
-                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea."/>
-                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1"/>
-            </form>
-        </div>
-    )
-}
+        <>
+            <PayPalButton
+                onClick={() => console.log(amount + 150)}
+                amount={mount}
+                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                    alert("Detail" + JSON.stringify(details));
+                    alert("Data" + JSON.stringify(data));
 
-export default PaymentPayPal
+                    let { create_time, id, payer, status } = details;
+
+                    history.push('/');
+
+                    /* setTimeout(() => diAlgo("pasaron 10 segundos"), 10000); */
+                    return saveTransaction({ create_time, payer, id, status });
+                }}
+                catchError={(err) => {
+                    alert("No se pudo procesar" + JSON.stringify(err));
+                }}
+                options={{
+                    clientId: "AcpMgoACrTbDEc820QeH1XHBqeM8DJ91LQJvIc7SiXjNCcZX6P3omHSGRp0dYaL-4gBL0xDjvZ4_7Gm-",
+                    currency: "MXN"
+                }}
+            />
+        </>
+    );
+};
+
+export default withRouter(PaymentPayPal);
