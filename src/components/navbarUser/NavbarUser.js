@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { firebase } from '../../firebase';
 import { NavLink } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -21,12 +22,16 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
+import Box from '@material-ui/core/Box';
+import InputBase from '@material-ui/core/InputBase';
+import TextField from '@material-ui/core/TextField';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LocalAtmSharpIcon from '@material-ui/icons/LocalAtmSharp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 import { UserContext } from '../../context/UserProvider';
+import logo from '../../assets/images/menuNextia.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -95,6 +100,7 @@ export default function SearchAppBar() {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(false);
     const anchorRef = React.useRef(null);
 
     const handleToggle = () => {
@@ -132,13 +138,9 @@ export default function SearchAppBar() {
         prevOpen.current = open;
     }, [open]);
 
-    const [expanded, setExpanded] = React.useState(false);
 
-    const { globalUser, setProductId } = useContext(UserContext);
-
+    const { globalUser, setArtId, setProductId } = useContext(UserContext);
     const [user, setUser] = useState(globalUser.role);
-    console.log(user);
-
 
     const handleLogout = () => {
         firebase.auth().signOut();
@@ -146,8 +148,13 @@ export default function SearchAppBar() {
 
     const handleId = (e) => {
         console.log(e.target.id, 'este es ID');
-        setProductId(e.target.id);
+        setArtId(e.target.id);
         //handleClose(e);
+    };
+
+    const handleProduct = (e) => {
+        console.log(e.target.id, 'id producto');
+        setProductId(e.target.id);
     };
 
     return (
@@ -166,7 +173,7 @@ export default function SearchAppBar() {
                     >
                         <MenuIcon style={{ color: 'white' }} />
                     </IconButton>
-                    <Typography variant="h6" style={{ color: 'white' }}>
+                    <Typography variant="h6" style={{ color: 'white' }} >
                         Nextia
                     </Typography>
                     <Grid
@@ -182,8 +189,6 @@ export default function SearchAppBar() {
                             <MoreIcon />
                         </IconButton>
                     </Grid>
-
-
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
                             <Grow
@@ -192,7 +197,9 @@ export default function SearchAppBar() {
                             >
                                 <Paper>
                                     <Grid item xs={12} justify="center" container direction="row">
-                                        <img src="assets/nextia-icon.png" alt="logo" />
+                                        <Box mt={2} ml={3} mr={3}>
+                                            <img src={logo} alt="logo" />
+                                        </Box>
                                     </Grid>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
@@ -216,10 +223,11 @@ export default function SearchAppBar() {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                <MenuItem onClick={handleClose}>Cacao</MenuItem>
-                                                <MenuItem onClick={handleClose}>Café</MenuItem>
-                                                <MenuItem onClick={handleClose}>Madera</MenuItem>
-                                                <MenuItem onClick={handleClose}>Miel</MenuItem>
+
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Chocolate</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='café' style={{ textDecoration: 'none' }} to='/producer' >Café</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='madera' style={{ textDecoration: 'none' }} to='/producer' >Madera</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='miel' style={{ textDecoration: 'none' }} to='/producer' >Miel</NavLink></MenuItem>
                                                 <MenuItem onClick={handleClose}>Otros productos</MenuItem>
                                             </MenuList>
                                         </AccordionDetails>

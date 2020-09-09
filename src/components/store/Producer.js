@@ -1,25 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
+
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
+import NavbarUser from '../navbarUser/NavbarUser';
 import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
 
 import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
-    category: {
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 34,
-        lineHeight: 1,
-        letterSpacing: 3
-    },
     cardT: {
         fontWeight: 600,
         fontSize: 16,
@@ -37,19 +30,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Store = (props) => {
+const Producer = props => {
 
     const classes = useStyles();
 
-    const { setBuyItem } = useContext(UserContext);
+    const { productId, setBuyItem } = useContext(UserContext);
+
     const [value, setValue] = React.useState(0);
-    const [products, setProducts] = useState([]);
+    const [productType, setProductType] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollection = await firebase.firestore().collection('productos').get();
-            const arrayData = productsCollection.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            setProducts(arrayData);
+            const productsCollection = await firebase.firestore().collection('productos').where('category', '==', productId).get();
+            setProductType(productsCollection.docs.map(doc => {
+                return doc.data();
+            }));
         };
         fetchProducts();
     }, []);
@@ -58,22 +53,21 @@ const Store = (props) => {
         setValue(newValue);
     };
 
-    const handleSelectCard = (product) => {
+    const handleSelectCard = product => {
         console.log('click a la card', product);
         setBuyItem(product);
         props.history.push('/purchase');
     };
 
-    console.log(products);
+    console.log(productType, 'array product');
 
     return (
         <div>
             <NavbarUser />
             <Grid >
                 <Box mt={2}>.</Box>
-
                 {
-                    products.map(product => (
+                    productType.map(product => (
                         <div>
                             <Card style={{ marginTop: '30px', marginBottom: '20px' }} onClick={() => handleSelectCard(product)} >
                                 <Box
@@ -129,4 +123,4 @@ const Store = (props) => {
     );
 };
 
-export default withRouter(Store);
+export default withRouter(Producer);

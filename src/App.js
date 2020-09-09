@@ -6,14 +6,16 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/login/Login';
 import Admin from './components/admin/Admin';
 import Profile from './components/userProfile/Profile';
-import PartnerProfile from './components/partnerProfile/PartnerProfileBren';
 import SlikNormal from './components/slikNormal/SlikNormal';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
 import Register from './components/login/Register';
 import Store from './components/store/Store';
-import Barro from './components/store/Barro';
+import Arts from './components/store/Arts';
+import Producer from './components/store/Producer';
+import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
+import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
 
 function App() {
 
@@ -47,16 +49,24 @@ function App() {
             <Store />
           </Route>
 
+          <Route path='/producer'>
+            <Producer />
+          </Route>
+
           <Route path='/art'>
-            <Barro />
+            <Arts />
+          </Route>
+
+          <Route path='/purchase'>
+            <PurchaseDetail />
+          </Route>
+
+          <Route path='/confirm'>
+            <ConfirmPurchase />
           </Route>
 
           <Route exact path='/'>
             <SlikNormal />
-          </Route>
-
-          <Route path='/partner'>
-            <PartnerProfile />
           </Route>
 
         </Switch>
