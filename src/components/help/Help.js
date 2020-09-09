@@ -169,6 +169,22 @@ export default function RecipeReviewCard() {
                 </CardContent>
             </Card>
 
+            <Card className={styles.root}>
+
+                <CardMedia
+                    className={styles.media}
+                    image="assets/obio-coffe.jpg"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <h3>Enviar un pedido</h3>
+
+                        <p></p>
+
+                    </Typography>
+
+                </CardContent>
+            </Card>
 
         </div>
 
