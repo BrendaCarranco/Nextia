@@ -20,7 +20,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 
-import artwoman from '../../assets/images/artisanWomen.jpg';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);

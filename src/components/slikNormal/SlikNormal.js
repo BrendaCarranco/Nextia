@@ -126,7 +126,7 @@ function SliderPoc() {
 
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>
-                                    <h3 className={styles.Artsofthemonth} >ARTESANO DEL MES</h3>
+                                    <h3 className={styles.Artsofthemonth}> {step.label}</h3>
                                     <h2 className={styles.historyTree}>{step.title}</h2>
                                     <p className={styles.historyOfPeople}>
                                         {step.histoy}
