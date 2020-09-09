@@ -20,7 +20,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-
+import PopoverPopupState from './../popoverPopupState/PopoverPopupState';
 import artwoman from '../../assets/images/artisanWomen.jpg';
 import wares from '../../assets/images/wares.jpg';
 import rebozos from '../../assets/images/rebozos.jpg';
@@ -150,6 +150,8 @@ function SliderPoc() {
         setActiveStep(step);
     };
 
+
+
     return (
         <div className={classes.root}>
             <Box mt={3} mb={3} ml={1}>
@@ -184,19 +186,16 @@ function SliderPoc() {
                                     </Typography>
                                     <div className={styles.iconsWraper}>
                                         <div className={styles.startWrapper}>
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
+
                                         </div>
-                                        <Typography variant='subtitle2' >5.0</Typography>
+
                                     </div>
                                 </CardContent>
 
                                 <CardActions disableSpacing>
                                     <Box ml={1}>
                                         <Typography variant='h5' >$5960</Typography>
+
                                     </Box>
                                     <Paper square className={styles.root}>
                                         <Tabs
@@ -209,6 +208,7 @@ function SliderPoc() {
                                         >
                                             <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
                                             <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
+                                            <PopoverPopupState />
                                         </Tabs>
                                     </Paper>
                                 </CardActions>
