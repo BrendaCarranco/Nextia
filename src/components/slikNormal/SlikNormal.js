@@ -15,12 +15,14 @@ import NextiaDescription from './../nextiaDescriptión/NextiaDescription';
 import TrendingProducts from './../trendingProducts/TrendingProducts';
 import SocialNetwork from './../socialNetwork/SocialNetwork';
 import Footer from './../footer/Footer';
-import PurchaseDetail from '../purchaseDetail/PurchaseDetail'
 
 import artesano1 from '../../assets/images/artesano-1.png';
 import obio from '../../assets/images/obio-production.jpg';
 import artesano3 from '../../assets/images/artesano-3.jpg';
 import artesano2 from '../../assets/images/artesano-2.jpg';
+import FinalizeOrder from "../finalizeOrder/FinalizeOrder";
+import PaymentPayPal from "../payment/PaymentPayPal";
+
 
 
 
@@ -182,7 +184,8 @@ export default class SimpleSlider extends Component {
                     <TrendingProducts />
                     <SocialNetwork />
                     <Footer />
-                    <PurchaseDetail />
+                    <FinalizeOrder />
+                    <PaymentPayPal />
                 </div >
             </div>
 

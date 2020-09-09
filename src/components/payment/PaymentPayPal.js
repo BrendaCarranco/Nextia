@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { PayPalButton } from "react-paypal-button-v2";
+import { saveTransaction } from '../search/getProduct';
 
 const PaymentPayPal = () => {
 
@@ -17,13 +18,10 @@ const PaymentPayPal = () => {
                 onSuccess={(details, data) => {
                     alert("Detail" + JSON.stringify(details));
                     alert("Data" + JSON.stringify(data));
-                    // OPTIONAL: Call your server to save the transaction
-                /*  return fetch("/paypal-transaction-complete", {
-                        method: "post",
-                        body: JSON.stringify({
-                        orderID: data.orderID
-                        })
-                    }); */
+                    
+                    let { create_time, id, payer,status } = details
+                            
+                    return saveTransaction({create_time,payer,id,status})                     
                 }}
                 catchError = { (err) => {
                     alert("No se pudo procesar" + JSON.stringify(err));

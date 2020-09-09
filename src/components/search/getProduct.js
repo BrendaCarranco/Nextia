@@ -15,7 +15,16 @@ export const getProducts= async(category) => {
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+}
 
+export const saveTransaction= (transaction) => {
+    db.collection("transaction").add(transaction)
+    .then(function(docRef) {
+        return docRef.id
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
 }
 
 
