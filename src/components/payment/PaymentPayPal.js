@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { PayPalButton } from "react-paypal-button-v2";
-import { saveTransaction } from '../search/getProduct';
+import { saveTransaction } from './saveTransaction';
 
 const PaymentPayPal = () => {
 
@@ -20,7 +20,8 @@ const PaymentPayPal = () => {
                     alert("Data" + JSON.stringify(data));
                     
                     let { create_time, id, payer,status } = details
-                            
+                    
+                    /* setTimeout(() => diAlgo("pasaron 10 segundos"), 10000); */
                     return saveTransaction({create_time,payer,id,status})                     
                 }}
                 catchError = { (err) => {

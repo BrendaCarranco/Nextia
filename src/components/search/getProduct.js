@@ -17,7 +17,7 @@ export const getProducts= async(category) => {
     });
 }
 
-export const saveTransaction= (transaction) => {
+/* export const saveTransaction= (transaction) => {
     db.collection("transaction").add(transaction)
     .then(function(docRef) {
         return docRef.id
@@ -25,7 +25,7 @@ export const saveTransaction= (transaction) => {
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
-}
+} */
 
 
 
