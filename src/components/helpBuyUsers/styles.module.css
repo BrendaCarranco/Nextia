@@ -1,0 +1,30 @@
+.root {
+      max-Width: 640;
+     flex-grow: 1;
+     margin-bottom: 15px;
+}
+
+.media {
+        height: 0;
+        padding-top: 56.25%;
+    }
+    
+.bagIcon{
+    color:#d6a868;
+}
+
+.startWrapper{
+    display:flex;
+}
+
+.iconsWraper{
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+h4.price{
+    font-size: 1.6em;
+    margin: 7px;
+    font-weight: 400;
+}
