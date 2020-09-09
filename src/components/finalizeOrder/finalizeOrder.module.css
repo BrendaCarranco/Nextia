@@ -1,0 +1,55 @@
+.btnFinalize{
+    margin: 20px;
+}
+
+.resumenPedido{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.avatar{
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+}
+
+.resumenProduct{
+    margin: 20px 0px 20px 10px;
+    font-size: 13px;
+}
+
+.price{
+    display: flex;
+    justify-content: end;
+    margin: 10px 0px 20px 20px;
+}
+
+.contact{
+    margin: 10px 0px 20px 20px;
+}
+
+.terminos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.iconDow{
+    width: 30px;
+    height: 30px;
+
+}
+.iconCard{
+    width: 30px;
+    height: 30px;
+}
+.iconFolder{
+    width: 25px;
+    height: 25px;
+}
+
+.boxPay{
+    height: 100%;
+    max-height: 48px !important;
+    margin: 20px;
+}
