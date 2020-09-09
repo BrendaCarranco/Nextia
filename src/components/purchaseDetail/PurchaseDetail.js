@@ -15,6 +15,7 @@ import { Grid, ButtonGroup } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 import NavbarUser from '../navbarUser/NavbarUser';
+import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
 import { UserContext } from '../../context/UserProvider';
 
 
@@ -135,6 +136,15 @@ export default function RecipeReviewCard() {
                     <Typography color='textSecondary' className={classes.cardInfo}>
                         Región: Península de Yucatán
                     </Typography>
+                    <Grid container
+                        direction="row"
+                        justify="flex-end"
+                        alignItems="center"
+                    >
+                        <Box>
+                            <PopoverPopupState />
+                        </Box>
+                    </Grid>
                 </CardContent>
                 <CardActions disableSpacing>
                     <Paper square className={styles.root}>

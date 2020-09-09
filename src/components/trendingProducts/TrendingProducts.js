@@ -14,6 +14,8 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
+
 const useStyles = makeStyles((theme) => ({
 
     expand: {
@@ -95,6 +97,7 @@ export default function RecipeReviewCard() {
                     >
                         <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
                         <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
+                        <PopoverPopupState />
                     </Tabs>
                 </Paper>
             </CardActions>

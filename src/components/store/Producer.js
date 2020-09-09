@@ -8,6 +8,8 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import NavbarUser from '../navbarUser/NavbarUser';
+import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
+
 import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,22 +86,32 @@ const Producer = props => {
                                     <Typography className={classes.cardInfo}>{product.location}</Typography>
                                     <Typography className={classes.cardInfoAuth} >{product.author}</Typography>
                                     <CardActions disableSpacing>
-                                        <Box ml={1}>
-                                            <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${product.price}</Typography>
-                                        </Box>
-                                        <Paper square style={{ maxWidth: 640, flexGrow: 1 }}>
-                                            <Tabs
-                                                value={value}
-                                                onChange={handleChange}
-                                                variant="fullWidth"
-                                                indicatorColor="secondary"
-                                                textColor="secondary"
-                                                aria-label="icon label tabs example"
-                                            >
-                                                <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
-                                                <Tab icon={<FavoriteIcon fontSize="large" />} />
-                                            </Tabs>
-                                        </Paper>
+                                        <Grid
+                                            container
+                                            direction="column"
+                                            justify="flex-end"
+                                            alignItems="center"
+                                        >
+                                            <Box m={3}>
+                                                <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${product.price} MXN</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Paper square style={{ maxWidth: 640, flexGrow: 1 }}>
+                                                    <Tabs
+                                                        value={value}
+                                                        onChange={handleChange}
+                                                        variant="fullWidth"
+                                                        indicatorColor="secondary"
+                                                        textColor="secondary"
+                                                        aria-label="icon label tabs example"
+                                                    >
+                                                        <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
+                                                        <Tab icon={<FavoriteIcon fontSize="large" />} />
+                                                        <PopoverPopupState />
+                                                    </Tabs>
+                                                </Paper>
+                                            </Box>
+                                        </Grid>
                                     </CardActions>
                                 </CardContent>
                             </Card>
