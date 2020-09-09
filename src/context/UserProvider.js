@@ -66,6 +66,7 @@ const UserProvider = (props) => {
             }
         });
     };
+
     console.log(globalUser);
     return (
         <UserContext.Provider value={{ globalUser, setGlobalUser, productId, setProductId, setArtId, artId, buyItem, setBuyItem }} >
