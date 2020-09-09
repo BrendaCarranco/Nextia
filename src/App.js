@@ -12,8 +12,10 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themeConfig';
 import Register from './components/login/Register';
 import Store from './components/store/Store';
-import Barro from './components/store/Barro';
+import Arts from './components/store/Arts';
 import Producer from './components/store/Producer';
+import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
+import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
 
 function App() {
 
@@ -52,7 +54,15 @@ function App() {
           </Route>
 
           <Route path='/art'>
-            <Barro />
+            <Arts />
+          </Route>
+
+          <Route path='/purchase'>
+            <PurchaseDetail />
+          </Route>
+
+          <Route path='/confirm'>
+            <ConfirmPurchase />
           </Route>
 
           <Route exact path='/'>

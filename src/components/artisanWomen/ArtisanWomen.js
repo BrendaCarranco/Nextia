@@ -15,7 +15,6 @@ import CardActions from '@material-ui/core/CardActions';
 import styles from './styles.module.css';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Grid } from '@material-ui/core';
@@ -87,7 +86,7 @@ const tutorialSteps = [
     },
     {
         label: 'Hamaca',
-        imgPath: 'assets/hamaca.jpg',
+        imgPath: hamaca,
         description: 'Hilos de Sanseviera, (Lengua de vaca)hilados a mano,en color natural y teñidos con tistes naturales y urdidos en bastidor.',
         location: 'San Antonio Millet, Tixkokob Yucatán.',
         author: 'Juana de Arco Balderas Puch.',
@@ -179,21 +178,9 @@ function SliderPoc() {
                                         <Typography
                                             className={classes.cardInfo}>{step.location}
                                         </Typography>
-
                                         <Typography className={classes.cardInfo}>{step.author}</Typography>
                                     </Typography>
-                                    <div className={styles.iconsWraper}>
-                                        <div className={styles.startWrapper}>
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                        </div>
-                                        <Typography variant='subtitle2' >5.0</Typography>
-                                    </div>
                                 </CardContent>
-
                                 <CardActions disableSpacing>
                                     <Box ml={1}>
                                         <Typography variant='h5' >$5960</Typography>

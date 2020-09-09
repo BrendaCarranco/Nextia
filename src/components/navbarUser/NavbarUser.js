@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { firebase } from '../../firebase';
 import { NavLink } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -30,6 +31,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 import { UserContext } from '../../context/UserProvider';
+import logo from '../../assets/images/menuNextia.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -195,7 +197,9 @@ export default function SearchAppBar() {
                             >
                                 <Paper>
                                     <Grid item xs={12} justify="center" container direction="row">
-                                        <img src="assets/nextia-icon.png" alt="logo" />
+                                        <Box mt={2} ml={3} mr={3}>
+                                            <img src={logo} alt="logo" />
+                                        </Box>
                                     </Grid>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import yellow from '@material-ui/core/colors/yellow';
@@ -23,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 16,
         letterSpacing: 0.5
     },
-    yellow: {
-        color: yellow
-    },
     cardInfo: {
         fontSize: 14
     },
@@ -38,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Store = () => {
+const Store = (props) => {
 
     const classes = useStyles();
 
@@ -62,6 +59,7 @@ const Store = () => {
     const handleSelectCard = (product) => {
         console.log('click a la card', product);
         setBuyItem(product);
+        props.history.push('/purchase');
     };
 
     console.log(products);
@@ -70,10 +68,12 @@ const Store = () => {
         <div>
             <NavbarUser />
             <Grid >
+                <Box mt={2}>.</Box>
+
                 {
                     products.map(product => (
                         <div>
-                            <Card style={{ marginTop: '40px', marginBottom: '20px' }} onClick={() => handleSelectCard(product)} >
+                            <Card style={{ marginTop: '30px', marginBottom: '20px' }} onClick={() => handleSelectCard(product)} >
                                 <Box
                                     display="flex"
                                     alignItems="center"
@@ -89,16 +89,6 @@ const Store = () => {
                                     </Typography>
                                     <Typography className={classes.cardInfo}>{product.location}</Typography>
                                     <Typography className={classes.cardInfoAuth} >{product.author}</Typography>
-                                    <div>
-                                        <div >
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                            <StarRateIcon style={{ color: 'yellow' }} />
-                                        </div>
-                                        <Typography variant='subtitle2' >5.0</Typography>
-                                    </div>
                                     <CardActions disableSpacing>
                                         <Box ml={1}>
                                             <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${product.price}</Typography>
@@ -127,4 +117,4 @@ const Store = () => {
     );
 };
 
-export default Store;
+export default withRouter(Store);

@@ -36,7 +36,7 @@ const tutorialSteps = [
         label: 'PRODUCTO DEL MES',
         imgPath: 'assets/obio-production.jpg',
         location: 'Tabasco',
-        title: 'OBIO',
+        title: 'Distintivo OBIO',
         histoy: ' Los productos del programa OBIO respetan el balance de estos tres conceptos productivos y comerciales.Son productos generados por grupos comunitarios integrados en su mayoría en cooperativas, que respetan los ecosistemas, la biosfera y los recursos naturales de las zonas donde producen.',
     },
     {
@@ -51,7 +51,7 @@ const tutorialSteps = [
         label: 'PRODUCTORES',
         imgPath: 'assets/artesano-2.jpg',
         location: '',
-        title: 'OBIO',
+        title: 'Distintivo OBIO',
         concept: '-O- Orgánico, -BIO- Biológico,Vida,Diverso, Biosfera',
         histoy: 'El distintivo OBIO fue creado con el objetivo de apoyar productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan el ecosistema y los recursos naturales.',
     },
@@ -125,7 +125,7 @@ function SliderPoc() {
 
                             <Grid item xs={12} sm={7}>
                                 <Paper className={styles.paper}>
-                                    <h3 className={styles.Artsofthemonth} >ARTESANO DEL MES</h3>
+                                    <h3 className={styles.Artsofthemonth} >{step.label}</h3>
                                     <h2 className={styles.historyTree} >{step.title}</h2>
                                     <p className={styles.historyOfPeople}>
                                         {step.histoy}

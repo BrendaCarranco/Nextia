@@ -56,9 +56,29 @@ const MyOrders = () => {
     return (
         <div>
             <Typography className={classes.pad} style={{ backgroundColor: '#FAFAFA' }} >
-                En espera de pago
+                Pendientes
             </Typography>
-            <Grid container
+            {
+                orders.map(order => (
+
+                    <Grid container
+                        direction="row"
+                        justify="space-between"
+                        alignItems="center" >
+                        <Box p={1}>
+                            <Avatar className={classes.art} alt="artesania" src="https://www.eluniversal.com.mx/sites/default/files/2018/09/16/vq_artesanias_las_munecas_repres_3076299.jpg" />
+                        </Box>
+                        <Typography className={classes.info}>
+                            {order.author} - {order.date}
+                            <Typography className={classes.info} style={{ color: '#8E8E93' }}>
+                                1 artículo
+                </Typography>
+                        </Typography>
+                    </Grid>
+                ))
+            }
+
+            {/*            <Grid container
                 direction="row"
                 justify="space-between"
                 alignItems="center" >
@@ -73,6 +93,8 @@ const MyOrders = () => {
                     </Typography>
                 </Typography>
             </Grid>
+ */}
+
             <Box align='center'>
                 <Typography className={classes.info}>Archivados (2)</Typography>
             </Box>

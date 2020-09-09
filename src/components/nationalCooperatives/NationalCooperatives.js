@@ -1,14 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import yellow from '@material-ui/core/colors/yellow';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from './styles.module.css';
@@ -27,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
     },
     expandOpen: {
         transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-    yellow: {
-        color: yellow
     },
     category: {
         fontFamily: 'Roboto',
@@ -77,24 +68,12 @@ export default function RecipeReviewCard() {
                 <Typography className={classes.cardT}>
                     Altura especial
                     </Typography>
-
                 <Typography color='textSecondary' className={classes.cardInfo}>
                     Bolsa de 500 gr. Café orgánico con notas a chocolate y frutas secas.
                     De pequeños productores de la Reserva de la Biosfera del Triunfo.
                     </Typography>
-
                 <Typography className={classes.cardInfo}>Sierra Madre de Chiapas</Typography>
                 <Typography className={classes.cardInfo}>Café El Triunfo</Typography>
-                <div className={styles.iconsWraper}>
-                    <div className={styles.startWrapper}>
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                    </div>
-                    <Typography variant='subtitle2' >5.0</Typography>
-                </div>
             </CardContent>
 
             <CardActions disableSpacing>

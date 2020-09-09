@@ -3,7 +3,6 @@ import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import yellow from '@material-ui/core/colors/yellow';

@@ -7,7 +7,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from './styles.module.css';
@@ -80,16 +79,6 @@ export default function RecipeReviewCard() {
 
                 <Typography className={classes.cardInfo}>Sierra Madre de Chiapas</Typography>
                 <Typography className={classes.cardInfo}>Café El Triunfo</Typography>
-                <div className={styles.iconsWraper}>
-                    <div className={styles.startWrapper}>
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                        <StarRateIcon style={{ color: 'yellow' }} />
-                    </div>
-                    <Typography variant='subtitle2' >5.0</Typography>
-                </div>
             </CardContent>
             <CardActions disableSpacing>
                 <Box ml={1}>
