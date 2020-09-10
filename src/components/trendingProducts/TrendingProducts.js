@@ -126,6 +126,14 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         width: '100%',
     },
+    category: {
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 34,
+        lineHeight: 1,
+        letterSpacing: 3
+    },
 }));
 
 function SliderPoc() {
@@ -161,6 +169,11 @@ function SliderPoc() {
     return (
         <div className={classes.root}>
 
+            <Box mt={3} mb={3} ml={1}>
+                <Typography className={classes.category}
+                >Productos en<br></br>Tendencia</Typography>
+            </Box>
+
             <AutoPlaySwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
@@ -170,13 +183,7 @@ function SliderPoc() {
             >
                 {tutorialSteps.map((step, index) => (
                     <div key={step.label}>
-
-
                         <Card className={styles.root}>
-                            <Box mt={3} mb={3} ml={1}>
-                                <Typography className={classes.category}
-                                >Productos<br></br>en Tendencia</Typography>
-                            </Box>
                             <CardMedia
                                 className={styles.media}
                                 image={step.imgPath}
@@ -196,23 +203,32 @@ function SliderPoc() {
                             </CardContent>
 
                             <CardActions disableSpacing>
-                                <Box ml={1}>
-                                    <Typography variant='h5' >$376</Typography>
-                                </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" />} />
-                                        <PopoverPopupState />
-                                    </Tabs>
-                                </Paper>
+                                <Grid
+                                    container
+                                    direction="column"
+                                    justify="flex-end"
+                                    alignItems="center"
+                                >
+                                    <Box m={2}>
+                                        <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${step.price} MXN</Typography>
+                                    </Box>
+                                    <Box>
+                                        <Paper square style={{ maxWidth: 640, flexGrow: 1 }}>
+                                            <Tabs
+                                                value={value}
+                                                onChange={handleChange}
+                                                variant="fullWidth"
+                                                indicatorColor="secondary"
+                                                textColor="secondary"
+                                                aria-label="icon label tabs example"
+                                            >
+                                                <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
+                                                <Tab icon={<FavoriteIcon fontSize="large" />} />
+                                                <PopoverPopupState />
+                                            </Tabs>
+                                        </Paper>
+                                    </Box>
+                                </Grid>
                             </CardActions>
                         </Card>
 
@@ -226,7 +242,6 @@ function SliderPoc() {
                 position="static"
                 activeStep={activeStep}
                 className={classes.root}
-
             />
         </div >
 
