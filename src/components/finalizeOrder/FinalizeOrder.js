@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import partner from '../../assets/images/partner1.png';
-import { Box, Badge, Avatar } from '@material-ui/core';
+import { Box, Badge, Avatar, FormControlLabel, Checkbox } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
 import CreateIcon from '@material-ui/icons/Create';
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const FinalizeOrder = () => {
     const classes = useStyles();
 
-    const { buyItem } = useContext(UserContext);
+    const { buyItem, globalUser } = useContext(UserContext);
 
     const [vista, setVista] = useState({ checked: true });
     const [vistaCodi, setVistaCodi] = useState({ checked: true });
@@ -77,10 +77,9 @@ const FinalizeOrder = () => {
                 <Box m={5}>.</Box>
                 <Box mt={5} ml={1}>
                     <Button
-                        color='secondary'
                         variant='contained'
                         size='large'
-                        style={{ borderRadius: '2px' }}
+                        style={{ borderRadius: '2px', backgroundColor: '#FD384C', color: 'white' }}
                     >
                         FINALIZA TU COMPRA
             </Button>
@@ -139,25 +138,27 @@ const FinalizeOrder = () => {
                     direction="row"
                     justify="space-between"
                 >
-                    <Box>
+                    <Box className={styles.misDatos}>
                         <Typography className={useStyles.title} m={2}>
                             Mis datos
-            </Typography>
+                        </Typography>
                     </Box>
-                    <Icon color='primary'><CreateIcon /></Icon>
+                    <Box className={styles.misDatos}>
+                        <Icon color='primary'><CreateIcon /></Icon>
+                    </Box>
                 </Grid>
                 <Box className={styles.contact}>
                     <Typography>
-                        Nombre:
+                        Nombre: {globalUser.displayName}
+                    </Typography>
+                    <Typography>
+                        Correo: {globalUser.email}
+                    </Typography>
+                    <Typography>
+                        Telefono: 55 35 65 65 67
             </Typography>
                     <Typography>
-                        Correo:
-            </Typography>
-                    <Typography>
-                        Telefono:
-            </Typography>
-                    <Typography>
-                        Dirección:
+                        Dirección: Calle Juarez #1, Cuauhtemoc, CDMX 06500
             </Typography>
                 </Box>
             </div>
@@ -171,7 +172,7 @@ const FinalizeOrder = () => {
                     <Box color="text.secondary" className={styles.boxPay}>
                         <Typography className={useStyles.title}>
                             Solicitar Pago con CoDi
-            </Typography>
+                        </Typography>
                     </Box>
                     {/* <PopoverPopupState /> */}
                     <Button variant="contained" color="primary" onClick={() => handleChangeCodi(!vistaCodi)}>
@@ -242,17 +243,14 @@ const FinalizeOrder = () => {
                         : (null)}
                 </Grid>
             </div>
-
-
             <div className={styles.terminos}>
-                <Box>
-                    <input type="checkbox" />
-                </Box>
-
-                <Typography className={useStyles.title}>
-                    He leido y acepto los Términos y condiciones y la Política de privacidad
-            </Typography>
-
+                <FormControlLabel
+                    value="end"
+                    control={<Checkbox color="secondary" />}
+                    label="He leido y acepto los Términos y condiciones y la Política de privacidad"
+                    labelPlacement="end"
+                    size="medium"
+                />
             </div>
         </>
     );

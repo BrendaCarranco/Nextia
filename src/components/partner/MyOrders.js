@@ -9,6 +9,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import photo from '../../assets/images/partner1.png';
+import user1 from '../../assets/images/user1.jpeg'
+import user2 from '../../assets/images/user2.jpeg'
+import user3 from '../../assets/images/user3.jpeg'
+import user4 from '../../assets/images/user4.jpeg'
 
 const useStyles = makeStyles((theme) => ({
     inline: {
@@ -22,13 +26,16 @@ export default function AlignItemsList() {
     return (
 
         <List>
+            <Typography style={{ backgroundColor: '#FAFAFA' }} >
+                Pendientes
+            </Typography>
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                    <Avatar alt="photoClient" src={photo} />
+                    <Avatar alt="photoClient" src={user1} />
 
                 </ListItemAvatar>
                 <ListItemText
-                    primary="Guadalupe Solano"
+                    primary="Susana Balzi"
                     secondary={
                         <React.Fragment>
                             <Typography
@@ -37,10 +44,10 @@ export default function AlignItemsList() {
                                 className={classes.inline}
                                 color="textPrimary"
                             >
-                                {"05 / 09 / 2020 "}
+                                {"06 / 09 / 2020 "}
 
                             </Typography>
-                            {" 2 Artículos"}
+                            {" 1 Artículos"}
                         </React.Fragment>
                     }
 
@@ -51,10 +58,10 @@ export default function AlignItemsList() {
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                    <Avatar alt="Jaime Torre Blanca" src={photo} />
+                    <Avatar alt="Jaime Torre Blanca" src={user2} />
                 </ListItemAvatar>
                 <ListItemText
-                    primary="Jaime Torre Blanca"
+                    primary="Alex Figueroa"
                     secondary={
                         <React.Fragment>
                             <Typography
@@ -63,7 +70,7 @@ export default function AlignItemsList() {
                                 className={classes.inline}
                                 color="textPrimary"
                             >
-                                {"05 / 09 / 2020 "}
+                                {"08 / 09 / 2020 "}
                             </Typography>
                             {" 2 Artículos"}
                         </React.Fragment>
@@ -72,9 +79,34 @@ export default function AlignItemsList() {
                 <KeyboardArrowRightIcon fontSize="small" />
             </ListItem>
             <Divider variant="inset" component="li" />
+            <Typography style={{ backgroundColor: '#FAFAFA' }} >
+                Enviados
+            </Typography>
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                    <Avatar alt="Jaime Torre Blanca" src={photo} />
+                    <Avatar alt="Jaime Torre Blanca" src={user3} />
+                </ListItemAvatar>
+                <ListItemText
+                    primary="Daniela Hernández Lara"
+                    secondary={
+                        <React.Fragment>
+                            <Typography
+                                component="span"
+                                variant="body2"
+                                className={classes.inline}
+                                color="textPrimary"
+                            >
+                                {"01 / 09 / 2020 "}
+                            </Typography>
+                            {" 1 Artículos"}
+                        </React.Fragment>
+                    }
+                />
+                <KeyboardArrowRightIcon fontSize="small" />
+            </ListItem>
+            <ListItem alignItems="flex-start">
+                <ListItemAvatar>
+                    <Avatar alt="Jaime Torre Blanca" src={user4} />
                 </ListItemAvatar>
                 <ListItemText
                     primary="Jaime Torre Blanca"

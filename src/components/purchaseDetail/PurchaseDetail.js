@@ -75,7 +75,7 @@ function RecipeReviewCard(props) {
         setBuyItem({
             quantity: quantity, customer: globalUser.email, total: quantity * buyItem.price, date: dateNow, ...buyItem
         });
-        props.history.push('/end');
+        props.history.push('/resume');
     };
     return (
         <>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, CardMedia } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyOrders from './MyOrders';
+import MyProducts from './MyProducts';
 
 import NavbarUser from '../navbarUser/NavbarUser';
 import PartnerProfile from './PartnerProfile';
