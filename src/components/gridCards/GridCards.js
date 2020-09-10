@@ -68,7 +68,7 @@ function FullWidthGrid(props) {
         <div className={classes.root}>
             <div className={styles.cardsContainer}>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} lg={10}>
+                    <Grid item xs={12} lg={12}>
                         <Paper className={styles.paper}>
                             <div className={styles.title}>
                                 <div className={styles.categoriesTitle}>
@@ -104,7 +104,7 @@ function FullWidthGrid(props) {
                             </Card>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6} sm={6} lg={5}>
+                    <Grid item xs={6} sm={6} lg={6}>
                         <Paper className={classes.paper}>
                             <Card>
                                 <CardActionArea>
@@ -133,7 +133,7 @@ function FullWidthGrid(props) {
                             </Card>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6} sm={6} lg={5}>
+                    <Grid item xs={6} sm={6} lg={6}>
                         <Paper className={classes.paper}>
                             <Card>
                                 <CardActionArea>

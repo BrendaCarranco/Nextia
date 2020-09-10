@@ -64,3 +64,20 @@
      margin-bottom: 50px;
 }
    
+@media only screen and (min-width: 1280px){
+
+    .iconsSnContainer {
+      display: flex;
+      justify-content: center;
+      justify-content: space-evenly;
+      margin: 0 auto;
+      max-width: 50%;
+      margin-bottom: 50px;
+  }  
+
+  .suscription {
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto;
+  }
+} 

@@ -79,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
         flexGrow: 1,
+        margin: '0 auto',
     },
     header: {
         display: 'flex',
@@ -142,6 +143,7 @@ function SliderPoc() {
                 enableMouseEvents
                 interval={5000}
             >
+
                 {tutorialSteps.map((step, index) => (
                     <div key={step.label}>
                         <Card className={styles.root}>

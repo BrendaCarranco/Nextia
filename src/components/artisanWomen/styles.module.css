@@ -35,4 +35,9 @@ h4.price{
       padding: 117px;
       margin-left: 247px;
     }
+
+    .makeStyles-root-21 {
+    /* flex-grow: 1; */
+    max-width: 600px;
+}
 }
