@@ -1,11 +1,11 @@
 export const partners=[
     {
         "id":"1",
-        "email":"gabrielperezartesano@gmail.com",
-        "name":"Gabriel Pérez Rajón",
-        "brand":"Artesanías Pérez Rajón",
+        "email":"crispinaNavarro2020@gmail.com",
+        "name":"Crispina Navarro",
+        "brand":"Crispina Navarro",
         "picture":"",
-        "description":"Soy originario de Izamal,Yucatán. Comencé a trabajar con la madera a los 18 años. Era jardinero y un día encontré una raíz e imaginé una serpiente, empecé a tallarla hasta dejarla perfecta. Me gustó y comencé a realizar piezas inspiradas en retablos y objetos prehispánicos mayas.",
+        "description":' Originaria de Santo Tomás Jalieza, una comunidad como muchas de Oaxaca que dependen de la producción artesanal. Desde los seis años, comencé a tejer en telar de cintura, con el paso de los años adquirí la destreza y sabiduría que sólo otorga el tiempo.',
         "permission":"partner",
         "address":{
             "calle": "38",

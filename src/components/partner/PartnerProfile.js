@@ -226,7 +226,7 @@ const PartnerProfile = () => {
                             <TextField
                                 id="filled-password-input"
                                 label='Email'
-                                value='Artesanias Pérez Rajón'
+                                value='Crispina Navarro'
                                 type="text"
                                 variant="filled"
                             />
@@ -236,7 +236,7 @@ const PartnerProfile = () => {
 
                 ) : (
                         <Typography align='left' variant='h4' className={classes.title} >
-                            Artesanías Pérez Rajón
+                            Crispina Navarro
                         </Typography>
                     )
             }

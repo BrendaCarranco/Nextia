@@ -12,7 +12,7 @@ import MyProducts from './MyProducts';
 
 import NavbarUser from '../navbarUser/NavbarUser';
 import PartnerProfile from './PartnerProfile';
-import photo from '../../assets/images/inicioGabriel.png';
+import photo from '../../assets/images/crispina.jpg';
 import Help from '../help/Help';
 
 function TabPanel(props) {
@@ -96,7 +96,7 @@ function HomePartner() {
                             image={photo}
                         />
                         <Box position='absolute' mt={6} ml={1} backgroundColor='primary'>
-                            <Typography className={classes.category} >Gabriel Perez Rajón</Typography>
+                            <Typography className={classes.category} >Crispina Navarro</Typography>
                         </Box>
                     </Box>
                 </Grid>
