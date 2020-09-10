@@ -15,6 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Grid from '@material-ui/core/Grid';
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -139,7 +140,7 @@ export default function SearchAppBar() {
     }, [open]);
 
 
-    const { globalUser, setArtId, setProductId } = useContext(UserContext);
+    const { globalUser, setArtId, setProductId, handleWishList } = useContext(UserContext);
     const [user, setUser] = useState(globalUser.role);
 
     const handleLogout = () => {
@@ -156,6 +157,7 @@ export default function SearchAppBar() {
         console.log(e.target.id, 'id producto');
         setProductId(e.target.id);
     };
+
 
     return (
         <div className={classes.root}>
@@ -188,6 +190,9 @@ export default function SearchAppBar() {
                         <IconButton aria-label="display more actions" edge="end" style={{ color: 'white' }}>
                             <MoreIcon />
                         </IconButton>
+                        {/*  <IconButton aria-label="display more actions" onClick={() => handleWishList()} edge="end" style={{ color: 'white' }}>
+                            <NavLink to='/wishlist' style={{ color: 'white' }}><ShoppingBasketIcon /></NavLink>
+                        </IconButton> */}
                     </Grid>
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (

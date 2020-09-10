@@ -56,13 +56,14 @@
 @media only screen and (min-width: 1280px){
 
     .slickContainer {
-    margin-top: 69px;
+    margin-top: 20PXpx;
     }
     
   .slickslide {
         display: block;
         width: 40%;
         margin: 0 auto;
+        
     }
 
     .Artsofthemonth {
@@ -72,7 +73,7 @@
     line-height: 24px;
     background: #FD384C;
     color: white;
-    width: 15%;
+    width: 20%;
     padding: 10px;
     text-align: center;
     display: flex;

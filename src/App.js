@@ -16,6 +16,7 @@ import Arts from './components/store/Arts';
 import Producer from './components/store/Producer';
 import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
 import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
+import FinalizeOrder from './components/finalizeOrder/FinalizeOrder';
 
 function App() {
 
@@ -63,6 +64,10 @@ function App() {
 
           <Route path='/confirm'>
             <ConfirmPurchase />
+          </Route>
+
+          <Route path='/end'>
+            <FinalizeOrder />
           </Route>
 
           <Route exact path='/'>

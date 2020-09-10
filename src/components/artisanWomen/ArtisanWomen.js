@@ -184,24 +184,32 @@ function SliderPoc() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>
-                                    <Box ml={1}>
-                                        <Typography variant='h5' >$5960</Typography>
-
-                                    </Box>
-                                    <Paper square className={styles.root}>
-                                        <Tabs
-                                            value={value}
-                                            onChange={handleChange}
-                                            variant="fullWidth"
-                                            indicatorColor="secondary"
-                                            textColor="secondary"
-                                            aria-label="icon label tabs example"
-                                        >
-                                            <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                            <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                            <PopoverPopupState />
-                                        </Tabs>
-                                    </Paper>
+                                    <Grid
+                                        container
+                                        direction="column"
+                                        justify="flex-end"
+                                        alignItems="center"
+                                    >
+                                        <Box m={2}>
+                                            <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${step.price} MXN</Typography>
+                                        </Box>
+                                        <Box>
+                                            <Paper square style={{ maxWidth: 640, flexGrow: 1 }}>
+                                                <Tabs
+                                                    value={value}
+                                                    onChange={handleChange}
+                                                    variant="fullWidth"
+                                                    indicatorColor="secondary"
+                                                    textColor="secondary"
+                                                    aria-label="icon label tabs example"
+                                                >
+                                                    <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
+                                                    <Tab icon={<FavoriteIcon fontSize="large" />} />
+                                                    <PopoverPopupState />
+                                                </Tabs>
+                                            </Paper>
+                                        </Box>
+                                    </Grid>
                                 </CardActions>
                             </Card>
                         </Grid>

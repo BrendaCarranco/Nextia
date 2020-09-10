@@ -41,7 +41,7 @@ const Store = (props) => {
 
     const classes = useStyles();
 
-    const { setBuyItem } = useContext(UserContext);
+    const { setBuyItem, handleWishList } = useContext(UserContext);
     const [value, setValue] = React.useState(0);
     const [products, setProducts] = useState([]);
 
@@ -75,7 +75,7 @@ const Store = (props) => {
                 {
                     products.map(product => (
                         <div>
-                            <Card style={{ marginTop: '30px', marginBottom: '20px' }} onClick={() => handleSelectCard(product)} >
+                            <Card style={{ marginTop: '30px', marginBottom: '20px' }} >
                                 <Box
                                     display="flex"
                                     alignItems="center"
@@ -83,14 +83,16 @@ const Store = (props) => {
                                     mt={1}>
                                     <img className={classes.media} src={product.image} /* style={{ msTransform: 1.5, WebkitTransform: 1.5}} */ /></Box>
                                 <CardContent>
-                                    <Typography className={classes.cardT}>
-                                        {product.title}
-                                    </Typography>
-                                    <Typography color='textSecondary' className={classes.cardInfo}>
-                                        {product.description}
-                                    </Typography>
-                                    <Typography className={classes.cardInfo}>{product.location}</Typography>
-                                    <Typography className={classes.cardInfoAuth} >{product.author}</Typography>
+                                    <div onClick={() => handleSelectCard(product)}>
+                                        <Typography className={classes.cardT}>
+                                            {product.title}
+                                        </Typography>
+                                        <Typography color='textSecondary' className={classes.cardInfo}>
+                                            {product.description}
+                                        </Typography>
+                                        <Typography className={classes.cardInfo}>{product.location}</Typography>
+                                        <Typography className={classes.cardInfoAuth} >{product.author}</Typography>
+                                    </div>
                                     <CardActions disableSpacing>
                                         <Grid
                                             container
@@ -112,7 +114,7 @@ const Store = (props) => {
                                                         aria-label="icon label tabs example"
                                                     >
                                                         <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
-                                                        <Tab icon={<FavoriteIcon fontSize="large" />} />
+                                                        <Tab icon={<FavoriteIcon fontSize="large" onClick={() => handleWishList(product)} />} />
                                                         <PopoverPopupState />
                                                     </Tabs>
                                                 </Paper>

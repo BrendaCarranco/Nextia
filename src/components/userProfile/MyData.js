@@ -215,7 +215,7 @@ const MyData = () => {
                             <TextField
                                 id="filled-password-input"
                                 label="Calle"
-                                placeholder='Bosques de Asia'
+                                value='Bosques de Asia'
                                 type="text"
                                 variant="filled"
                                 fullWidth
@@ -223,7 +223,7 @@ const MyData = () => {
                             <TextField
                                 className={classes.title}
                                 label="Número exterior"
-                                placeholder='#39'
+                                value='#39'
                                 type="text"
                                 variant="filled"
                                 fullWidth
@@ -237,21 +237,21 @@ const MyData = () => {
                             <TextField
                                 className={classes.title}
                                 label="Colonia"
-                                placeholder='Bosques de Aragón'
+                                value='Bosques de Aragón'
                                 type="text"
                                 variant="filled"
                                 fullWidth
                             />
                             <TextField
                                 label="Municipio"
-                                placeholder='Nezahualcóyotl'
+                                value='Nezahualcóyotl'
                                 type="text"
                                 variant="filled"
                                 fullWidth
                             />
                             <TextField
                                 className={classes.title}
-                                placeholder='Estado de México'
+                                value='Estado de México'
                                 label="Estado"
                                 type="text"
                                 variant="filled"
@@ -260,7 +260,7 @@ const MyData = () => {
 
                             <TextField
                                 label="Código Postal"
-                                placeholder='57190'
+                                value='57190'
                                 type="text"
                                 variant="filled"
                                 fullWidth
@@ -268,7 +268,7 @@ const MyData = () => {
                             <TextField
                                 className={classes.title}
                                 label="Referencias"
-                                placeholder='Casa azul con porton negro'
+                                value='Casa azul con porton negro'
                                 type="text"
                                 variant="filled"
                                 fullWidth
