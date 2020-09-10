@@ -43,8 +43,6 @@ const BuyItem = () => {
 
     const { buyItem } = useContext(UserContext);
 
-
-
     return (
         <div>
 

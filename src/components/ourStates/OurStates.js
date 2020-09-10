@@ -45,13 +45,15 @@ export default function FullWidthGrid() {
 
     return (
         <div className={classes.root}>
+            <Box mt={3} mb={3} ml={1}>
+                <Typography className={classes.category}
+                >Nuestros <br></br>Estados</Typography>
+            </Box>
             <Grid container spacing={3}>
+
                 <Grid item xs={12} lg={4}>
                     <Paper className={styles.paper}>
-                        <Box mt={3} mb={3} ml={1}>
-                            <Typography className={classes.category}
-                            >Nuestros <br></br>Estados</Typography>
-                        </Box>
+
                         <Card >
                             <CardActionArea>
                                 <CardMedia
@@ -72,12 +74,10 @@ export default function FullWidthGrid() {
                                     </Button>
                                     </div>
                                 </div>
-
                             </CardActions>
                         </Card>
                     </Paper>
                 </Grid>
-
                 <Grid item xs={6} sm={6} lg={4}>
                     <Paper className={classes.paper}>
                         <Card>
@@ -98,13 +98,11 @@ export default function FullWidthGrid() {
                                             Ver
                                         </Button>
                                     </div>
-
                                 </div>
                             </CardActions>
                         </Card>
                     </Paper>
                 </Grid>
-
                 <Grid item xs={6} sm={6} lg={4}>
                     <Paper className={classes.paper}>
                         <Card>

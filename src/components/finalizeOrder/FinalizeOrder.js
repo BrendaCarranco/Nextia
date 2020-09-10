@@ -25,17 +25,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
     },
-    /* avatar: {
-        width: 125,
-        height: 125,
-    }, */
-    info: {
-        fontStyle: 'normal',
-        fontWeight: 'normal',
-        fontSize: 14,
-        marginTop: 15,
-        opacity: 0.65
-    },
     title: {
         fontSize: 14,
         marginTop: 12,
@@ -132,7 +121,6 @@ const FinalizeOrder = () => {
                     </Box>
                 </div>
             </div>
-
             <div>
                 <Grid container
                     direction="row"
@@ -162,7 +150,6 @@ const FinalizeOrder = () => {
             </Typography>
                 </Box>
             </div>
-
             <div className={styles.containerPay}>
                 <Grid container
                     direction="row"
@@ -174,7 +161,6 @@ const FinalizeOrder = () => {
                             Solicitar Pago con CoDi
                         </Typography>
                     </Box>
-                    {/* <PopoverPopupState /> */}
                     <Button variant="contained" color="primary" onClick={() => handleChangeCodi(!vistaCodi)}>
                         <img src={Download} alt="IconDownload" className={styles.iconDow} />
                     </Button>
@@ -190,8 +176,6 @@ const FinalizeOrder = () => {
                         </Box>)
                         : null}
                 </Grid>
-
-
                 <Grid container
                     direction="row"
                     justify="space-between"

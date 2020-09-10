@@ -1,16 +1,19 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Popover from '@material-ui/core/Popover';
-import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import ShareIcon from '@material-ui/icons/Share';
 import { Facebook } from 'react-social-sharing';
 import { Twitter } from 'react-social-sharing';
 import { Tumblr } from 'react-social-sharing';
 import { Mail } from 'react-social-sharing';
 import { Linkedin } from 'react-social-sharing';
 import { Whatsapp } from 'react-social-sharing';
+
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Popover from '@material-ui/core/Popover';
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import ShareIcon from '@material-ui/icons/Share';
+
+
 
 export default function PopoverPopupState() {
     return (

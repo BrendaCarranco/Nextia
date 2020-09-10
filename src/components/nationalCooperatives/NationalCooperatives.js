@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -78,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
         flexGrow: 1,
+        margin: '0 auto',
     },
     header: {
         display: 'flex',
@@ -141,6 +143,7 @@ function SliderPoc() {
                 enableMouseEvents
                 interval={5000}
             >
+
                 {tutorialSteps.map((step, index) => (
                     <div key={step.label}>
                         <Card className={styles.root}>
@@ -187,8 +190,6 @@ function SliderPoc() {
                                 </Grid>
                             </CardActions>
                         </Card>
-
-
                     </div>
                 ))}
             </AutoPlaySwipeableViews>

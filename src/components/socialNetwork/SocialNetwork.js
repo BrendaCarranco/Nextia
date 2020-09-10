@@ -17,7 +17,9 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         fontSize: 34,
         lineHeight: 1,
-        letterSpacing: 3
+        letterSpacing: 3,
+        textAlign: 'center',
+        marginBottom: 50,
     },
     cardT: {
         fontWeight: 600,
@@ -51,27 +53,31 @@ const SocialNetwork = () => {
 
                 <div className={styles.root}>
                     <Grid container spacing={0}>
+
                         <Grid item xs={12}>
                             <Paper className={styles.paper}>
                                 <Typography variant='subtitle1' style={{ letterSpacing: '1px' }} >Deseo recibir información</Typography>
                             </Paper>
                         </Grid>
-                        <form className={styles.root} noValidate autoComplete="off">
-                            <Grid container spacing={0}>
-                                <Grid item xs={6}>
-                                    <Paper className={styles.paper}>
-                                        <TextField id="outlined-basic" label="Correo electrónico" size='small' variant="outlined" />
-                                    </Paper>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Paper className={styles.paper}>
-                                        <Button variant="contained" color="primary">
-                                            Suscribirme
+                        <div className={styles.suscription}>
+
+                            <form className={styles.root} noValidate autoComplete="off">
+                                <Grid container spacing={0}>
+                                    <Grid item xs={6}>
+                                        <Paper className={styles.paper}>
+                                            <TextField id="outlined-basic" label="Correo electrónico" size='small' variant="outlined" />
+                                        </Paper>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Paper className={styles.paper}>
+                                            <Button variant="contained" color="primary">
+                                                Suscribirme
                                     </Button>
-                                    </Paper>
+                                        </Paper>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </form>
+                            </form>
+                        </div>
 
                     </Grid>
                 </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { firebase } from '../../firebase';
-import { makeStyles } from '@material-ui/core/styles';
 
+import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, Divider, Typography, CardMedia, Box, Container, Grid } from '@material-ui/core';
 
 import logo from '../../assets/images/nextia_black.png';

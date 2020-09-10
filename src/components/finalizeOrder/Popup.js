@@ -1,12 +1,14 @@
 import React from 'react';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import Download from '../../assets/images/Download.png'
-import codigo from '../../assets/images/codigo.png'
-import styles from './finalizeOrder.module.css'
 import Grid from '@material-ui/core/Grid';
+
+import Download from '../../assets/images/Download.png';
+import codigo from '../../assets/images/codigo.png';
+import styles from './finalizeOrder.module.css';
 
 export default function PopoverPopupState() {
     return (
@@ -14,7 +16,7 @@ export default function PopoverPopupState() {
             {(popupState) => (
                 <div>
                     <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
-                    <img src={Download} alt="IconDownload" className={styles.iconDow}/>
+                        <img src={Download} alt="IconDownload" className={styles.iconDow} />
                     </Button>
                     <Popover
                         {...bindPopover(popupState)}
@@ -28,15 +30,15 @@ export default function PopoverPopupState() {
                         }}
                     >
                         <Box p={2}>
-                        <Grid container
-                            direction="row"
-                            justify="center"
-                            alignItems="center"
-                        >
-                        <Box>
-                        <img src={codigo} alt="IconDownload"/>
-                        </Box>
-                        </Grid>
+                            <Grid container
+                                direction="row"
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Box>
+                                    <img src={codigo} alt="IconDownload" />
+                                </Box>
+                            </Grid>
 
                         </Box>
                     </Popover>

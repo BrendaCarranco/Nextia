@@ -1,14 +1,11 @@
 import React, { useState, Fragment } from 'react';
-import photo from '../../assets/images/partner1.png';
-import codigo from '../../assets/images/codigo.png';
-import { partners } from '../../assets/data/data.js';
+
 import { Grid } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Badge from '@material-ui/core/Badge';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
-
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField';
@@ -16,6 +13,9 @@ import CreateIcon from '@material-ui/icons/Create';
 import SaveIcon from '@material-ui/icons/Save';
 
 import cam from '../../assets/images/camera.png';
+import photo from '../../assets/images/partner1.png';
+import codigo from '../../assets/images/codigo.png';
+import { partners } from '../../assets/data/data.js';
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -54,7 +54,6 @@ const PartnerProfile = () => {
     const handleChange = (event) => {
         setValue(event.target.value);
     };
-
 
     const [editName, setEditName] = useState(false);
     const [editInfo, setEditInfo] = useState(false);

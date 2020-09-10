@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles.module.css';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { colors } from '@material-ui/core';
-
 
 const useStyles = makeStyles((theme) => ({
     category: {
@@ -29,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SocialNetwork = () => {
     const classes = useStyles();
-
     return (
         <div className={styles.footerContainer}>
 
@@ -47,12 +44,6 @@ const SocialNetwork = () => {
                     <Typography variant='subtitle2'>Terminos y condiciones</Typography>
                     <Typography variant='subtitle2'>Aviso de privacidad</Typography>
                 </Box>
-
-                {/* <div className={styles.footerIconsContainer} >
-                    <img className={styles.iconsf} src="assets/codi.png" alt="coDi" />
-                    <img className={styles.iconsf} src="assets/citypay.png" alt="Citypay" />
-                </div> */}
-
                 <div className={styles.contactNextia}>
                     <Box mt={3} mb={1} ml={3}
                         display="flex"

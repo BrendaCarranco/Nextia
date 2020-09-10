@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
+
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
@@ -9,6 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import { UserContext } from '../../context/UserProvider';
 import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
+import NavbarUser from '../navbarUser/NavbarUser';
 
 const useStyles = makeStyles((theme) => ({
     cardT: {
@@ -52,13 +53,11 @@ const Arts = props => {
     };
 
     const handleSelectCard = (product) => {
-        console.log('click a la card', product);
+        //console.log('click a la card', product);
         setBuyItem(product);
         props.history.push('/purchase');
 
     };
-
-    console.log(barro, 'barro');
 
     return (
         <div>

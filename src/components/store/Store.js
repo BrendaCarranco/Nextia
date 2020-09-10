@@ -1,25 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import NavbarUser from '../navbarUser/NavbarUser';
 import { firebase } from '../../firebase';
+
 import { Grid, Card, Tab, CardMedia, Typography, CardContent, Box, Tabs, Paper, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
+import NavbarUser from '../navbarUser/NavbarUser';
 
 import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
-    category: {
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 34,
-        lineHeight: 1,
-        letterSpacing: 3
-    },
     cardT: {
         fontWeight: 600,
         fontSize: 16,
@@ -59,7 +52,7 @@ const Store = (props) => {
     };
 
     const handleSelectCard = (product) => {
-        console.log('click a la card', product);
+        //console.log('click a la card', product);
         setBuyItem(product);
         props.history.push('/purchase');
     };

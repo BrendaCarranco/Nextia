@@ -51,7 +51,7 @@ const MyOrders = () => {
         fetchUserData();
     }, []);
 
-    console.log(orders, 'ordenes');
+    //console.log(orders, 'ordenes');
 
     return (
         <div>
@@ -77,24 +77,6 @@ const MyOrders = () => {
                     </Grid>
                 ))
             }
-
-            {/*            <Grid container
-                direction="row"
-                justify="space-between"
-                alignItems="center" >
-                <Box p={1}>
-                    <Avatar className={classes.art} alt="artesania" src="https://www.eluniversal.com.mx/sites/default/files/2018/09/16/vq_artesanias_las_munecas_repres_3076299.jpg" />
-                </Box>
-                <Typography className={classes.info}>
-                    Gabriel Perez Rajon
-                    20/08/2020
-                    <Typography className={classes.info} style={{ color: '#8E8E93' }}>
-                        1 artículo
-                    </Typography>
-                </Typography>
-            </Grid>
- */}
-
             <Box align='center'>
                 <Typography className={classes.info}>Archivados (2)</Typography>
             </Box>
@@ -133,9 +115,6 @@ const MyOrders = () => {
                     </Typography>
                 </Typography>
             </Grid>
-
-
-
         </div>
     );
 };
