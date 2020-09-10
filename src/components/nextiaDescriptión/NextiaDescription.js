@@ -33,9 +33,7 @@ const NextiaDescription = () => {
                 <img src="assets/nextia-Black-and-White-for-description.png" alt="Nextia" />
             </Box>
             <Typography className={classes.info}>
-                Nextia es una plataforma que reune a pequeños productores y artesanos, que bajo estos estándares
-                productivos, ofrecen productos atractivos para el creciente mercado, realizados con técnicas amigables con la biodiversidad, permitiendo una cadena de Comercio Justo con
-                productos de alta calidad que permita impulsar el desarrollo económico de las comunidades en nuestro país.
+                Nextia reune a Grandes Maestros Artesanos y Productores Orgánicos Certificados que ofrecen los mejores productos, realizados con técnicas amigables con la biodiversidad. A través de nuestra plataforma promovemos la cadena del Comercio Justo buscando preservar las tradiciones e impulsar el desarrollo económico de las comunidades en nuestro país.
             </Typography>
             <div className={styles.nextiaMeet}>
             </div>

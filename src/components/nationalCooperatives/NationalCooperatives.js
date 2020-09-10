@@ -7,12 +7,12 @@ import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import styles from './styles.module.css';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Box from '@material-ui/core/Box';
@@ -157,35 +157,34 @@ function SliderPoc() {
                                 </Typography>
                                 <Typography className={classes.cardInfo}>{step.location}</Typography>
                                 <Typography className={classes.cardInfo}>{step.author}</Typography>
-                                <div className={styles.iconsWraper}>
-                                    <div className={styles.startWrapper}>
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                        <StarRateIcon style={{ color: 'yellow' }} />
-                                    </div>
-                                    <Typography variant='subtitle2' >5.0</Typography>
-                                </div>
                             </CardContent>
                             <CardActions disableSpacing>
-                                <Box ml={1}>
-                                    <Typography variant='h5' >$376</Typography>
-                                </Box>
-                                <Paper square className={styles.root}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="fullWidth"
-                                        indicatorColor="secondary"
-                                        textColor="secondary"
-                                        aria-label="icon label tabs example"
-                                    >
-                                        <Tab icon={<ShoppingBasketIcon fontSize="large" className={styles.favoriteIcon} />} />
-                                        <Tab icon={<FavoriteIcon fontSize="large" className={styles.bagIcon} />} />
-                                        <PopoverPopupState />
-                                    </Tabs>
-                                </Paper>
+                                <Grid
+                                    container
+                                    direction="column"
+                                    justify="flex-end"
+                                    alignItems="center"
+                                >
+                                    <Box m={2}>
+                                        <Typography variant='subtitle1' style={{ fontWeight: 'bold' }} >${step.price} MXN</Typography>
+                                    </Box>
+                                    <Box>
+                                        <Paper square style={{ maxWidth: 640, flexGrow: 1 }}>
+                                            <Tabs
+                                                value={value}
+                                                onChange={handleChange}
+                                                variant="fullWidth"
+                                                indicatorColor="secondary"
+                                                textColor="secondary"
+                                                aria-label="icon label tabs example"
+                                            >
+                                                <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
+                                                <Tab icon={<FavoriteIcon fontSize="large" />} />
+                                                <PopoverPopupState />
+                                            </Tabs>
+                                        </Paper>
+                                    </Box>
+                                </Grid>
                             </CardActions>
                         </Card>
 

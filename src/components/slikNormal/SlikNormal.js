@@ -26,34 +26,36 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
     {
-        label: 'ARTESANO DEL MES',
+        label: 'GRANDES MAESTROS DEL ARTE POPULAR',
         imgPath: 'assets/artesano-1.png',
         location: '',
-        title: 'Árbol de historias',
-        histoy: 'ALFONSO SOTENO FERNÁNDEZ (1943) afirma que Tito Fernández, su bisabuelo, fue el precursor en Metepec, Estado de México, de la tradición escultórica de los árboles de la vida: coloridas esculturas en barro modeladas a mano y adornadas con figurillas al pastillaje',
+        title: 'Vive la experiencia',
+        histoy: 'Conoce de cerca a los mayores artesanos de México que Citibanamex ha reunido en la colección Grandes Maestros del Arte Popular. Sumérgete en sus historias, talleres y obras de viva voz a través de las Experiencias que ofrecen de forma presencial y virtual que puedes solicitar en nuestra plataforma',
+        contentbutton: 'ÍR A EXPERIENCIAS',
     },
     {
-        label: 'PRODUCTO DEL MES',
-        imgPath: 'assets/obio-production.jpg',
-        location: 'Tabasco',
+        label: 'PRODUCTORES CERTIFICADOS',
+        imgPath: 'assets/artesano-2.jpg',
+        location: '',
         title: 'Distintivo OBIO',
-        histoy: ' Los productos del programa OBIO respetan el balance de estos tres conceptos productivos y comerciales.Son productos generados por grupos comunitarios integrados en su mayoría en cooperativas, que respetan los ecosistemas, la biosfera y los recursos naturales de las zonas donde producen.',
+        histoy: 'Los productos del programa OBIO respetan el balance de estos tres conceptos productivos y comerciales.Son productos generadospor grupos comunitarios integrados en su mayoría en cooperativas, que respetan los ecosistemas, la biosfera y los recursos naturale de las zonas donde producen. ',
+        contentbutton: 'VER PRODUCTOS',
     },
     {
-        label: 'ARTESANOS',
+        label: 'GRANDES MAESTROS ARTESANOS',
         imgPath: 'assets/artesano-3.jpg',
         location: '',
         title: 'Nextia y los Maestros del Arte Popular',
         histoy: 'Nextia surge como una extensión del Programa de Apoyo al Arte Popular establecido en 1996 con el propósito de impulsar y fortalecer la creación artesanal para generar alternativas para la comercialización de sus piezas.',
+        contentbutton: 'CONOCE NEXTIA',
     },
-
     {
-        label: 'PRODUCTORES',
-        imgPath: 'assets/artesano-2.jpg',
-        location: '',
+        label: 'PRODUCTORES CERTIFICADOS',
+        imgPath: 'assets/obio-production.jpg',
+        location: 'Tabasco',
         title: 'Distintivo OBIO',
-        concept: '-O- Orgánico, -BIO- Biológico,Vida,Diverso, Biosfera',
-        histoy: 'El distintivo OBIO fue creado con el objetivo de apoyar productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan el ecosistema y los recursos naturales.',
+        histoy: 'El distintivo OBIO fue creado con el objetivo de apoyar productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan el ecosistema y los recursos naturales. ',
+        contentbutton: 'CONOCE MÁS',
     },
 
 ];
@@ -106,64 +108,66 @@ function SliderPoc() {
     };
 
     return (
-        <div className={classes.root}>
-            <NavbarUser />
-            <AutoPlaySwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={activeStep}
-                onChangeIndex={handleStepChange}
-                enableMouseEvents
-            >
-                {tutorialSteps.map((step, index) => (
-                    <div key={step.label}>
-                        <Grid container spacing={0}>
-                            <Grid item xs={12} sm={5}>
-                                <Paper className={styles.paper}>
-                                    <img src={step.imgPath} alt="artesano del mes" className={styles.imgSlider} />
-                                </Paper>
-                            </Grid>
+        <div className={styles.slickContainer}>
+            <div className={classes.root}>
+                <NavbarUser />
+                <AutoPlaySwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                >
+                    {tutorialSteps.map((step, index) => (
+                        <div key={step.label}>
+                            <Grid container spacing={0}>
+                                <Grid item xs={12} sm={5}>
+                                    <Paper className={styles.paper}>
+                                        <img src={step.imgPath} alt="artesano del mes" className={styles.imgSlider} />
+                                    </Paper>
+                                </Grid>
 
-                            <Grid item xs={12} sm={7}>
-                                <Paper className={styles.paper}>
-                                    <h3 className={styles.Artsofthemonth} >{step.label}</h3>
-                                    <h2 className={styles.historyTree} >{step.title}</h2>
-                                    <p className={styles.historyOfPeople}>
-                                        {step.histoy}
-                                    </p>
-                                    <div className={styles.buttonSlider}>
-                                        <Button
-                                            className={styles.buttonSlider}
-                                            color="Primary"
-                                            variant="contained"
-                                            style={{ borderRadius: '2px' }}
-                                            size='small'>
-                                            Conoce Más
-                                        </Button>
-                                    </div>
+                                <Grid item xs={12} sm={7}>
+                                    <Paper className={styles.paper}>
+                                        <h3 className={styles.Artsofthemonth} >{step.label}</h3>
+                                        <h2 className={styles.historyTree} >{step.title}</h2>
+                                        <p className={styles.historyOfPeople}>
+                                            {step.histoy}
+                                        </p>
+                                        <div className={styles.buttonSlider}>
+                                            <Button
+                                                className={styles.buttonSlider}
+                                                color="Primary"
+                                                variant="contained"
+                                                style={{ borderRadius: '2px' }}
+                                                size='small'>
+                                                {step.contentbutton}
+                                            </Button>
+                                        </div>
 
-                                </Paper>
+                                    </Paper>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </div>
-                ))}
-            </AutoPlaySwipeableViews>
-            <Box>
-                <MobileStepper
-                    variant="dots"
-                    steps={6}
-                    position="static"
-                    activeStep={activeStep}
-                />
-            </Box>
-            <GridCards />
-            <ArtisanWomen />
-            <OurStates />
-            <NationalCooperatives />
-            <NextiaDescription />
-            {/* <TrendingProducts /> */}
-            <SocialNetwork />
-            <Footer />
-        </div >
+                        </div>
+                    ))}
+                </AutoPlaySwipeableViews>
+                <Box>
+                    <MobileStepper
+                        variant="dots"
+                        steps={6}
+                        position="static"
+                        activeStep={activeStep}
+                    />
+                </Box>
+                <GridCards />
+                <ArtisanWomen />
+                <OurStates />
+                <NationalCooperatives />
+                <NextiaDescription />
+                <TrendingProducts />
+                <SocialNetwork />
+                <Footer />
+            </div >
+        </div>
 
     );
 }

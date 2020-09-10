@@ -14,8 +14,6 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Grid from '@material-ui/core/Grid';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -23,8 +21,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
 import Box from '@material-ui/core/Box';
-import InputBase from '@material-ui/core/InputBase';
-import TextField from '@material-ui/core/TextField';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LocalAtmSharpIcon from '@material-ui/icons/LocalAtmSharp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -139,7 +135,7 @@ export default function SearchAppBar() {
     }, [open]);
 
 
-    const { globalUser, setArtId, setProductId } = useContext(UserContext);
+    const { globalUser, setArtId, setProductId, handleWishList } = useContext(UserContext);
     const [user, setUser] = useState(globalUser.role);
 
     const handleLogout = () => {
@@ -157,6 +153,7 @@ export default function SearchAppBar() {
         setProductId(e.target.id);
     };
 
+
     return (
         <div className={classes.root}>
             <AppBar position="fixed">
@@ -173,21 +170,17 @@ export default function SearchAppBar() {
                     >
                         <MenuIcon style={{ color: 'white' }} />
                     </IconButton>
-                    <Typography variant="h6" style={{ color: 'white' }} >
-                        Nextia
+                    <NavLink to='/' style={{ textTransform: 'none', textDecoration: 'none' }}>
+                        <Typography variant="h6" style={{ color: 'white' }} >
+                            Nextia
                     </Typography>
+                    </NavLink>
                     <Grid
                         container
                         direction="row"
                         justify="flex-end"
                         alignItems="center"
                     >
-                        <IconButton aria-label="search" style={{ color: 'white' }}>
-                            <SearchIcon />
-                        </IconButton>
-                        <IconButton aria-label="display more actions" edge="end" style={{ color: 'white' }}>
-                            <MoreIcon />
-                        </IconButton>
                     </Grid>
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
@@ -224,7 +217,7 @@ export default function SearchAppBar() {
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Chocolate</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Cacao</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='café' style={{ textDecoration: 'none' }} to='/producer' >Café</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='madera' style={{ textDecoration: 'none' }} to='/producer' >Madera</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='miel' style={{ textDecoration: 'none' }} to='/producer' >Miel</NavLink></MenuItem>
@@ -276,9 +269,8 @@ export default function SearchAppBar() {
                                         </MenuItem>
 
                                         <MenuItem onClick={handleClose}>
-                                            <Typography variant="inherit">Ayuda</Typography>
+                                            <Typography variant="inherit"><NavLink to='/help' style={{ textDecoration: 'none' }}>Ayuda</NavLink></Typography>
                                         </MenuItem>
-
 
                                         {
                                             user == null && (<div>

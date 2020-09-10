@@ -16,6 +16,8 @@ import Arts from './components/store/Arts';
 import Producer from './components/store/Producer';
 import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
 import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
+import FinalizeOrder from './components/finalizeOrder/FinalizeOrder';
+import HelpNav from './components/navbarUser/HelpNav';
 
 function App() {
 
@@ -57,12 +59,20 @@ function App() {
             <Arts />
           </Route>
 
+          <Route path='/help'>
+            <HelpNav />
+          </Route>
+
           <Route path='/purchase'>
             <PurchaseDetail />
           </Route>
 
           <Route path='/confirm'>
             <ConfirmPurchase />
+          </Route>
+
+          <Route path='/end'>
+            <FinalizeOrder />
           </Route>
 
           <Route exact path='/'>

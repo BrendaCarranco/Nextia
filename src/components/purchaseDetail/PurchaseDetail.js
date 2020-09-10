@@ -1,5 +1,6 @@
 
 import React, { useState, useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import yellow from '@material-ui/core/colors/yellow';
 import Card from '@material-ui/core/Card';
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RecipeReviewCard() {
+function RecipeReviewCard(props) {
 
     const classes = useStyles();
     const [value, setValue] = useState(0);
@@ -74,6 +75,7 @@ export default function RecipeReviewCard() {
         setBuyItem({
             quantity: quantity, customer: globalUser.email, total: quantity * buyItem.price, date: dateNow, ...buyItem
         });
+        props.history.push('/end');
     };
     return (
         <>
@@ -154,3 +156,5 @@ export default function RecipeReviewCard() {
         </>
     );
 }
+
+export default withRouter(RecipeReviewCard);

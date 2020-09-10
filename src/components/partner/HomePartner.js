@@ -39,7 +39,7 @@ import MyOrders from './MyOrders';
 import NavbarUser from '../navbarUser/NavbarUser';
 import PartnerProfile from './PartnerProfile';
 import photo from '../../assets/images/inicioGabriel.png';
-
+import Help from '../help/Help';
 
 import { UserContext } from '../../context/UserProvider';
 
@@ -137,11 +137,13 @@ function HomePartner() {
                     </Box>
                 </Grid>
 
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
-                    <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
-                    <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
-                    <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
-                </Tabs>
+                <Box style={{ display: 'flex', justifyContent: 'center' }} >
+                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
+                        <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
+                        <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
+                        <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
+                    </Tabs>
+                </Box>
             </AppBar>
             <TabPanel value={value} index={0} className={classes.tabsInfo}>
                 <MyOrders />
@@ -150,8 +152,8 @@ function HomePartner() {
                 <PartnerProfile />
             </TabPanel>
             <TabPanel value={value} index={2} className={classes.tabsInfo}>
-                Item Three
-      </TabPanel>
+                <Help />
+            </TabPanel>
         </div >
     );
 }
