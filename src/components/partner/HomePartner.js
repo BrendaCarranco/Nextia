@@ -1,30 +1,3 @@
-/* import React from 'react'
-import MyOrders from './MyOrders'
-import MyProducts from './MyProducts'
-import PartnertProfile from './PartnerProfile'
-import principal from '../../assets/images/inicioGabriel.png'
-import { Grid } from '@material-ui/core'
-import PaymentPayPal from '../payment/PaymentPayPal'
-
-const HomePartner = () => {
-    return (
-        <>
-        <Grid container justify = "center" item sx={12}>
-            <img alt="imgpartner" src={principal} />
-        </Grid>
-        <MyOrders />
-        <MyProducts />
-        <PartnertProfile />
-        <PaymentPayPal />
-            
-        </>
-    )
-}
-
-export default HomePartner */
-
-
-
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, CardMedia } from '@material-ui/core';
@@ -35,15 +8,12 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyOrders from './MyOrders';
+import MyProducts from './MyProducts';
 
 import NavbarUser from '../navbarUser/NavbarUser';
 import PartnerProfile from './PartnerProfile';
 import photo from '../../assets/images/inicioGabriel.png';
 import Help from '../help/Help';
-
-import { UserContext } from '../../context/UserProvider';
-
-
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -98,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 30,
         lineHeight: .5,
         letterSpacing: 3,
-        //backgroundColor: 'white',
         padding: 8
     }
 }));
@@ -107,9 +76,6 @@ const useStyles = makeStyles((theme) => ({
 function HomePartner() {
 
     const classes = useStyles();
-
-    const { globalUser, setGlobalUser } = useContext(UserContext);
-
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {

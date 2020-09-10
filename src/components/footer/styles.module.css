@@ -5,7 +5,7 @@
     font-weight: bold;
   }
  .footerkWrapper {
-   background: #d6a868;
+   background: #DEBF7F;
    padding-top: 2em;
  }
 
@@ -38,9 +38,6 @@
  }
  
 }
-
-
-
 .footerIconsContainer{
   display: flex;
   justify-content: center;

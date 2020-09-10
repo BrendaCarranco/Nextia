@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import styles from './styles.module.css';
 import Paper from '@material-ui/core/Paper';
-import { Grid, ButtonGroup } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 import NavbarUser from '../navbarUser/NavbarUser';
@@ -75,7 +75,7 @@ function RecipeReviewCard(props) {
         setBuyItem({
             quantity: quantity, customer: globalUser.email, total: quantity * buyItem.price, date: dateNow, ...buyItem
         });
-        props.history.push('/end');
+        props.history.push('/resume');
     };
     return (
         <>

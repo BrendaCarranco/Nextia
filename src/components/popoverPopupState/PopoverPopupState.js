@@ -32,12 +32,12 @@ export default function PopoverPopupState() {
                         }}
                     >
                         <Box p={2}>
-                            <Typography><Facebook solid small link='https://nextia-67a31.web.app/store' /></Typography>
-                            <Typography><Whatsapp solid small message="Somos Nextia" link="https://nextia-67a31.web.app/store" /></Typography>
-                            <Typography><Linkedin solid small message="Somos Nextia" link="https://nextia-67a31.web.app/store" /></Typography>
-                            <Typography> <Twitter solid small message='https://nextia-67a31.web.app/store' /></Typography>
-                            <Typography> <Tumblr solid small link="https://nextia-67a31.web.app/store" /></Typography>
-                            <Typography> <Mail solid small subject="Somos Nextia" link="https://nextia-67a31.web.app/store" /></Typography>
+                            <Typography><Facebook solid small link='https://nextia-67a31.web.app/' /></Typography>
+                            <Typography><Whatsapp solid small message="Artesanías y Productos de Todo México con el sello de nuestros Antesapasados y con calidad de exportación" link="https://nextia-67a31.web.app/" /></Typography>
+                            <Typography><Linkedin solid small message="Artesanías y Productos de Todo México con el sello de nuestros Antesapasados y con calidad de exportación" link="https://nextia-67a31.web.app/" /></Typography>
+                            <Typography> <Twitter solid small message='https://nextia-67a31.web.app/' /></Typography>
+                            <Typography> <Tumblr solid small link="https://nextia-67a31.web.app/" /></Typography>
+                            <Typography> <Mail solid small subject="Artesanías y Productos de Todo México con el sello de nuestros Antesapasados y con calidad de exportación" link="https://nextia-67a31.web.app/" /></Typography>
 
                         </Box>
                     </Popover>

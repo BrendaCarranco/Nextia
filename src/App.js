@@ -15,14 +15,13 @@ import Store from './components/store/Store';
 import Arts from './components/store/Arts';
 import Producer from './components/store/Producer';
 import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
-import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
 import FinalizeOrder from './components/finalizeOrder/FinalizeOrder';
+import SuccessPurchase from './components/payment/SuccessPurchase';
 import HelpNav from './components/navbarUser/HelpNav';
 
 function App() {
 
   return (
-
 
     <ThemeProvider theme={theme} >
       <BrowserRouter>
@@ -67,12 +66,12 @@ function App() {
             <PurchaseDetail />
           </Route>
 
-          <Route path='/confirm'>
-            <ConfirmPurchase />
+          <Route path='/resume'>
+            <FinalizeOrder />
           </Route>
 
-          <Route path='/end'>
-            <FinalizeOrder />
+          <Route path='/success'>
+            <SuccessPurchase />
           </Route>
 
           <Route exact path='/'>
