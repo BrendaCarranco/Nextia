@@ -17,6 +17,7 @@ import Producer from './components/store/Producer';
 import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
 import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
 import FinalizeOrder from './components/finalizeOrder/FinalizeOrder';
+import HelpNav from './components/navbarUser/HelpNav';
 
 function App() {
 
@@ -56,6 +57,10 @@ function App() {
 
           <Route path='/art'>
             <Arts />
+          </Route>
+
+          <Route path='/help'>
+            <HelpNav />
           </Route>
 
           <Route path='/purchase'>

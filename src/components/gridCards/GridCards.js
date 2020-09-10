@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +11,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styles from './styles.module.css';
+
+import { UserContext } from '../../context/UserProvider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,15 +42,32 @@ const useStylesCard = makeStyles({
     },
 });
 
-export default function FullWidthGrid() {
+function FullWidthGrid(props) {
+
     const classes = useStyles();
     const classesCard = useStylesCard();
+
+    const { setArtId } = useContext(UserContext);
+
+    const handleFibras = () => {
+        setArtId('Fibras vegetales');
+        props.history.push('/art');
+    };
+
+    const handleBarro = () => {
+        setArtId('Barro');
+        props.history.push('/art');
+    };
+
+    const handleCacao = () => {
+        setArtId('chocolate');
+        props.history.push('/art');
+    };
 
     return (
         <div className={classes.root}>
             <div className={styles.cardsContainer}>
                 <Grid container spacing={3}>
-
                     <Grid item xs={12} lg={10}>
                         <Paper className={styles.paper}>
                             <div className={styles.title}>
@@ -58,11 +78,8 @@ export default function FullWidthGrid() {
                                     </Box>
                                 </div>
                             </div>
-
                             <Card >
-
                                 <CardActionArea>
-
                                     <CardMedia
                                         className={classesCard.media}
                                         image="assets/jaguar-barro.jpg"
@@ -75,6 +92,7 @@ export default function FullWidthGrid() {
                                             <Button
                                                 style={{ borderRadius: '2px', width: '130px' }}
                                                 size="small"
+                                                onClick={() => handleBarro()}
                                                 variant="contained"
                                             >
                                                 Conoce más
@@ -86,7 +104,6 @@ export default function FullWidthGrid() {
                             </Card>
                         </Paper>
                     </Grid>
-
                     <Grid item xs={6} sm={6} lg={5}>
                         <Paper className={classes.paper}>
                             <Card>
@@ -100,23 +117,22 @@ export default function FullWidthGrid() {
                                 </CardActionArea>
                                 <CardActions className={styles.cardWrapper}>
 
-                                    <div className={styles.cardNameContentdos}>
+                                    <div className={styles.cardNameContentdos}  >
                                         <div className={styles.cardNamedos}>Fibras</div>
                                         <div className={styles.cardNameButtondos}>
                                             <Button
                                                 style={{ borderRadius: '2px' }}
                                                 size="small"
+                                                onClick={() => handleFibras()}
                                                 color="primary">
                                                 Ver
                                         </Button>
                                         </div>
-
                                     </div>
                                 </CardActions>
                             </Card>
                         </Paper>
                     </Grid>
-
                     <Grid item xs={6} sm={6} lg={5}>
                         <Paper className={classes.paper}>
                             <Card>
@@ -127,31 +143,30 @@ export default function FullWidthGrid() {
                                             image="assets/Cacao.jpg"
                                         />
                                     </div>
-
                                 </CardActionArea>
                                 <CardActions className={styles.cardWrapper}>
                                     <div className={styles.cardNameContentdos}>
                                         <div className={styles.cardNamedos}>Cacao</div>
-
                                         <div className={styles.cardNameButtondos}>
                                             <Button
                                                 className={styles.cardNameButtondos}
                                                 size="small"
                                                 color="primary"
+                                                onClick={() => handleCacao()}
                                                 style={{ borderRadius: '2px' }}
                                             >
                                                 Ver
                                     </Button>
                                         </div>
-
                                     </div>
                                 </CardActions>
                             </Card>
                         </Paper>
                     </Grid>
-
                 </Grid>
             </div>
         </div>
     );
 }
+
+export default withRouter(FullWidthGrid);

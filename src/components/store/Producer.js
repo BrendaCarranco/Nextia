@@ -105,7 +105,7 @@ const Producer = props => {
                                                         textColor="secondary"
                                                         aria-label="icon label tabs example"
                                                     >
-                                                        <Tab icon={<ShoppingBasketIcon fontSize="large" />} />
+                                                        <Tab icon={<ShoppingBasketIcon fontSize="large" />} onClick={() => handleSelectCard(product)} />
                                                         <Tab icon={<FavoriteIcon fontSize="large" />} />
                                                         <PopoverPopupState />
                                                     </Tabs>

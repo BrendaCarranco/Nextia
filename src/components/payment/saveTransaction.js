@@ -1,6 +1,9 @@
+import React, { useContext } from 'react';
 import { firebase } from '../../firebase';
 import 'firebase/firestore';
 import 'firebase/functions';
+
+import { UserContext } from '../../context/UserProvider';
 
 const db = firebase.firestore();
 
