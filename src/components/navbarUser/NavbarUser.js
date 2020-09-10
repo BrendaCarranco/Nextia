@@ -135,7 +135,7 @@ export default function SearchAppBar() {
     }, [open]);
 
 
-    const { globalUser, setArtId, setProductId, handleWishList } = useContext(UserContext);
+    const { globalUser, setArtId, setProductId } = useContext(UserContext);
     const [user, setUser] = useState(globalUser.role);
 
     const handleLogout = () => {

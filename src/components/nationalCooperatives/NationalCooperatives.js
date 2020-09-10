@@ -19,7 +19,6 @@ import Box from '@material-ui/core/Box';
 
 import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
 
-import chocolate from '../../assets/images/chocolate-la-iguan-ok.jpg';
 import apiflor from '../../assets/images/apiflor-ok.jpg';
 import chocolateIguana from '../../assets/images/chocolate-la-iguan-ok.jpg';
 import cafeMarron from '../../assets/images/cafe-la-org-bolsa-marron-ok.jpg';
