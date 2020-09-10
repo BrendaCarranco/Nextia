@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -21,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: 0,
         textAlign: 'center',
-        // color: theme.palette.text.secondary,
     },
     category: {
         fontFamily: 'Roboto',
@@ -99,7 +99,6 @@ function FullWidthGrid(props) {
                                     </Button>
                                         </div>
                                     </div>
-
                                 </CardActions>
                             </Card>
                         </Paper>

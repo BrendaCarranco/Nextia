@@ -1,24 +1,24 @@
 
 import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import styles from './styles.module.css';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
+import styles from './styles.module.css';
+
 import PopoverPopupState from './../popoverPopupState/PopoverPopupState';
 import artwoman from '../../assets/images/artisanWomen.jpg';
 import wares from '../../assets/images/wares.jpg';
@@ -26,6 +26,7 @@ import rebozos from '../../assets/images/rebozos.jpg';
 import virgen from '../../assets/images/virgen-de-la-soledad.jpg';
 import frutos from '../../assets/images/Frutos-de-la-ressurrección.jpg';
 import hamaca from '../../assets/images/hamaca.jpg';
+
 
 
 
@@ -128,7 +129,6 @@ const useStyles = makeStyles((theme) => ({
 
 function SliderPoc() {
     const classes = useStyles();
-    //     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -138,13 +138,13 @@ function SliderPoc() {
     const [activeStep, setActiveStep] = React.useState(0);
     const maxSteps = tutorialSteps.length;
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+    /*     const handleNext = () => {
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        };
+    
+        const handleBack = () => {
+            setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        }; */
 
     const handleStepChange = (step) => {
         setActiveStep(step);
@@ -224,10 +224,8 @@ function SliderPoc() {
                 position="static"
                 activeStep={activeStep}
                 className={classes.root}
-
             />
         </div >
-
     );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -18,8 +19,8 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import PopoverPopupState from './../popoverPopupState/PopoverPopupState';
 
+import PopoverPopupState from './../popoverPopupState/PopoverPopupState';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -70,43 +71,6 @@ const tutorialSteps = [
 
 ];
 
-// const useStyles = makeStyles((theme) => ({
-
-//     expand: {
-//         transform: 'rotate(0deg)',
-//         marginLeft: 'auto',
-//         transition: theme.transitions.create('transform', {
-//             duration: theme.transitions.duration.shortest,
-//         }),
-//     },
-//     expandOpen: {
-//         transform: 'rotate(180deg)',
-//     },
-//     avatar: {
-//         backgroundColor: red[500],
-//     },
-//     yellow: {
-//         color: yellow
-//     },
-//     category: {
-//         fontFamily: 'Roboto',
-//         fontStyle: 'normal',
-//         fontWeight: 'bold',
-//         fontSize: 34,
-//         lineHeight: 1,
-//         letterSpacing: 3
-//     },
-//     cardT: {
-//         fontWeight: 600,
-//         fontSize: 20,
-//         letterSpacing: 1
-//     },
-//     cardInfo: {
-//         fontSize: 15
-//     }
-// }));
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
@@ -138,14 +102,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SliderPoc() {
-    // const [value, setValue] = React.useState(0);
-
-    // const handleChange = (event, newValue) => {
-    //     setValue(newValue);
-    // };
 
     const classes = useStyles();
-    //     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -197,12 +155,9 @@ function SliderPoc() {
                                 <Typography color='textSecondary' className={classes.cardInfo}>
                                     {step.description}
                                 </Typography>
-
                                 <Typography className={classes.cardInfo}>{step.location}</Typography>
                                 <Typography className={classes.cardInfo}>{step.author}</Typography>
-
                             </CardContent>
-
                             <CardActions disableSpacing>
                                 <Grid
                                     container
@@ -232,8 +187,6 @@ function SliderPoc() {
                                 </Grid>
                             </CardActions>
                         </Card>
-
-
                     </div>
                 ))}
             </AutoPlaySwipeableViews>

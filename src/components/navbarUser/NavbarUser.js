@@ -143,7 +143,7 @@ export default function SearchAppBar() {
     };
 
     const handleId = (e) => {
-        console.log(e.target.id, 'este es ID');
+        //console.log(e.target.id, 'este es ID');
         setArtId(e.target.id);
         //handleClose(e);
     };
@@ -341,7 +341,3 @@ export default function SearchAppBar() {
         </div >
     );
 }
-
-
-
-//style={{ color: 'white' }}

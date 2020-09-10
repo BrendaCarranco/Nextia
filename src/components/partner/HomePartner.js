@@ -48,7 +48,6 @@ function a11yProps(index) {
     };
 }
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -82,7 +81,6 @@ function HomePartner() {
         setValue(newValue);
     };
 
-
     return (
         <div >
             <NavbarUser />
@@ -102,7 +100,6 @@ function HomePartner() {
                         </Box>
                     </Box>
                 </Grid>
-
                 <Box style={{ display: 'flex', justifyContent: 'center' }} >
                     <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
                         <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />

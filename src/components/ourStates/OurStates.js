@@ -74,12 +74,10 @@ export default function FullWidthGrid() {
                                     </Button>
                                     </div>
                                 </div>
-
                             </CardActions>
                         </Card>
                     </Paper>
                 </Grid>
-
                 <Grid item xs={6} sm={6} lg={4}>
                     <Paper className={classes.paper}>
                         <Card>
@@ -100,13 +98,11 @@ export default function FullWidthGrid() {
                                             Ver
                                         </Button>
                                     </div>
-
                                 </div>
                             </CardActions>
                         </Card>
                     </Paper>
                 </Grid>
-
                 <Grid item xs={6} sm={6} lg={4}>
                     <Paper className={classes.paper}>
                         <Card>

@@ -2,7 +2,6 @@
 import React, { useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import yellow from '@material-ui/core/colors/yellow';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -24,21 +23,10 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
         backgroundColor: red[500],
     },
-    category: {
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 34,
-        lineHeight: 1,
-        letterSpacing: 3
-    },
     cardT: {
         fontWeight: 600,
         fontSize: 20,
         letterSpacing: 1
-    },
-    yellow: {
-        color: yellow
     },
     cardInfo: {
         fontSize: 15
@@ -62,7 +50,7 @@ function RecipeReviewCard(props) {
     const [quantity, setQuantity] = useState(1);
 
     const { buyItem, setBuyItem, globalUser } = useContext(UserContext);
-    console.log(buyItem, 'este es purchase detail wu');
+    //console.log(buyItem, 'este es purchase detail');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -71,7 +59,6 @@ function RecipeReviewCard(props) {
     let dateNow = Date.now();
 
     const handleBuy = () => {
-        console.log('comprar!');
         setBuyItem({
             quantity: quantity, customer: globalUser.email, total: quantity * buyItem.price, date: dateNow, ...buyItem
         });

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -8,11 +9,12 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+
 import photo from '../../assets/images/partner1.png';
-import user1 from '../../assets/images/user1.jpeg'
-import user2 from '../../assets/images/user2.jpeg'
-import user3 from '../../assets/images/user3.jpeg'
-import user4 from '../../assets/images/user4.jpeg'
+import user1 from '../../assets/images/user1.jpeg';
+import user2 from '../../assets/images/user2.jpeg';
+import user3 from '../../assets/images/user3.jpeg';
+import user4 from '../../assets/images/user4.jpeg';
 
 const useStyles = makeStyles((theme) => ({
     inline: {
@@ -53,7 +55,6 @@ export default function AlignItemsList() {
 
                 />
                 <KeyboardArrowRightIcon fontSize="small" />
-
             </ListItem>
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">

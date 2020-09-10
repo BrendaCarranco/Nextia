@@ -35,7 +35,6 @@ export default function RecipeReviewCard() {
 
     return (
         <div>
-
             <Card className={styles.root}>
                 <CardHeader
                     title="Información de apoyo para el uso de la plataforma"
@@ -47,13 +46,10 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>Cómo llenar mi perfil</h3>
-
                     </Typography>
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/question-profile.svg"
@@ -62,12 +58,9 @@ export default function RecipeReviewCard() {
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>Cómo doy de alta un producto</h3>
                     </Typography>
-
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/image-9.svg"
@@ -79,9 +72,7 @@ export default function RecipeReviewCard() {
 
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/question-how-book.svg"
@@ -90,13 +81,9 @@ export default function RecipeReviewCard() {
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>¿Cómo puedo ver los pedidos que me han hecho?</h3>
                     </Typography>
-
                 </CardContent>
             </Card>
-
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/question-box.svg"
@@ -104,16 +91,11 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>¿Cómo embalar un pedido de forma segura?</h3>
-
                         <p></p>
-
                     </Typography>
-
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/question-codi-people.svg"
@@ -121,16 +103,11 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>¿Cómo pagar con CoDi?</h3>
-
                         <p></p>
-
                     </Typography>
-
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/question-how-send.svg"
@@ -138,16 +115,11 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>¿Aún no he recibido mi pedido?</h3>
-
                         <p></p>
-
                     </Typography>
-
                 </CardContent>
             </Card>
-
             <Card className={styles.root}>
-
                 <CardMedia
                     className={styles.media}
                     image="assets/obio-coffe.jpg"
@@ -155,11 +127,8 @@ export default function RecipeReviewCard() {
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <h3>Enviar un pedido</h3>
-
                         <p></p>
-
                     </Typography>
-
                 </CardContent>
             </Card>
 

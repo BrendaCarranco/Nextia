@@ -14,7 +14,7 @@ const PaymentPayPal = ({ amount, history }) => {
                 amount={mount}
 
                 onSuccess={(details, data) => {
-                    alert("Compra exitosa! ");
+                    //alert("Compra exitosa! ");
 
                     let { create_time, id, payer, status } = details;
 

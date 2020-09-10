@@ -59,7 +59,7 @@ const Producer = props => {
         props.history.push('/purchase');
     };
 
-    console.log(productType, 'array product');
+    //console.log(productType, 'array product');
 
     return (
         <div>

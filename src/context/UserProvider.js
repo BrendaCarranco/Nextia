@@ -30,9 +30,9 @@ const UserProvider = (props) => {
             if (user) {
                 user.getIdTokenResult()
                     .then(idTokenResult => {
-                        console.log(idTokenResult, 'token');
+                        //console.log(idTokenResult, 'token');
                         if (!!idTokenResult.claims.admin) {
-                            console.log('es admin');
+                            //console.log('es admin');
                             setGlobalUser({
                                 email: user.email,
                                 uid: user.uid,
@@ -41,7 +41,7 @@ const UserProvider = (props) => {
                                 role: 'admin'
                             });
                         } else if (!!idTokenResult.claims.partner) {
-                            console.log('es partner');
+                            //console.log('es partner');
                             setGlobalUser({
                                 email: user.email,
                                 uid: user.uid,
@@ -50,7 +50,7 @@ const UserProvider = (props) => {
                                 role: 'partner'
                             });
                         } else {
-                            console.log('es cliente');
+                            //console.log('es cliente');
                             setGlobalUser({
                                 email: user.email,
                                 uid: user.uid,
@@ -62,12 +62,12 @@ const UserProvider = (props) => {
                     }
                     );
             } else {
-                console.log('user provider null');
+                console.log('user null');
             }
         });
     };
 
-    console.log(globalUser);
+    //console.log(globalUser);
     return (
         <UserContext.Provider value={{ globalUser, setGlobalUser, productId, setProductId, setArtId, artId, buyItem, setBuyItem }} >
             {props.children}

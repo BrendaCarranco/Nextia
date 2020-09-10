@@ -26,7 +26,7 @@ function App() {
     <ThemeProvider theme={theme} >
       <BrowserRouter>
         <Switch>
-          <Route exact path='/parnerr'>
+          <Route exact path='/partner'>
             <HomePartner />
           </Route>
 

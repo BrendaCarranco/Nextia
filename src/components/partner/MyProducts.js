@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -8,7 +9,8 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import photo from '../../assets/images/partner1.png'
+
+import photo from '../../assets/images/partner1.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,7 +51,6 @@ export default function AlignItemsList() {
 
                 />
                 <KeyboardArrowRightIcon fontSize="small" />
-
             </ListItem>
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">
@@ -96,7 +97,6 @@ export default function AlignItemsList() {
                 />
                 <KeyboardArrowRightIcon fontSize="small" />
             </ListItem>
-
         </List>
     );
 }

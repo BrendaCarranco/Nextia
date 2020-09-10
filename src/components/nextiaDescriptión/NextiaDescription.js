@@ -44,7 +44,6 @@ const NextiaDescription = () => {
             </div>
             <div className={styles.nextiaMeet}>
             </div>
-
         </div>
     );
 };
