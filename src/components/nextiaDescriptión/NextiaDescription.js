@@ -34,12 +34,12 @@ const NextiaDescription = () => {
             </Box>
             <div className={styles.descriptionWrapper}>
                 <Typography className={classes.info}>
-                    Nextia reune a Grandes Maestros Artesanos y Productores Orgánicos<br></br>
-                Certificados que ofrecen los mejores productos,<br></br>
-                realizados con técnicas amigables con la biodiversidad.<br></br>
-                A través de nuestra plataforma promovemos la cadena del Comercio<br></br>
-                Justo buscando preservar las tradiciones e impulsar el desarrollo<br></br>
-                económico de las comunidades en nuestro país.<br></br>
+                    Nextia reune a Grandes Maestros Artesanos y Productores Orgánicos
+                    Certificados que ofrecen los mejores productos,
+                    realizados con técnicas amigables con la biodiversidad.
+                    A través de nuestra plataforma promovemos la cadena del Comercio
+                    Justo buscando preservar las tradiciones e impulsar el desarrollo
+                    económico de las comunidades en nuestro país.
                 </Typography>
             </div>
             <div className={styles.nextiaMeet}>
