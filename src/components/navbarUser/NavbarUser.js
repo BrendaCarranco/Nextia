@@ -224,7 +224,7 @@ export default function SearchAppBar() {
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Chocolate</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Cacao</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='café' style={{ textDecoration: 'none' }} to='/producer' >Café</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='madera' style={{ textDecoration: 'none' }} to='/producer' >Madera</NavLink></MenuItem>
                                                 <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='miel' style={{ textDecoration: 'none' }} to='/producer' >Miel</NavLink></MenuItem>
@@ -262,9 +262,15 @@ export default function SearchAppBar() {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                                <MenuItem onClick={handleClose}>Noroeste</MenuItem>
                                                 <MenuItem onClick={handleClose}>Norte</MenuItem>
-                                                <MenuItem onClick={handleClose}>Sur</MenuItem>
+                                                <MenuItem onClick={handleClose}>Noreste</MenuItem>
+                                                <MenuItem onClick={handleClose}>Occidente</MenuItem>
+                                                <MenuItem onClick={handleClose}>Centro-Norte</MenuItem>
                                                 <MenuItem onClick={handleClose}>Centro</MenuItem>
+                                                <MenuItem onClick={handleClose}>Litoral del Pacífico</MenuItem>
+                                                <MenuItem onClick={handleClose}>Litoral del Golfo</MenuItem>
+                                                <MenuItem onClick={handleClose}>Península Yucateca</MenuItem>
                                             </MenuList>
                                         </AccordionDetails>
                                     </Accordion>
