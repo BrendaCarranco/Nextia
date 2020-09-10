@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React, { useState, useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import yellow from '@material-ui/core/colors/yellow';
 import Card from '@material-ui/core/Card';
@@ -8,14 +10,15 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from './styles.module.css';
 import Paper from '@material-ui/core/Paper';
+import { Grid, ButtonGroup } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
-import artwoman from '../../assets/images/artisanWomen.jpg';
-import { Grid, ButtonGroup } from '@material-ui/core';
+import NavbarUser from '../navbarUser/NavbarUser';
+import PopoverPopupState from '../popoverPopupState/PopoverPopupState';
+import { UserContext } from '../../context/UserProvider';
+
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -45,99 +48,113 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 5,
         marginBottom: 12,
         opacity: 0.65
+    },
+    firstCard: {
+        marginTop: 7,
+        paddingTop: 5,
     }
 }));
 
-export default function RecipeReviewCard() {
-    
+function RecipeReviewCard(props) {
+
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+
+    const { buyItem, setBuyItem, globalUser } = useContext(UserContext);
+    console.log(buyItem, 'este es purchase detail wu');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    let dateNow = Date.now();
+
+    const handleBuy = () => {
+        console.log('comprar!');
+        setBuyItem({
+            quantity: quantity, customer: globalUser.email, total: quantity * buyItem.price, date: dateNow, ...buyItem
+        });
+        props.history.push('/end');
+    };
     return (
         <>
-            <Card >
-                <CardMedia
-                    className={styles.media}
-                    image={artwoman}
-                    /*Esta img debe cambiar de acuerdo a la compra*/
-                />
+            <NavbarUser />
+            <Box mt={6} >.</Box>
+            <Card className={styles.root}>
+                <Box mt={8} mb={0} ml={1} >
+                    <CardMedia
+                        className={styles.media}
+                        image={buyItem.image}
+                    />
+                </Box>
                 <CardContent>
-                    <Typography variant="body2" component="p">
-                        <Typography className={classes.cardT}>
-                            Mujeres zapatistas de la revolución mexicana
-                        </Typography>
-                        
-                        <Typography className={classes.cardInfo}>
-                            Zenaida Rafael Julián
-                        </Typography>
+                    <Typography className={classes.cardT}>
+                        {buyItem.title}
                     </Typography>
-                    <div className={styles.iconsWraper}>
-                        <div className={styles.startWrapper}>
-                            <StarRateIcon style={{ color: 'yellow' }} />
-                            <StarRateIcon style={{ color: 'yellow' }} />
-                            <StarRateIcon style={{ color: 'yellow' }} />
-                            <StarRateIcon style={{ color: 'yellow' }} />
-                            <StarRateIcon style={{ color: 'yellow' }} />
-                        </div>
-                        <Typography variant='subtitle2' >5.0</Typography>
-                    </div>
-                </CardContent>
-                
-                <CardActions disableSpacing className={styles.cardAction}>
-                    <Box>
-                    <Typography variant='h5' >$5960</Typography>
-                    </Box>
+                    <Typography className={classes.cardInfo}>{buyItem.author}</Typography>
+                    <Typography className={classes.cardInfo}>{buyItem.location}</Typography>
+                    <CardActions disableSpacing className={styles.cardAction}>
+                        <Box>
+                            <Typography variant='h5' >${buyItem.price} MXN.</Typography>
+                        </Box>
+                        <Box className={styles.btnGroup}>
+                            {
+                                quantity == 1 ? (null) : (<Button variant="outlined" color="secondary" size='small' onClick={() => setQuantity(quantity - 1)}>
+                                    -
+                                </Button>)
+                            }
+                            <Box className={styles.cantidad}>
+                                <Typography variant='h6' >{quantity}</Typography>
+                            </Box>
+                            <Button variant="outlined" color="secondary" size='small' onClick={() => setQuantity(quantity + 1)}>
+                                +
+                    </Button>
+                        </Box>
 
-                    <Box className={styles.btnGroup}>                     
-                    <Button variant="outlined" color="secondary" size='small'>
-                        -
+                        <Box className={styles.btnPay}>
+                            <Button
+                                color="secondary"
+                                variant="contained"
+                                onClick={() => handleBuy()}
+                                size='large'>
+                                COMPRAR
                     </Button>
-                    <Box className={styles.cantidad}>
-                    <Typography variant='h6' > 1 </Typography>
-                    </Box>
-                    <Button variant="outlined" color="secondary" size='small'>
-                        +
-                    </Button>
-                    </Box> 
-                    
-                    <Box className={styles.btnPay}>
-                    <Button
-                        color="secondary"
-                        variant="contained"
-                        size='large'>
-                        COMPRAR
-                    </Button>
-                    </Box>
-                </CardActions>
-              
-                <CardContent>
-                    <Typography className={classes.title} >
-                        DESCRIPCIÓN
+                        </Box>
+                    </CardActions>
+                    <Typography variant='subtitle1' >Descripción</Typography>
+                    <Typography color='textSecondary' className={classes.cardInfo}>
+                        {buyItem.description}
                     </Typography>
-                    <Typography className={classes.cardInfo}>
-                    Hermoso nacimiento hecho por el artesano Gabriel Pérez Rajón ganador del Concurso Nacional de Nacimientos Mexicanos 2009. La madera es tallada a mano, de acuerdo a sus características va tomando su propia forma hasta convertirse en una pieza única.
-                    </Typography>
-                    <Typography className={classes.title} >
-                        CARACTERISTICAS
-                    </Typography>
-                    <Typography>
+                    <Typography variant='subtitle1' >Características</Typography>
+                    <Typography color='textSecondary' className={classes.cardInfo}>
                         Material:
-                        Madera de Cedro tallada y policromada al pincel
+                        {buyItem.technique}
                     </Typography>
-                    <Typography>
+                    <Typography color='textSecondary' className={classes.cardInfo}>
                         Unidades:
                         16 piezas
                     </Typography>
-                    <Typography>
+                    <Typography color='textSecondary' className={classes.cardInfo}>
                         Región: Península de Yucatán
                     </Typography>
-                    
+                    <Grid container
+                        direction="row"
+                        justify="flex-end"
+                        alignItems="center"
+                    >
+                        <Box>
+                            <PopoverPopupState />
+                        </Box>
+                    </Grid>
                 </CardContent>
+                <CardActions disableSpacing>
+                    <Paper square className={styles.root}>
+                    </Paper>
+                </CardActions>
             </Card>
         </>
     );
 }
+
+export default withRouter(RecipeReviewCard);

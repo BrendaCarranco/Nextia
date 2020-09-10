@@ -15,7 +15,9 @@ const UserProvider = (props) => {
 
     const [globalUser, setGlobalUser] = useState(initialUser);
 
+    const [artId, setArtId] = useState('');
     const [productId, setProductId] = useState('');
+    const [buyItem, setBuyItem] = useState([]);
 
     //Función de registro
     useEffect(() => {
@@ -64,9 +66,10 @@ const UserProvider = (props) => {
             }
         });
     };
+
     console.log(globalUser);
     return (
-        <UserContext.Provider value={{ globalUser, setGlobalUser, productId, setProductId }} >
+        <UserContext.Provider value={{ globalUser, setGlobalUser, productId, setProductId, setArtId, artId, buyItem, setBuyItem }} >
             {props.children}
         </UserContext.Provider>
     );

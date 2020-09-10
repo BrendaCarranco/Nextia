@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { firebase } from '../../firebase';
 import { NavLink } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,6 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Grid from '@material-ui/core/Grid';
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -30,6 +32,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 import { UserContext } from '../../context/UserProvider';
+import logo from '../../assets/images/menuNextia.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -98,6 +101,7 @@ export default function SearchAppBar() {
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(false);
     const anchorRef = React.useRef(null);
 
     const handleToggle = () => {
@@ -135,13 +139,9 @@ export default function SearchAppBar() {
         prevOpen.current = open;
     }, [open]);
 
-    const [expanded, setExpanded] = React.useState(false);
 
-    const { globalUser, setProductId } = useContext(UserContext);
-
+    const { globalUser, setArtId, setProductId, handleWishList } = useContext(UserContext);
     const [user, setUser] = useState(globalUser.role);
-    console.log(user);
-
 
     const handleLogout = () => {
         firebase.auth().signOut();
@@ -149,9 +149,15 @@ export default function SearchAppBar() {
 
     const handleId = (e) => {
         console.log(e.target.id, 'este es ID');
-        setProductId(e.target.id);
+        setArtId(e.target.id);
         //handleClose(e);
     };
+
+    const handleProduct = (e) => {
+        console.log(e.target.id, 'id producto');
+        setProductId(e.target.id);
+    };
+
 
     return (
         <div className={classes.root}>
@@ -169,24 +175,25 @@ export default function SearchAppBar() {
                     >
                         <MenuIcon style={{ color: 'white' }} />
                     </IconButton>
-                    <Typography variant="h6" style={{ color: 'white' }}>
+                    <Typography variant="h6" style={{ color: 'white' }} >
                         Nextia
                     </Typography>
-                    <Box ml={6} >
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Buscar…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </div>
-                    </Box>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="flex-end"
+                        alignItems="center"
+                    >
+                        <IconButton aria-label="search" style={{ color: 'white' }}>
+                            <SearchIcon />
+                        </IconButton>
+                        <IconButton aria-label="display more actions" edge="end" style={{ color: 'white' }}>
+                            <MoreIcon />
+                        </IconButton>
+                        {/*  <IconButton aria-label="display more actions" onClick={() => handleWishList()} edge="end" style={{ color: 'white' }}>
+                            <NavLink to='/wishlist' style={{ color: 'white' }}><ShoppingBasketIcon /></NavLink>
+                        </IconButton> */}
+                    </Grid>
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
                             <Grow
@@ -195,7 +202,9 @@ export default function SearchAppBar() {
                             >
                                 <Paper>
                                     <Grid item xs={12} justify="center" container direction="row">
-                                        <img src="assets/nextia-icon.png" alt="logo" />
+                                        <Box mt={2} ml={3} mr={3}>
+                                            <img src={logo} alt="logo" />
+                                        </Box>
                                     </Grid>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                                         <MenuItem onClick={handleClose}>
@@ -219,10 +228,11 @@ export default function SearchAppBar() {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                <MenuItem onClick={handleClose}>Cacao</MenuItem>
-                                                <MenuItem onClick={handleClose}>Café</MenuItem>
-                                                <MenuItem onClick={handleClose}>Madera</MenuItem>
-                                                <MenuItem onClick={handleClose}>Miel</MenuItem>
+
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='chocolate' style={{ textDecoration: 'none' }} to='/producer' >Chocolate</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='café' style={{ textDecoration: 'none' }} to='/producer' >Café</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='madera' style={{ textDecoration: 'none' }} to='/producer' >Madera</NavLink></MenuItem>
+                                                <MenuItem onClick={(e) => handleProduct(e)}><NavLink id='miel' style={{ textDecoration: 'none' }} to='/producer' >Miel</NavLink></MenuItem>
                                                 <MenuItem onClick={handleClose}>Otros productos</MenuItem>
                                             </MenuList>
                                         </AccordionDetails>

@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import MyData from './MyData';
 import NavbarUser from '../navbarUser/NavbarUser';
 import MyOrders from './MyOrders';
+import HelpBuyUsers from '../helpBuyUsers/HelpBuyUsers';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -51,10 +52,13 @@ const useStyles = makeStyles((theme) => ({
     },
     tabs: {
         marginTop: 56,
-        zIndex: 1000
+        zIndex: 1000,
+        display: 'flex',
+        justifyContent: 'center'
     },
     tabsInfo: {
         marginTop: 102,
+
     }
 }));
 
@@ -70,11 +74,13 @@ function Profile() {
         <div className={classes.root}>
             <NavbarUser />
             <AppBar position='fixed' className={classes.tabs}   >
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
-                    <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
-                    <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
-                    <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
-                </Tabs>
+                <Box style={{ display: 'flex', justifyContent: 'center' }} >
+                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" >
+                        <Tab label="Mis pedidos" {...a11yProps(0)} style={{ color: 'white' }} />
+                        <Tab label="Mis datos" {...a11yProps(1)} style={{ color: 'white' }} />
+                        <Tab label='Ayuda' {...a11yProps(2)} style={{ color: 'white' }} />
+                    </Tabs>
+                </Box>
             </AppBar>
             <TabPanel value={value} index={0} className={classes.tabsInfo}>
                 <MyOrders />
@@ -83,8 +89,8 @@ function Profile() {
                 <MyData />
             </TabPanel>
             <TabPanel value={value} index={2} className={classes.tabsInfo}>
-                Item Three
-      </TabPanel>
+                <HelpBuyUsers />
+            </TabPanel>
         </div>
     );
 }

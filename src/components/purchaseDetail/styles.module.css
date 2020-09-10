@@ -1,60 +1,60 @@
 .root {
-  max-Width: 640;
-  flex-grow: 1;
-}
-
-.media {
-      height: 0;
-      padding-top: 56.25%;
+    max-Width: 640;
+    flex-grow: 1;
   }
   
-.bagIcon{
-  color:#d6a868;
-}
-
-.startWrapper{
-  display:flex;
-}
-
-.iconsWraper{
-  display: flex;
-  align-items: center;
-  font-size: 1.2em;
-}
-
-h4.price{
-  font-size: 1.6em;
-  margin: 7px;
-  font-weight: 400;
-}
-
-.cardAction{
-  display: flex;
-  flex-direction: column;
-}
-
-.btnGroup{
-  display: flex;
-  flex-direction: row;
-  margin-top: 24px;
-  margin-bottom: 18px;
-
-}
-
-.btnPay{
-  margin: 15px 0px 15px 0px;
-}
-
-.cantidad{
-  margin: 10px;
-}
-
-@media only screen and (min-width: 1280px){
-
-  .cardsContainer {
-    display: flex;
-    margin: 0 auto;
-    padding: 117px;
-    margin-left: 247px;
+  .media {
+        height: 0;
+        padding-top: 56.25%;
+    }
+    
+  .bagIcon{
+    color:#d6a868;
   }
-}
+  
+  .startWrapper{
+    display:flex;
+  }
+  
+  .iconsWraper{
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  
+  h4.price{
+    font-size: 1.6em;
+    margin: 7px;
+    font-weight: 400;
+  }
+  
+  .cardAction{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btnGroup{
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 18px;
+  
+  }
+  
+  .btnPay{
+    margin: 15px 0px 15px 0px;
+  }
+  
+  .cantidad{
+    margin: 10px;
+  }
+  
+  @media only screen and (min-width: 1280px){
+  
+    .cardsContainer {
+      display: flex;
+      margin: 0 auto;
+      padding: 117px;
+      margin-left: 247px;
+    }
+  }
