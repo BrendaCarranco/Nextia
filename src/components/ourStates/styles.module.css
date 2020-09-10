@@ -64,26 +64,71 @@
 
 
 @media only screen and (min-width: 1280px){
+    .title {
+    margin-top: 46px;
+    margin-bottom: 20px;
+  }
+
   .cardNameContent {
-    position: absolute;
+        position: absolute;
     display: flex;
     flex-direction: column;
-    margin-bottom: 126px;
-    margin-left: 216px;
+    left: 0;
+    right: 0;
+    max-width: 21%;
+    text-align: center;
+    margin: 0 auto;
+    bottom: 20px;
     }
 
   .cardName {
     position: relative;
-    background: white;
+    background: rgba(255,255,255,0.6);
+    font-weight: bold;
     margin-bottom: 20px;
     font-size: 1.6em;
+    left: 18px;
     }
 
     .cardNameButton Button {
      background: #1A5597;
     color: white;
-    margin-bottom: 100px;
    position: relative;    
+    }
+
+      
+    .cardNameContentdos {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 94%;
+    }
+
+     .cardNamedos {
+    position: relative;
+    background: rgba(255,255,255,0.6);
+    padding: 2px 3px;
+    display: flex;
+    margin-left: 7px;
+    border-radius: 2px;
+    margin-right: 13px;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    align-self: center;
+    margin-bottom: 9px;
+    }
+
+  .cardNameButtondos  Button {
+    background: #FD384C;
+    border-radius: 14px;
+    color: white;
     }
   
     
@@ -97,13 +142,4 @@
      box-shadow: none !important;
      -webkit-box-shadow: none !important;
      -moz-box-shadow: none !important;
-}
-@media only screen and (min-width: 1280px){
-
-  .cardsContainer {
-    display: flex;
-    margin: 0 auto;
-    padding: 117px;
-    margin-left: 247px;
-  }
 }

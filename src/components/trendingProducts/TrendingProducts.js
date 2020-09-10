@@ -111,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
         flexGrow: 1,
+        margin: '0 auto',
     },
     header: {
         display: 'flex',

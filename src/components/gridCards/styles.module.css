@@ -70,8 +70,7 @@
   .cardsContainer {
     display: flex;
     margin: 0 auto;
-    padding: 117px;
-    margin-left: 247px;
+    width: 86%;
   }
   .cardNameContent {
     position: absolute;
