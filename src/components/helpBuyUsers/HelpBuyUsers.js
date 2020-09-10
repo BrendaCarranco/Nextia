@@ -54,7 +54,7 @@ export default function RecipeReviewCard() {
 
                 <CardMedia
                     className={styles.media}
-                    image="assets/user-question-5-1.jpg"
+                    image="assets/user-question-5.svg"
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
