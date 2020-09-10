@@ -17,6 +17,7 @@ import Producer from './components/store/Producer';
 import PurchaseDetail from './components/purchaseDetail/PurchaseDetail';
 import ConfirmPurchase from './components/purchaseDetail/ConfirmPurchase';
 import FinalizeOrder from './components/finalizeOrder/FinalizeOrder';
+import SuccessPurchase from './components/payment/SuccessPurchase';
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
 
           <Route path='/end'>
             <FinalizeOrder />
+            <SuccessPurchase />
           </Route>
 
           <Route exact path='/'>

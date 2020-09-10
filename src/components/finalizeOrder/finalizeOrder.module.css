@@ -1,3 +1,7 @@
+.containerPay{
+    margin: 0px 20px 20px 0px;
+}
+
 .btnFinalize{
     margin: 20px;
 }
@@ -19,8 +23,7 @@
 
 .price{
     display: flex;
-    justify-content: end;
-    margin: 10px 0px 20px 20px;
+    margin: 10px 20px 20px 20px;
 }
 
 .contact{
@@ -28,9 +31,7 @@
 }
 
 .terminos{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: 20px 0px 20px 20px;
   }
 
 .iconDow{
@@ -62,4 +63,8 @@
     width: 246px;
     height: 160px;
     
+}
+
+.misDatos{
+    margin: 0px 20px 0px 20px;
 }

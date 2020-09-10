@@ -12,16 +12,14 @@ const PaymentPayPal = ({ amount, history }) => {
             <PayPalButton
                 onClick={() => console.log(amount + 150)}
                 amount={mount}
-                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+            
                 onSuccess={(details, data) => {
-                    alert("Detail" + JSON.stringify(details));
-                    alert("Data" + JSON.stringify(data));
+                    alert("Compra exitosa! ");
 
                     let { create_time, id, payer, status } = details;
 
                     history.push('/');
 
-                    /* setTimeout(() => diAlgo("pasaron 10 segundos"), 10000); */
                     return saveTransaction({ create_time, payer, id, status });
                 }}
                 catchError={(err) => {

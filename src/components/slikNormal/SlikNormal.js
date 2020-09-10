@@ -148,25 +148,6 @@ function SliderPoc() {
                                 </Grid>
                             </Grid>
                         </div>
-<<<<<<< HEAD
-                    </Slider> */}
-                    <GridCards />
-                    <ArtisanWomen />
-                    <OurStates />
-                    <NationalCooperatives />
-                    <NextiaDescription />
-                    <TrendingProducts />
-                    <SocialNetwork />
-                    <Footer />
-                    <FinalizeOrder />
-                    
-                </div >
-            </div>
-
-        );
-    }
-}
-=======
                     ))}
                 </AutoPlaySwipeableViews>
                 <Box>
@@ -192,4 +173,3 @@ function SliderPoc() {
 }
 
 export default SliderPoc;
->>>>>>> 78c370af00909481252a4ecc2c0c5a54bb2fb64b
