@@ -140,6 +140,7 @@ function SliderPoc() {
                 index={activeStep}
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
+                interval={5000}
             >
                 {tutorialSteps.map((step, index) => (
                     <div key={step.label}>

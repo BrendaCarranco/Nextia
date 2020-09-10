@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles.module.css';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { colors } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         fontSize: 20,
         lineHeight: 1,
-        letterSpacing: 3
+        letterSpacing: 3,
     },
     cardT: {
         fontWeight: 600,
         fontSize: 20,
-        letterSpacing: 1
+        letterSpacing: 1,
+
     },
     cardInfo: {
         fontSize: 15

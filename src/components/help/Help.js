@@ -60,8 +60,8 @@ export default function RecipeReviewCard() {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo realizar una compra?</h3>
-                        <p></p>
+                        <h3>Cómo llenar mi perfil</h3>
+
                     </Typography>
                 </CardContent>
             </Card>
@@ -74,10 +74,7 @@ export default function RecipeReviewCard() {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cuáles son las formas de pago disponibles?</h3>
-
-                        <p></p>
-
+                        <h3>Cómo doy de alta un producto</h3>
                     </Typography>
 
                 </CardContent>
@@ -91,10 +88,7 @@ export default function RecipeReviewCard() {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cuándo y cómo recibiré mi pedido?</h3>
-
-                        <p></p>
-
+                        <h3>Cómo tomo fotos para mostrar mis productos</h3>
                     </Typography>
 
                 </CardContent>
@@ -108,10 +102,7 @@ export default function RecipeReviewCard() {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo contratar experiencias presenciales?</h3>
-
-                        <p></p>
-
+                        <h3>¿Cómo puedo ver los pedidos que me han hecho?</h3>
                     </Typography>
 
                 </CardContent>
@@ -126,7 +117,7 @@ export default function RecipeReviewCard() {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        <h3>¿Cómo son las experiencias virtuales?</h3>
+                        <h3>¿Cómo embalar un pedido de forma segura?</h3>
 
                         <p></p>
 

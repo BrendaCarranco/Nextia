@@ -255,9 +255,15 @@ export default function SearchAppBar() {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                                <MenuItem onClick={handleClose}>Noroeste</MenuItem>
                                                 <MenuItem onClick={handleClose}>Norte</MenuItem>
-                                                <MenuItem onClick={handleClose}>Sur</MenuItem>
+                                                <MenuItem onClick={handleClose}>Noreste</MenuItem>
+                                                <MenuItem onClick={handleClose}>Occidente</MenuItem>
+                                                <MenuItem onClick={handleClose}>Centro-Norte</MenuItem>
                                                 <MenuItem onClick={handleClose}>Centro</MenuItem>
+                                                <MenuItem onClick={handleClose}>Litoral del Pacífico</MenuItem>
+                                                <MenuItem onClick={handleClose}>Litoral del Golfo</MenuItem>
+                                                <MenuItem onClick={handleClose}>Península Yucateca</MenuItem>
                                             </MenuList>
                                         </AccordionDetails>
                                     </Accordion>
