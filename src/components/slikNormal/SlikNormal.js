@@ -27,10 +27,10 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
     {
         label: 'GRANDES MAESTROS DEL ARTE POPULAR',
-        imgPath: 'assets/artesano-1.png',
+        imgPath: 'assets/artesano-11.jpg',
         location: '',
         title: 'Vive la experiencia',
-        histoy: 'Conoce de cerca a los mayores artesanos de México que Citibanamex ha reunido en la colección Grandes Maestros del Arte Popular. Sumérgete en sus historias, talleres y obras de viva voz a través de las Experiencias que ofrecen de forma presencial y virtual que puedes solicitar en nuestra plataforma',
+        histoy: 'Conoce de cerca a los mayores artesanos de México que Citibanamex ha reunido en la colección Grandes Maestros del Arte Popular. Sumérgete en sus historias, talleres y obras de viva voz a través de las Experiencias que ofrecen de forma presencial y virtual que puedes solicitar al inscribirte en nuestra plataforma',
         contentbutton: 'ÍR A EXPERIENCIAS',
     },
     {
@@ -51,7 +51,7 @@ const tutorialSteps = [
     },
     {
         label: 'PRODUCTORES CERTIFICADOS',
-        imgPath: 'assets/obio-production.jpg',
+        imgPath: 'assets/distintivo-obio.jpg',
         location: 'Tabasco',
         title: 'Distintivo OBIO',
         histoy: 'El distintivo OBIO fue creado con el objetivo de apoyar productos generados por grupos comunitarios, integrados en su mayoría como cooperativas, que respetan el ecosistema y los recursos naturales. ',
@@ -128,8 +128,8 @@ function SliderPoc() {
 
                                 <Grid item xs={12} sm={7}>
                                     <Paper className={styles.paper}>
-                                        <h3 className={styles.Artsofthemonth} >{step.label}</h3>
-                                        <h2 className={styles.historyTree} >{step.title}</h2>
+                                        <h3 className={styles.Artsofthemonth}>{step.label}</h3>
+                                        <h2 className={styles.historyTree}>{step.title}</h2>
                                         <p className={styles.historyOfPeople}>
                                             {step.histoy}
                                         </p>
